@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вход</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/car_registration.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <section class="reg_auto">
+        <div class="upper_block">
+            <h1>Регистрация а/м</h1>
+            <div class="input_fields">
+                <section class="one_part">
+                    <div class="text_input_field">
+                        <div class="text_icon">
+                            <h3>VIN номер</h3>
+                            <img src="{{ url_for('static', filename='images/Small_star_red.svg') }}" alt="The picture did not load">
+                        </div>
+                        <div class="input_field">
+                            <input class="vin" type="text" placeholder="XTA210990Y2766389">
+                        </div>
+                    </div>
+                    <div class="text_input_field">
+                        <div class="text_icon">
+                            <h3>Марка</h3>
+                            <img src="{{ url_for('static', filename='images/Small_star_red.svg') }}" alt="The picture did not load">
+                        </div>
+                        <div class="input_field">
+                            <input class="mark" type="text" placeholder="BMW">
+                        </div>
+                    </div>
+                    <div class="text_input_field">
+                        <div class="text_icon">
+                            <h3>Модель автомобиля</h3>
+                            <img src="{{ url_for('static', filename='images/Small_star_red.svg') }}" alt="The picture did not load">
+                        </div>
+                        <div class="input_field">
+                            <input class="model" type="text" placeholder="Выберите модель">
+                        </div>
+                    </div>
+                </section>
+                <section class="one_part">
+                    <div class="text_input_field">
+                        <div class="text_icon">
+                            <h3>Масса (кг)</h3>
+                        </div>
+                        <div class="input_field">
+                            <input class="weight" type="text" placeholder="Введите массу">
+                        </div>
+                    </div>
+                    <div class="text_input_field">
+                        <div class="text_icon">
+                            <h3>Габариты (см)</h3>
+                        </div>
+                        <div class="input_field">
+                            <input class="size" type="text" placeholder="Ш / В / Д">
+                        </div>
+                    </div>
+                    <div class="text_input_field">
+                        <div class="text_icon">
+                            <h3>Склад</h3>
+                            <img src="{{ url_for('static', filename='images/Small_star_red.svg') }}" alt="The picture did not load">
+                        </div>
+                        <div class="input_field">
+                            <input class="warehouse" type="text" placeholder="Выберите склад">
+                        </div>
+                        <a href="#"><h3>+ Добавить склад</h3></a>
+                    </div>
+                </section>
+            </div>
+        </div>
+        <div class="two_btns">
+            <button class="filled" onclick="goOverCarPageWithRegData()">Зарегистрировать</button>
+            <button class="outline" onclick="goOverCarPage()">Закрыть</button>
+        </div>
+    </section>
+
+    <script>
+        function goOverCarPage() {
+            window.location.href = "auto";
+        }
+
+        function goOverCarPageWithRegData() {
+            // getting values
+            const vin_value = document.querySelector(".vin").value;
+            const mark_value = document.querySelector(".mark").value;
+            const model_value = document.querySelector(".model").value;
+            const weight_value = document.querySelector(".weight").value;
+            const size_value = document.querySelector(".size").value;
+            const warehouse_value = document.querySelector(".warehouse").value;
+            
+            if (vin_value !== '' && mark_value !== '' && model_value !== '' && warehouse_value !== '') {
+                sessionStorage.setItem('carRegistrationData', JSON.stringify({ 
+                    vin: vin_value,
+                    mark: mark_value,
+                    model: model_value,
+                    weight: weight_value,
+                    size: size_value,
+                    warehouse: warehouse_value,
+                }));
+                window.location.href = 'auto';
+            }
+        }
+    </script>
+</body>
+</html>

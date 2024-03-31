@@ -1,0 +1,164 @@
+/*=============== VARIABLES CSS ===============*/
+:root {
+  /*========== Colors ==========*/
+  /*Color mode HSL(hue, saturation, lightness)*/
+  --bg-color: hsl(220, 10%, 96%);
+  --grey-line-color: hsl(0, 0%, 89%);
+  --green-price-color: hsl(144, 81%, 40%);
+  --100-white-color: hsl(0, 0%, 100%);
+  --100-black-color: hsl(0, 0%, 0%);
+  --dark-color: hsl(0, 0%, 20%);
+  --middle-grey-color: hsl(0, 0%, 52%);
+  --super-light-color: hsl(240, 11%, 98%);
+  --red-color: hsl(0, 100%, 63%);
+  --light-red-color: hsl(0, 100%, 69%);
+  --blue-color: hsl(194, 100%, 43%);
+  --01-simple-color: hsl(194, 65%, 87%);
+  --02-simple-color: hsl(25, 89%, 96%);
+  /*========== Font and typography ==========*/
+  /*.5rem = 8px | 1rem = 16px ...*/
+  --body-font: "IBM Plex Sans", sans-serif;
+  --h1-font-size: 2rem;
+  --h2-font-size: 1.5rem;
+  --h3-font-size: 1.125rem;
+  --navbar-font-size: 1rem;
+  --small-font-size: .937rem;
+  --h4-font-size: .875rem;
+  /*========== Font weight ==========*/
+  --font-regular: 400;
+  --font-medium: 500;
+  --font-semi-bold: 600;
+  /*========== z index ==========*/
+  --z-tooltip: 10;
+  --z-fixed: 100;
+}
+
+/*=============== BASE ===============*/
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--body-font);
+  font-size: var(--h3-font-size);
+  background-color: var(--bg-color);
+  color: var(--dark-color);
+  transition: 0.3s; /* For animation */
+}
+
+h1, h2, h3, h4 {
+  color: var(--title-color);
+  font-weight: var(--font-semi-bold);
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+input, button {
+  font-family: var(--body-font);
+  outline: none;
+  border: none;
+}
+
+.input_value {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem 0.75rem 0.75rem;
+  width: 100%;
+  height: 3rem;
+  border: 1px solid var(--grey-line-color);
+  border-radius: 0.5rem;
+  font-size: var(--h4-font-size);
+  font-weight: var(--font-medium);
+  gap: 0.75rem;
+}
+.input_value input {
+  width: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+body header {
+  display: flex;
+  width: 100%;
+  padding: 1rem 0px 1rem 2.625rem;
+  margin-bottom: 1.562rem;
+}
+body .login {
+  display: flex;
+  flex-direction: column;
+  padding: 32px;
+  background-color: var(--100-white-color);
+  border-radius: 1.5rem;
+  width: 26.25rem;
+}
+body .login form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+body .login form button {
+  width: 100%;
+  height: 3rem;
+  background-color: var(--light-red-color);
+  border-radius: 0.5rem;
+  color: var(--100-white-color);
+  font-size: var(--h4-font-size);
+  font-weight: var(--font-medium);
+}
+body .login form a h4 {
+  font-size: var(--h4-font-size);
+  font-weight: var(--font-medium);
+  color: var(--light-red-color);
+  text-decoration: underline;
+  text-align: center;
+}
+body .enter {
+  margin-bottom: 1.5rem;
+}
+body .enter h1 {
+  font-size: var(--h1-font-size);
+  font-weight: var(--font-semi-bold);
+}
+body .enter .log_and_pass {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+body .recover_password {
+  margin-bottom: 115px;
+}
+body .recover_password h4 {
+  font-size: var(--navbar-font-size);
+  font-weight: var(--font-regular);
+}
+body .recover_password h3 {
+  font-size: var(--h4-font-size);
+  font-weight: var(--font-medium);
+  color: var(--dark-color);
+  text-align: center;
+}
+body .recover_password h3 .simple_text {
+  text-decoration: underline;
+  color: var(--light-red-color);
+}/*# sourceMappingURL=login.css.map */

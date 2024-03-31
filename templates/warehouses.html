@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вход</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/warehouses.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <img src="{{ url_for('static', filename='images/logo_owwl.svg') }}" alt="The picture did not load">
+        <div class="right_cont">
+            <ul>
+                <li><a href="#">А/м и склады</a></li>
+                <li><a href="#">Список ТК</a></li>
+                <li><a href="#">Журнал документов</a></li>
+                <li><a href="#">Вопрос ответ</a></li>
+            </ul>
+            <div class="settings">
+                <div class="logo_and_options" onclick="toggleOptions()">
+                    <img src="{{ url_for('static', filename='images/ava_no_updates.svg') }}" alt="The picture did not load">
+                    <div class="text_icon">
+                        <h4>Favorit Motors</h4>
+                        <a href="#"><img src="{{ url_for('static', filename='images/chevron-down.svg') }}" alt="The picture did not load"></a>
+                    </div>
+                </div>
+                <div class="two_icons">
+                    <div class="icon navbar_icon_message" onmouseover="messageIconOnMouseOver()" onmouseout="messageIconOnMouseOut()"></div>
+                    <div class="icon navbar_icon_notification"></div>
+
+                    <div class="amount_messages">
+                        <h3 class="amount_messages_text">3</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="logo_vars">
+            <h3 class="profile" onclick="profileRedirection()">Профиль</h3>
+            <h3 class="out">Выйти</h3>
+        </div>
+    </header>
+
+    <section>
+        <div class="upper_texts">
+            <a href="main_page"><h3 class="font_16_med_light_red">На главную</h3></a>
+            <h1 class="font_32_semi_100_black">Автомобили и склады</h1>
+        </div>
+
+        <section class="below_section">
+            <div class="btn_transparent">
+                <div class="clip_path_btn" onclick="ClipPathBtn_1Clicked()">
+                    <img class="skeleton" src="{{ url_for('static', filename='images/skeleton.svg') }}" alt="The picture did not load">
+                    <h3 class="autos_text">Автомобили</h3>
+                </div>
+                <div class="clip_path_warehouses" onclick="ClipPathBtn_2Clicked()">
+                    <img class="clip_path_btn_warehouses" src="{{ url_for('static', filename='images/clip_path_btn_warehouses.svg') }}" alt="The picture did not load">
+                    <h3 class="warehouses_text">Склады</h3>
+                </div>
+            </div>
+            <section class="below_cont">
+                <div class="btns_search">
+                    <button class="filled add_auto" onclick="goOverCarRegistration()">Добавить склад</button>
+                    <button class="filled view_btn">Вид</button>
+                    <div class="new_search_field" onclick="searchBarClicked()">
+                        <img class="search_grey" src="{{ url_for('static', filename='images/Search.svg') }}" alt="The picture did not load">
+                        <img class="search_black" src="{{ url_for('static', filename='images/Search_black.svg') }}" alt="The picture did not load">
+                        <input class="input_field" type="text" placeholder="Поиск">
+                    </div>
+                    <button class="deleteSelectedBtn" onclick="deleteSelected()">Удалить выбранное</button>
+                </div>
+
+                <div class="table_names spec_main table_names_for_warehouses">
+                    <div class="table_cell">
+                        <div class="cell" onclick="cellClick('main_cell')"><img class="main_cell_image" src="{{ url_for('static', filename='images/check.svg') }}" alt="The picture did not load"></div>
+                    </div>
+                    <div class="number"><h3>#</h3></div>
+                    <div class="model model_title">
+                        <h3>Название</h3>
+                    </div>
+                    <div class="model model_amount">
+                        <h3>Кол-во а/м</h3>
+                        <img src="{{ url_for('static', filename='images/Increment.svg') }}" alt="The picture did not load">
+                    </div>
+                    <div class="model model_face">
+                        <h3>Юрид. лицо</h3>
+                    </div>
+                    <div class="model model_address">
+                        <h3>Адрес</h3>
+                    </div>
+                    <div class="model model_hours">
+                        <h3>Часы работы</h3>
+                    </div>
+                    <div class="model model_action">
+                        <h3>Действие</h3>
+                    </div>
+                </div>
+
+                <div class="table_names spec spec_1 table_names_for_warehouses card">
+                    <div class="table_cell">
+                        <div class="cell" onclick="cellClick(1)"><img class="check_icon_1" src="{{ url_for('static', filename='images/check.svg') }}" alt="The picture did not load"></div>
+                    </div>
+                    <div class="number"><h3 class="below_text">1</h3></div>
+                    <div class="model model_title">
+                        <h3 class="below_text">Южный</h3>
+                    </div>
+                    <div class="model model_amount">
+                        <h3 class="below_text">5</h3>
+                        <img src="{{ url_for('static', filename='images/Increment.svg') }}" alt="The picture did not load">
+                    </div>
+                    <div class="model model_face">
+                        <h3 class="below_text">АО МПС 123</h3>
+                    </div>
+                    <div class="model model_address">
+                        <h3 class="below_text">Москва, Южное Медведково, 21А / к2</h3>
+                    </div>
+                    <div class="model model_hours">
+                        <h3 class="below_text">С 8 До 21 (Вых: С 8 До 16)</h3>
+                    </div>
+                    <div class="model model_action">
+                        <img src="{{ url_for('static', filename='images/More Circle.svg') }}" alt="The picture did not load">
+                    </div>
+                </div>
+
+                <div class="tables_bottom">
+                    <h3>Всего: 10 складов</h3>
+                    <div class="preview_next">
+                        <button class="num for_first spec btn_back" onclick="btnBack()">Назад</button>
+                        <button class="num chosen btn_first" onclick="btnFirst()">1</button>
+                        <button class="num btn_second" onclick="btnSecond()">2</button>
+                        <button class="num btn_third" onclick="btnThird()">3</button>
+                        <button class="num btn_forth" onclick="btnForth()">4</button>
+                        <button class="num btn_three_dots" onclick="btnThreeDots()">...</button>
+                        <button class="num btn_last" onclick="btnLast()">12</button>
+                        <button class="num spec btn_next" onclick="btnNext()">Вперед</button>
+                    </div>
+                    <div class="right_cont">
+                        <h3 class="grey_text">Показывать по:</h3>
+                        <div class="btns_10_20_30">
+                            <button class="chosen">10</button>
+                            <button class="not_chosen">20</button>
+                            <button class="not_chosen">30</button>
+                        </div>
+                        <button class="not_chosen">Все</button>
+                    </div>
+                </div>
+
+                <div class="table_settings">
+                    <div class="one_part">
+                        <div class="row">
+                            <img src="{{ url_for('static', filename='images/Burger_grey.svg') }}" alt="The picture did not load">
+                            <img src="{{ url_for('static', filename='images/Switch_red.svg') }}" alt="The picture did not load">
+                            <h3>А/М VIN</h3>
+                        </div>
+                        <div class="row">
+                            <img src="{{ url_for('static', filename='images/Burger_grey.svg') }}" alt="The picture did not load">
+                            <img src="{{ url_for('static', filename='images/Switch_red.svg') }}" alt="The picture did not load">
+                            <h3>Заявки</h3>
+                        </div>
+                        <div class="row">
+                            <img src="{{ url_for('static', filename='images/Burger_grey.svg') }}" alt="The picture did not load">
+                            <img src="{{ url_for('static', filename='images/Switch_red.svg') }}" alt="The picture did not load">
+                            <h3>Статус</h3>
+                        </div>
+                        <div class="row">
+                            <img src="{{ url_for('static', filename='images/Burger_grey.svg') }}" alt="The picture did not load">
+                            <img src="{{ url_for('static', filename='images/Switch_red.svg') }}" alt="The picture did not load">
+                            <h3>Сумма</h3>
+                        </div>
+                        <div class="row">
+                            <img src="{{ url_for('static', filename='images/Burger_grey.svg') }}" alt="The picture did not load">
+                            <img src="{{ url_for('static', filename='images/Switch_red.svg') }}" alt="The picture did not load">
+                            <h3>Дата создания</h3>
+                        </div>
+                        <div class="row">
+                            <img src="{{ url_for('static', filename='images/Burger_grey.svg') }}" alt="The picture did not load">
+                            <img src="{{ url_for('static', filename='images/Switch_red.svg') }}" alt="The picture did not load">
+                            <h3>Место погрузки</h3>
+                        </div>
+                        <div class="row last">
+                            <img src="{{ url_for('static', filename='images/Burger_grey.svg') }}" alt="The picture did not load">
+                            <img src="{{ url_for('static', filename='images/Switch_red.svg') }}" alt="The picture did not load">
+                            <h3>Место доставки</h3>
+                        </div>
+                    </div>
+                    <div class="one_part right_part">
+                        <div class="row">
+                            <img src="{{ url_for('static', filename='images/Burger_grey.svg') }}" alt="The picture did not load">
+                            <img src="{{ url_for('static', filename='images/Switch_red.svg') }}" alt="The picture did not load">
+                            <h3>ТК</h3>
+                        </div>
+                        <div class="row">
+                            <img src="{{ url_for('static', filename='images/Burger_grey.svg') }}" alt="The picture did not load">
+                            <img src="{{ url_for('static', filename='images/Switch_red.svg') }}" alt="The picture did not load">
+                            <h3>Тип автовоза</h3>
+                        </div>
+                        <div class="row">
+                            <img src="{{ url_for('static', filename='images/Burger_grey.svg') }}" alt="The picture did not load">
+                            <img src="{{ url_for('static', filename='images/Switch_red.svg') }}" alt="The picture did not load">
+                            <h3>Дата Подтверждения</h3>
+                        </div>
+                        <div class="row">
+                            <img src="{{ url_for('static', filename='images/Burger_grey.svg') }}" alt="The picture did not load">
+                            <img src="{{ url_for('static', filename='images/Switch_red.svg') }}" alt="The picture did not load">
+                            <h3>Водитель</h3>
+                        </div>
+                        <div class="row">
+                            <img src="{{ url_for('static', filename='images/Burger_grey.svg') }}" alt="The picture did not load">
+                            <img src="{{ url_for('static', filename='images/Switch_red.svg') }}" alt="The picture did not load">
+                            <h3>Название склада</h3>
+                        </div>
+                        <div class="row last">
+                            <img src="{{ url_for('static', filename='images/Burger_grey.svg') }}" alt="The picture did not load">
+                            <img src="{{ url_for('static', filename='images/Switch_red.svg') }}" alt="The picture did not load">
+                            <h3>Юр. лицо </h3>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </section>
+    </section>
+
+    <!-- inherited files -->
+    <script src="{{ url_for('static', filename='scripts/header.js') }}"></script>
+    
+    <script>
+        const new_search_field = document.querySelector(".new_search_field");
+        const search_grey = document.querySelector('.search_grey');
+        const search_black = document.querySelector('.search_black');
+        const amount_messages = document.querySelector(".amount_messages");
+        const amount_messages_text = document.querySelector(".amount_messages_text");
+        const view_btn = document.querySelector(".view_btn");
+        const table_settings = document.querySelector(".table_settings");
+
+        var table_settings_clicked = 0;
+
+        // below btns cycle
+        const btn_back = document.querySelector(".btn_back"); 
+        const btn_first = document.querySelector(".btn_first"); 
+        const btn_second = document.querySelector(".btn_second"); 
+        const btn_third = document.querySelector(".btn_third"); 
+        const btn_forth = document.querySelector(".btn_forth"); 
+        const btn_three_dots = document.querySelector(".btn_three_dots"); 
+        const btn_last = document.querySelector(".btn_last"); 
+        const btn_next = document.querySelector(".btn_next");
+
+        // new variables
+        var btnBackActivate = false;
+        var btnNextActivate = true;
+        var numBtnSelected = 1;
+
+        function btnBack() {
+            if (btnBackActivate) {
+                if (numBtnSelected === 2) {
+                    btnFirst()
+                } else if (numBtnSelected === 3) {
+                    btnSecond()
+                } else if (numBtnSelected === 4) {
+                    btnThird()
+                } else if (numBtnSelected === 11) {
+                    btnForth()
+                } else if (numBtnSelected === 12) {
+                    btnThreeDots()
+                }
+            }
+        }
+
+        function btnNext() {
+            if (btnNextActivate) {
+                if (numBtnSelected === 1) {
+                    btnSecond()
+                } else if (numBtnSelected === 2) {
+                    btnThird()
+                } else if (numBtnSelected === 3) {
+                    btnForth()
+                } else if (numBtnSelected === 4) {
+                    btnThreeDots()
+                } else if (numBtnSelected === 11) {
+                    btnLast()
+                }
+            }
+        }
+
+        function btnFirst() {
+            btnBackActivate = false;
+            btn_back.style.color = '#E3E3E3';
+            btnNextActivate = true;
+            btn_next.style.color = '#FF6262';
+            numBtnSelected = 1;
+
+            btn_first.style.backgroundColor = '#FF6262';
+            btn_first.style.border = 'none';
+            btn_first.style.color = '#FFF';
+
+            [btn_second, btn_third, btn_forth, btn_last, btn_three_dots].forEach(btn => {
+                btn.style.backgroundColor = '#FFF';
+                btn.style.border = '1px solid #E3E3E3';
+                btn.style.color = '#FF6262';
+            })
+        }
+
+        function btnSecond() {
+            btnBackActivate = true;
+            btn_back.style.color = '#FF6262';
+            btnNextActivate = true;
+            btn_next.style.color = '#FF6262';
+            numBtnSelected = 2;
+
+            btn_second.style.backgroundColor = '#FF6262';
+            btn_second.style.border = 'none';
+            btn_second.style.color = '#FFF';
+
+            [btn_first, btn_third, btn_forth, btn_last, btn_three_dots].forEach(btn => {
+                btn.style.backgroundColor = '#FFF';
+                btn.style.border = '1px solid #E3E3E3';
+                btn.style.color = '#FF6262';
+            })
+
+            if (btn_second.textContent === '...') {
+                // changing content of the btns
+                btn_second.textContent = '2'
+                btn_third.textContent = '3'
+                btn_forth.textContent = '4'
+                btn_three_dots.textContent = '...'
+            }
+        }
+
+        function btnThird() {
+            btnBackActivate = true;
+            btn_back.style.color = '#FF6262';
+            btnNextActivate = true;
+            btn_next.style.color = '#FF6262';
+            numBtnSelected = 3;
+
+            btn_third.style.backgroundColor = '#FF6262';
+            btn_third.style.border = 'none';
+            btn_third.style.color = '#FFF';
+
+            [btn_first, btn_second, btn_forth, btn_last, btn_three_dots].forEach(btn => {
+                btn.style.backgroundColor = '#FFF';
+                btn.style.border = '1px solid #E3E3E3';
+                btn.style.color = '#FF6262';
+            })
+        }
+
+        function btnForth() {
+            btnBackActivate = true;
+            btn_back.style.color = '#FF6262';
+            btnNextActivate = true;
+            btn_next.style.color = '#FF6262';
+            numBtnSelected = 4;
+
+            btn_forth.style.backgroundColor = '#FF6262';
+            btn_forth.style.border = 'none';
+            btn_forth.style.color = '#FFF';
+
+            [btn_first, btn_second, btn_third, btn_last, btn_three_dots].forEach(btn => {
+                btn.style.backgroundColor = '#FFF';
+                btn.style.border = '1px solid #E3E3E3';
+                btn.style.color = '#FF6262';
+            })
+        }
+
+        function btnThreeDots() {
+            btnBackActivate = true;
+            btn_back.style.color = '#FF6262';
+            btnNextActivate = true;
+            btn_next.style.color = '#FF6262';
+            numBtnSelected = 11;
+
+            btn_three_dots.style.backgroundColor = '#FF6262';
+            btn_three_dots.style.border = 'none';
+            btn_three_dots.style.color = '#FFF';
+
+            [btn_first, btn_second, btn_third, btn_forth, btn_last].forEach(btn => {
+                btn.style.backgroundColor = '#FFF';
+                btn.style.border = '1px solid #E3E3E3';
+                btn.style.color = '#FF6262';
+            })
+            
+            // changing content of the btns
+            btn_second.textContent = '...'
+            btn_third.textContent = '8'
+            btn_forth.textContent = '9'
+            btn_three_dots.textContent = '11'
+        }
+
+        function btnLast() {
+            btnBackActivate = true;
+            btn_back.style.color = '#FF6262';
+            btnNextActivate = false;
+            btn_next.style.color = '#E3E3E3';
+            numBtnSelected = 12;
+
+            btn_last.style.backgroundColor = '#FF6262';
+            btn_last.style.border = 'none';
+            btn_last.style.color = '#FFF';
+
+            [btn_first, btn_second, btn_third, btn_forth, btn_three_dots].forEach(btn => {
+                btn.style.backgroundColor = '#FFF';
+                btn.style.border = '1px solid #E3E3E3';
+                btn.style.color = '#FF6262';
+            })
+        }
+
+        function searchBarClicked() {
+            search_black.style.display = 'flex';
+            search_black.style.opacity = '1';
+            search_grey.style.display = 'none';
+            search_grey.style.opacity = '0';
+            
+            new_search_field.style.border = '1px solid var(--light-red-color)';
+        }
+        
+        const action_block = document.querySelector(".action_block");
+        const model_action_1 = document.querySelector(".model_action_1");
+
+        document.addEventListener("click", function(event) {
+            if (isClickOutsideElement(new_search_field, event)) {
+                // new_search_field
+                search_black.style.display = 'none';
+                search_black.style.opacity = '0';
+                search_grey.style.display = 'flex';
+                search_grey.style.opacity = '1';
+
+                new_search_field.style.border = '1px solid var(--grey-line-color)';
+            }
+
+            if (isClickOutsideElement(table_settings, event) && event.target !== view_btn) {
+                table_settings.style.opacity = '0';
+                table_settings.style.zIndex = '-10';
+            }
+        });
+
+        function viewBtnClicked() {
+            table_settings.style.display = 'flex';
+            table_settings.style.opacity = '1';
+            table_settings.style.zIndex = '10';
+            table_settings_clicked += 1;
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            view_btn.addEventListener('click', function() {
+                table_settings.style.opacity = '1';
+                table_settings.style.zIndex = '10';
+                console.log('popa')
+            });
+        });
+
+        // cells selected
+        const deleteSelectedBtn = document.querySelector(".deleteSelectedBtn"); 
+
+        function cellClick(cell_num) {
+            if (cell_num === 'main_cell') {
+                const main_cell_image = document.querySelector(".main_cell_image");
+                if (main_cell_image.style.display == 'flex') {
+                    main_cell_image.style.display = 'none'
+                    main_cell_image.style.opacity = '0';
+                    document.querySelector(".spec_main").style.backgroundColor = '#FFF';
+                } else {
+                    main_cell_image.style.display = 'flex';
+                    main_cell_image.style.opacity = '1';
+                    document.querySelector(".spec_main").style.backgroundColor = '#FEF4ED';
+                    deleteSelectedBtn.style.backgroundColor = '#FF6262';
+                    deleteSelectedBtn.style.color = '#FFF';
+                }
+            } else if (cell_num === 1) {
+                const check_icon_1 = document.querySelector(".check_icon_1");
+                if (check_icon_1.style.display == 'flex') {
+                    check_icon_1.style.display = 'none'
+                    check_icon_1.style.opacity = '0';
+                    document.querySelector(".spec_1").style.backgroundColor = '#FFF';
+                } else {
+                    check_icon_1.style.display = 'flex';
+                    check_icon_1.style.opacity = '1';
+                    document.querySelector(".spec_1").style.backgroundColor = '#FEF4ED';
+                    deleteSelectedBtn.style.backgroundColor = '#FF6262';
+                    deleteSelectedBtn.style.color = '#FFF';
+                }
+            } else if (cell_num === 2) {
+                const check_icon_2 = document.querySelector(".check_icon_2");
+                if (check_icon_2.style.display == 'flex') {
+                    check_icon_2.style.display = 'none'
+                    check_icon_2.style.opacity = '0';
+                    document.querySelector(".spec_2").style.backgroundColor = '#FFF';
+                } else {
+                    check_icon_2.style.display = 'flex';
+                    check_icon_2.style.opacity = '1';
+                    document.querySelector(".spec_2").style.backgroundColor = '#FEF4ED';
+                    deleteSelectedBtn.style.backgroundColor = '#FF6262';
+                    deleteSelectedBtn.style.color = '#FFF';
+                }
+            } else if (cell_num === 3) {
+                const check_icon_3 = document.querySelector(".check_icon_3");
+                if (check_icon_3.style.display == 'flex') {
+                    check_icon_3.style.display = 'none'
+                    check_icon_3.style.opacity = '0';
+                    document.querySelector(".spec_3").style.backgroundColor = '#FFF';
+                } else {
+                    check_icon_3.style.display = 'flex';
+                    check_icon_3.style.opacity = '1';
+                    document.querySelector(".spec_3").style.backgroundColor = '#FEF4ED';
+                    deleteSelectedBtn.style.backgroundColor = '#FF6262';
+                    deleteSelectedBtn.style.color = '#FFF';
+                }
+            } else if (cell_num === 4) {
+                const check_icon_4 = document.querySelector(".check_icon_4");
+                if (check_icon_4.style.display == 'flex') {
+                    check_icon_4.style.display = 'none'
+                    check_icon_4.style.opacity = '0';
+                    document.querySelector(".spec_4").style.backgroundColor = '#FFF';
+                } else {
+                    check_icon_4.style.display = 'flex';
+                    check_icon_4.style.opacity = '1';
+                    document.querySelector(".spec_4").style.backgroundColor = '#FEF4ED';
+                    deleteSelectedBtn.style.backgroundColor = '#FF6262';
+                    deleteSelectedBtn.style.color = '#FFF';
+                }
+            } else if (cell_num === 5) {
+                const check_icon_5 = document.querySelector(".check_icon_5");
+                if (check_icon_5.style.display == 'flex') {
+                    check_icon_5.style.display = 'none'
+                    check_icon_5.style.opacity = '0';
+                    document.querySelector(".spec_5").style.backgroundColor = '#FFF';
+                } else {
+                    check_icon_5.style.display = 'flex';
+                    check_icon_5.style.opacity = '1';
+                    document.querySelector(".spec_5").style.backgroundColor = '#FEF4ED';
+                    deleteSelectedBtn.style.backgroundColor = '#FF6262';
+                    deleteSelectedBtn.style.color = '#FFF';
+                }
+            } else if (cell_num === 6) {
+                const check_icon_6 = document.querySelector(".check_icon_6");
+                if (check_icon_6.style.display == 'flex') {
+                    check_icon_6.style.display = 'none'
+                    check_icon_6.style.opacity = '0';
+                    document.querySelector(".spec_6").style.backgroundColor = '#FFF';
+                } else {
+                    check_icon_6.style.display = 'flex';
+                    check_icon_6.style.opacity = '1';
+                    document.querySelector(".spec_6").style.backgroundColor = '#FEF4ED';
+                    deleteSelectedBtn.style.backgroundColor = '#FF6262';
+                    deleteSelectedBtn.style.color = '#FFF';
+                }
+            } else if (cell_num === 7) {
+                const check_icon_7 = document.querySelector(".check_icon_7");
+                if (check_icon_7.style.display == 'flex') {
+                    check_icon_7.style.display = 'none'
+                    check_icon_7.style.opacity = '0';
+                    document.querySelector(".spec_7").style.backgroundColor = '#FFF';
+                } else {
+                    check_icon_7.style.display = 'flex';
+                    check_icon_7.style.opacity = '1';
+                    document.querySelector(".spec_7").style.backgroundColor = '#FEF4ED';
+                    deleteSelectedBtn.style.backgroundColor = '#FF6262';
+                    deleteSelectedBtn.style.color = '#FFF';
+                }
+            } else if (cell_num === 8) {
+                const check_icon_8 = document.querySelector(".check_icon_8");
+                if (check_icon_8.style.display == 'flex') {
+                    check_icon_8.style.display = 'none'
+                    check_icon_8.style.opacity = '0';
+                    document.querySelector(".spec_8").style.backgroundColor = '#FFF';
+                } else {
+                    check_icon_8.style.display = 'flex';
+                    check_icon_8.style.opacity = '1';
+                    document.querySelector(".spec_8").style.backgroundColor = '#FEF4ED';
+                    deleteSelectedBtn.style.backgroundColor = '#FF6262';
+                    deleteSelectedBtn.style.color = '#FFF';
+                }
+            } else if (cell_num === 9) {
+                const check_icon_9 = document.querySelector(".check_icon_9");
+                if (check_icon_9.style.display == 'flex') {
+                    check_icon_9.style.display = 'none'
+                    check_icon_9.style.opacity = '0';
+                    document.querySelector(".spec_9").style.backgroundColor = '#FFF';
+                } else {
+                    check_icon_9.style.display = 'flex';
+                    check_icon_9.style.opacity = '1';
+                    document.querySelector(".spec_9").style.backgroundColor = '#FEF4ED';
+                    deleteSelectedBtn.style.backgroundColor = '#FF6262';
+                    deleteSelectedBtn.style.color = '#FFF';
+                }
+            } else if (cell_num === 10) {
+                const check_icon_10 = document.querySelector(".check_icon_10");
+                if (check_icon_10.style.display == 'flex') {
+                    check_icon_10.style.display = 'none'
+                    check_icon_10.style.opacity = '0';
+                    document.querySelector(".spec_10").style.backgroundColor = '#FFF';
+                } else {
+                    check_icon_10.style.display = 'flex';
+                    check_icon_10.style.opacity = '1';
+                    document.querySelector(".spec_10").style.backgroundColor = '#FEF4ED';
+                    deleteSelectedBtn.style.backgroundColor = '#FF6262';
+                    deleteSelectedBtn.style.color = '#FFF';
+                }
+            }
+        }
+
+        function deleteSelected() {
+            deleteSelectedBtn.style.backgroundColor = '#F3F4F5';
+            deleteSelectedBtn.style.color = '#858585';
+            
+            document.querySelector(".spec_main").style.backgroundColor = '#FFF';
+            document.querySelector(".main_cell_image").style.display = 'none';
+            document.querySelector(".main_cell_image").style.opacity = '0';
+
+            document.querySelector(".spec_1").style.backgroundColor = '#FFF';
+            document.querySelector(".check_icon_1").style.display = 'none';
+            document.querySelector(".check_icon_1").style.opacity = '0';
+
+            document.querySelector(".spec_2").style.backgroundColor = '#FFF';
+            document.querySelector(".check_icon_2").style.display = 'none';
+            document.querySelector(".check_icon_2").style.opacity = '0';
+
+            document.querySelector(".spec_3").style.backgroundColor = '#FFF';
+            document.querySelector(".check_icon_3").style.display = 'none';
+            document.querySelector(".check_icon_3").style.opacity = '0';
+
+            document.querySelector(".spec_4").style.backgroundColor = '#FFF';
+            document.querySelector(".check_icon_4").style.display = 'none';
+            document.querySelector(".check_icon_4").style.opacity = '0';
+
+            document.querySelector(".spec_5").style.backgroundColor = '#FFF';
+            document.querySelector(".check_icon_5").style.display = 'none';
+            document.querySelector(".check_icon_5").style.opacity = '0';
+
+            document.querySelector(".spec_6").style.backgroundColor = '#FFF';
+            document.querySelector(".check_icon_6").style.display = 'none';
+            document.querySelector(".check_icon_6").style.opacity = '0';
+
+            document.querySelector(".spec_7").style.backgroundColor = '#FFF';
+            document.querySelector(".check_icon_7").style.display = 'none';
+            document.querySelector(".check_icon_7").style.opacity = '0';
+
+            document.querySelector(".spec_8").style.backgroundColor = '#FFF';
+            document.querySelector(".check_icon_8").style.display = 'none';
+            document.querySelector(".check_icon_8").style.opacity = '0';
+
+            document.querySelector(".spec_9").style.backgroundColor = '#FFF';
+            document.querySelector(".check_icon_9").style.display = 'none';
+            document.querySelector(".check_icon_9").style.opacity = '0';
+
+            document.querySelector(".spec_10").style.backgroundColor = '#FFF';
+            document.querySelector(".check_icon_10").style.display = 'none';
+            document.querySelector(".check_icon_10").style.opacity = '0';
+        }
+
+        // action block processing
+        function modelActionClicked() {
+            if (action_block.style.opacity === '1') {
+                action_block.style.opacity = '0';
+            } else {
+                action_block.style.opacity = '1';
+            }
+        }
+
+
+        // autos and warehouses btns
+        // divs
+        var clip_path_btn = document.querySelector(".clip_path_btn");
+        var clip_path_warehouses = document.querySelector(".clip_path_warehouses");
+        // images
+        var skeleton = document.querySelector(".skeleton");
+        var clip_path_btn_warehouses = document.querySelector(".clip_path_btn_warehouses");
+        // texts
+        var autos_text = document.querySelector(".autos_text");
+        var warehouses_text = document.querySelector(".warehouses_text");
+
+        // other
+        var add_auto = document.querySelector(".add_auto");
+        var table_names_for_autos = document.querySelector(".table_names_for_autos");
+        var table_names_for_warehouses = document.querySelector(".table_names_for_warehouses");
+        var spec_warehouses = document.querySelector(".spec_warehouses");
+        var spec = document.querySelectorAll(".spec");
+        var below_cont = document.querySelector(".below_cont");
+
+        // Navigating to other pages
+
+        function warehousesClicked() {
+            window.location.href = "auto";
+        }
+
+        function goOverCarRegistration() {
+            window.location.href = "car_registration";
+        }
+
+        function goOverCarRegistration() {
+            window.location.href = "car_registration";
+        }
+    
+        function ClipPathBtn_1Clicked() {
+            window.location.href = "auto";
+
+            table_names_for_autos.style.display = 'flex';
+            table_names_for_warehouses.style.display = 'none';
+            spec_warehouses.style.display = 'none';
+            below_cont.style.borderRadius = '0px 16px 16px 16px';
+
+            for (var i = 0; i < spec.length; i++) {
+                spec[i].style.display = 'flex';
+            }
+        }
+    </script>
+</body>
+</html>

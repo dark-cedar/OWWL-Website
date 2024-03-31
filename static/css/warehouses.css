@@ -1,0 +1,703 @@
+/*=============== VARIABLES CSS ===============*/
+:root {
+  /*========== Colors ==========*/
+  /*Color mode HSL(hue, saturation, lightness)*/
+  --bg-color: hsl(220, 10%, 96%);
+  --grey-line-color: hsl(0, 0%, 89%);
+  --green-price-color: hsl(144, 81%, 40%);
+  --100-white-color: hsl(0, 0%, 100%);
+  --100-black-color: hsl(0, 0%, 0%);
+  --dark-color: hsl(0, 0%, 20%);
+  --middle-grey-color: hsl(0, 0%, 52%);
+  --super-light-color: hsl(240, 11%, 98%);
+  --red-color: hsl(0, 100%, 63%);
+  --light-red-color: hsl(0, 100%, 69%);
+  --blue-color: hsl(194, 100%, 43%);
+  --01-simple-color: hsl(194, 65%, 87%);
+  --02-simple-color: hsl(25, 89%, 96%);
+  /*========== Font and typography ==========*/
+  /*.5rem = 8px | 1rem = 16px ...*/
+  --body-font: "IBM Plex Sans", sans-serif;
+  --32-font-size: 2rem;
+  --24-font-size: 1.5rem;
+  --18-font-size: 1.125rem;
+  --16-font-size: 1rem;
+  --15-font-size: .937rem;
+  --13-font-size: .812rem;
+  --14-font-size: .875rem;
+  --11-font-size: .687rem;
+  /*========== Font weight ==========*/
+  --reg-font-weight: 400;
+  --med-font-weight: 500;
+  --semi-font-weight: 600;
+  /*========== z index ==========*/
+  --z-index-10: 10;
+  --z-index-100: 100;
+  --z-index-1000: 1000;
+}
+
+/*=============== BASE ===============*/
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--body-font);
+  font-size: var(--18-font-size);
+  background-color: var(--bg-color);
+  color: var(--dark-color);
+}
+
+h1, h2, h3, h4 {
+  color: var(--title-color);
+  font-weight: var(--semi-font-weight);
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  pointer-events: none;
+}
+
+input, button {
+  font-family: var(--body-font);
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+
+/*=============== READY ELEMENTS ===============*/
+.font_32_semi_100_black {
+  font-size: var(--32-font-size);
+  font-weight: var(--semi-font-weight);
+  color: var(--100-black-color);
+}
+
+.font_16_med_light_red {
+  font-size: var(--16-font-size);
+  font-weight: var(--med-font-weight);
+  color: var(--light-red-color);
+}
+
+.font_14_med_100_white {
+  font-size: var(--14-font-size);
+  font-weight: var(--med-font-weight);
+  color: var(--100-white-color);
+}
+
+.new_search_field {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: var(--100-white-color);
+  border-radius: 8px;
+  border: 1px solid var(--grey-line-color);
+  padding: 9px 12px;
+  width: 100%;
+  height: 42px;
+  cursor: default;
+}
+.new_search_field .input_field {
+  width: 100%;
+  height: 40px;
+  cursor: default;
+}
+.new_search_field a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.new_search_field:hover {
+  box-shadow: 0px 10px 13px 0px rgba(27, 44, 49, 0.04);
+}
+
+.search_black {
+  display: none;
+  opacity: 0;
+}
+
+.chosen {
+  background-color: var(--light-red-color);
+  border-radius: 16px;
+  padding: 4px 16px;
+  font-size: var(--16-font-size);
+  font-weight: var(--med-font-weight);
+  color: var(--100-white-color);
+}
+
+.not_chosen {
+  background-color: transparent;
+  font-size: var(--14-font-size);
+  font-weight: var(--semi-font-weight);
+  color: var(--light-red-color);
+}
+
+.below_text {
+  font-size: var(--14-font-size) !important;
+  font-weight: var(--reg-font-weight) !important;
+  color: var(--dark-color) !important;
+}
+
+body header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 72px;
+  padding: 0px 41px 0px 41px;
+  background-color: var(--100-white-color);
+}
+body header .right_cont {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+body header .right_cont ul {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+  font-size: var(--16-font-size);
+  font-weight: var(--med-font-weight);
+  color: black;
+}
+body header .right_cont ul li a {
+  font-size: var(--16-font-size);
+  font-weight: var(--med-font-weight);
+  color: var(--dark-color);
+}
+body header .right_cont .settings {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+body header .right_cont .settings .logo_and_options {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+body header .right_cont .settings .logo_and_options .text_icon {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+body header .right_cont .settings .logo_and_options .text_icon h4 {
+  font-size: var(--16-font-size);
+  font-weight: var(--med-font-weight);
+}
+body header .right_cont .settings .two_icons {
+  display: flex;
+  gap: 1rem;
+  position: relative;
+}
+body header .right_cont .settings .two_icons .icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 38px;
+  min-height: 38px;
+  border-radius: 100%;
+  background-color: transparent;
+  border: 2px solid var(--light-red-color);
+}
+body header .right_cont .settings .two_icons .icon .img {
+  min-width: 24px;
+  min-height: 24px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  pointer-events: none;
+}
+body header .right_cont .settings .two_icons .amount_messages {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 22px;
+  min-height: 22px;
+  border-radius: 100%;
+  position: absolute;
+  margin-left: 24px;
+  margin-bottom: 16px;
+  background-color: var(--100-white-color);
+  border: 2px solid var(--light-red-color);
+  transition: all 300ms ease-out;
+}
+body header .right_cont .settings .two_icons .amount_messages h3 {
+  font-size: var(--11-font-size) !important;
+  font-weight: var(--semi-font-weight);
+  color: var(--light-red-color);
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+}
+body header .right_cont .settings .two_icons .navbar_icon_message {
+  background-image: url("../images/Chat_red.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-size: 24px 24px;
+  background-position: 6px 5px;
+}
+body header .right_cont .settings .two_icons .navbar_icon_message:hover {
+  background-color: var(--light-red-color);
+  color: var(--100-white-color);
+  transition: all 300ms ease-out;
+  background-image: url("../images/Chat_white.svg");
+  box-shadow: 0px 4px 12px 0px rgba(255, 166, 166, 0.6);
+}
+body header .right_cont .settings .two_icons .navbar_icon_message:not(:hover) {
+  transition: all 300ms ease-out;
+  box-shadow: none;
+}
+body header .right_cont .settings .two_icons .navbar_icon_notification {
+  background-image: url("../images/Notification_red.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-size: 24px 24px;
+  background-position: 5px 5px;
+}
+body header .right_cont .settings .two_icons .navbar_icon_notification:hover {
+  background-color: var(--light-red-color);
+  color: var(--100-white-color);
+  transition: all 300ms ease-out;
+  background-image: url("../images/Notification_white.svg");
+  box-shadow: 0px 4px 12px 0px rgba(255, 166, 166, 0.6);
+}
+body header .right_cont .settings .two_icons .navbar_icon_notification:not(:hover) {
+  transition: all 300ms ease-out;
+  box-shadow: none;
+}
+body header .logo_vars {
+  display: none;
+  flex-direction: column;
+  gap: 10px;
+  padding: 16px;
+  background-color: var(--100-white-color);
+  border-radius: 8px;
+  border: 1px solid var(--grey-line-color);
+  position: absolute;
+  right: 133px;
+  top: 64px;
+  width: 196px;
+  box-shadow: 0px 10px 13px 0px rgba(27, 44, 49, 0.04);
+  opacity: 0;
+  transition: all 300ms ease-out;
+}
+body header .logo_vars h3 {
+  font-size: var(--14-font-size);
+  font-weight: var(--med-font-weight);
+  color: var(--dark-color);
+}
+body header .logo_vars .profile {
+  border-bottom: 1px solid var(--grey-line-color);
+  padding-bottom: 10px;
+  width: 100%;
+}
+body section {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  padding: 56px 42px 42px 42px;
+}
+body section .upper_texts {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}
+body section .upper_texts a, body section .upper_texts .font_16_med_light_red {
+  display: inline-block;
+  width: 92px;
+  height: 23px;
+}
+body section .below_section {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  gap: 0px;
+}
+body section .below_section .btn_transparent {
+  display: flex;
+}
+body section .below_section .btn_transparent .clip_path_btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 171px;
+  height: 56px;
+  cursor: pointer;
+}
+body section .below_section .btn_transparent .clip_path_btn .skeleton {
+  z-index: var(--z-index-10);
+  position: absolute;
+  opacity: 0;
+}
+body section .below_section .btn_transparent .clip_path_btn h3 {
+  font-size: var(--16-font-size);
+  font-weight: var(--med-font-weight);
+  color: var(--middle-grey-color);
+  z-index: var(--z-index-100);
+}
+body section .below_section .btn_transparent .clip_path_warehouses {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 185px;
+  height: 56px;
+  cursor: pointer;
+}
+body section .below_section .btn_transparent .clip_path_warehouses h3 {
+  font-size: var(--16-font-size);
+  font-weight: var(--med-font-weight);
+  color: var(--dark-color);
+  z-index: var(--z-index-10);
+}
+body section .below_section .btn_transparent .clip_path_warehouses .clip_path_btn_warehouses {
+  position: absolute;
+  opacity: 1;
+}
+body section .below_section .below_cont {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background-color: var(--100-white-color);
+  gap: 0px;
+  border-radius: 16px 16px 16px 16px;
+  padding: 0px;
+  position: relative;
+}
+body section .below_section .below_cont .btns_search {
+  display: flex;
+  padding: 16px;
+  gap: 8px;
+  width: 100%;
+  height: 74px;
+}
+body section .below_section .below_cont .btns_search .filled {
+  padding: 12px 24px;
+  background-color: var(--light-red-color);
+  border-radius: 8px;
+  height: 100%;
+  font-size: var(--14-font-size);
+  font-weight: var(--med-font-weight);
+  color: var(--100-white-color);
+  text-wrap: nowrap;
+  cursor: pointer;
+}
+body section .below_section .below_cont .btns_search .deleteSelectedBtn {
+  padding: 12px;
+  border-radius: 8px;
+  background-color: var(--bg-color);
+  font-size: var(--14-font-size);
+  font-weight: var(--med-font-weight);
+  color: var(--middle-grey-color);
+  text-wrap: nowrap;
+}
+body section .below_section .below_cont .table_names {
+  display: flex;
+  border-bottom: 1px solid var(--grey-line-color);
+}
+body section .below_section .below_cont .table_names .table_cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 17.5px 16px;
+}
+body section .below_section .below_cont .table_names .table_cell .cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  background-image: linear-gradient(#FFF 53%, #F1F1F1 100%);
+  border: 1px solid #E0E0E0;
+  border-radius: 4px;
+}
+body section .below_section .below_cont .table_names .table_cell .cell .main_cell_image, body section .below_section .below_cont .table_names .table_cell .cell .check_icon_1, body section .below_section .below_cont .table_names .table_cell .cell .check_icon_2, body section .below_section .below_cont .table_names .table_cell .cell .check_icon_3, body section .below_section .below_cont .table_names .table_cell .cell .check_icon_4, body section .below_section .below_cont .table_names .table_cell .cell .check_icon_5,
+body section .below_section .below_cont .table_names .table_cell .cell .check_icon_6, body section .below_section .below_cont .table_names .table_cell .cell .check_icon_7, body section .below_section .below_cont .table_names .table_cell .cell .check_icon_8, body section .below_section .below_cont .table_names .table_cell .cell .check_icon_9, body section .below_section .below_cont .table_names .table_cell .cell .check_icon_10 {
+  display: none;
+  opacity: 0;
+}
+body section .below_section .below_cont .table_names .number {
+  padding: 16px 16px 16px 0px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+body section .below_section .below_cont .table_names .number h3 {
+  width: 22px;
+  font-size: var(--16-font-size);
+  font-weight: var(--med-font-weight);
+  color: var(--dark-color);
+}
+body section .below_section .below_cont .table_names .model {
+  padding: 16px 16px 16px 0px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4px;
+}
+body section .below_section .below_cont .table_names .model h3 {
+  font-size: var(--16-font-size);
+  font-weight: var(--med-font-weight);
+  color: var(--dark-color);
+}
+body section .below_section .below_cont .table_names .model .text {
+  font-size: var(--14-font-size);
+  font-weight: var(--reg-font-weight);
+  color: var(--dark-color);
+}
+body section .below_section .below_cont .table_names .model_word {
+  width: 222px;
+}
+body section .below_section .below_cont .table_names .model_weight {
+  width: 170px;
+}
+body section .below_section .below_cont .table_names .model_dimensions {
+  width: 184px;
+}
+body section .below_section .below_cont .table_names .model_warehouse {
+  width: 164px;
+}
+body section .below_section .below_cont .table_names .model_status {
+  width: 174px;
+}
+body section .below_section .below_cont .table_names .model_num {
+  width: 169px;
+}
+body section .below_section .below_cont .table_names .model_action {
+  width: 113px;
+  cursor: pointer;
+}
+body section .below_section .below_cont .table_names .two_texts {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 12px 16px 12px 0px;
+}
+body section .below_section .below_cont .table_names .two_texts .black_one {
+  font-size: var(--14-font-size);
+  font-weight: var(--reg-font-weight);
+  color: var(--dark-color);
+}
+body section .below_section .below_cont .table_names .two_texts .grey_one {
+  font-size: var(--14-font-size);
+  font-weight: var(--reg-font-weight);
+  color: var(--middle-grey-color);
+}
+body section .below_section .below_cont .table_names .model_spec {
+  min-width: 174px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+body section .below_section .below_cont .table_names .model_spec .grey_btn {
+  height: 34px;
+  background-color: #EAF1F6;
+  border-radius: 8px;
+  padding: 8px 12px;
+  font-size: var(--14-font-size);
+  font-weight: var(--med-font-weight);
+  color: #8A9EAF;
+}
+body section .below_section .below_cont .table_names .action_block {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 16px;
+  border: 1px solid var(--grey-line-color);
+  border-radius: 8px;
+  background-color: var(--100-white-color);
+  position: absolute;
+  right: 30px;
+  margin-top: 60px;
+  opacity: 0;
+  transition: all 200ms ease;
+}
+body section .below_section .below_cont .table_names .action_block .change_data, body section .below_section .below_cont .table_names .action_block .swap_warehouse, body section .below_section .below_cont .table_names .action_block .delete {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+}
+body section .below_section .below_cont .table_names .action_block .change_data h3, body section .below_section .below_cont .table_names .action_block .swap_warehouse h3, body section .below_section .below_cont .table_names .action_block .delete h3 {
+  font-size: var(--15-font-size);
+  font-weight: var(--reg-font-weight);
+  color: var(--dark-color);
+  text-wrap: nowrap;
+}
+body section .below_section .below_cont .table_names .action_block .choose_option_block {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 48px;
+  border: 1px solid var(--grey-line-color);
+  border-radius: 8px;
+  padding: 16px;
+  cursor: pointer;
+}
+body section .below_section .below_cont .table_names .action_block .choose_option_block h3 {
+  font-size: var(--14-font-size);
+  font-weight: var(--med-font-weight);
+  color: var(--dark-color);
+  text-wrap: nowrap;
+}
+body section .below_section .below_cont .table_names .action_block .delete {
+  border-top: 1px solid var(--grey-line-color);
+  padding-top: 12px;
+}
+body section .below_section .below_cont .table_names_for_warehouses {
+  display: flex;
+  width: 100%;
+}
+body section .below_section .below_cont .table_names_for_warehouses .model_title {
+  width: 142px;
+}
+body section .below_section .below_cont .table_names_for_warehouses .model_amount {
+  width: 170px;
+}
+body section .below_section .below_cont .table_names_for_warehouses .model_face {
+  width: 184px;
+}
+body section .below_section .below_cont .table_names_for_warehouses .model_address {
+  width: 290px;
+}
+body section .below_section .below_cont .table_names_for_warehouses .model_hours {
+  width: 174px;
+}
+body section .below_section .below_cont .table_names_for_warehouses .model_action {
+  width: 113px;
+}
+body section .below_section .below_cont .card div h3 {
+  font-size: var(--14-font-size);
+  font-weight: var(--reg-font-weight);
+  color: var(--dark-color);
+}
+body section .below_section .below_cont .spec, body section .below_section .below_cont .spec_main {
+  min-height: 82px;
+}
+body section .below_section .below_cont .spec:hover, body section .below_section .below_cont .spec_main:hover {
+  background-color: #F9F9FA;
+  transition: background-color 200ms ease-in-out;
+}
+body section .below_section .below_cont .tables_bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  width: 100%;
+}
+body section .below_section .below_cont .tables_bottom h3 {
+  font-size: var(--16-font-size);
+  font-weight: var(--med-font-weight);
+  color: var(--middle-grey-color);
+}
+body section .below_section .below_cont .tables_bottom .preview_next {
+  display: flex;
+  gap: 4px;
+}
+body section .below_section .below_cont .tables_bottom .preview_next .num {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 16px;
+  background-color: transparent;
+  border: 1px solid var(--grey-line-color);
+  width: 42px;
+  height: 42px;
+  transition: all 125ms ease-out;
+  font-size: var(--13-font-size);
+  font-weight: var(--reg-font-weight);
+  color: var(--red-color);
+}
+body section .below_section .below_cont .tables_bottom .preview_next .for_first {
+  color: var(--grey-line-color);
+}
+body section .below_section .below_cont .tables_bottom .preview_next .spec {
+  padding: 12.5px 16px;
+  width: auto;
+  min-height: 42px;
+}
+body section .below_section .below_cont .tables_bottom .preview_next .chosen {
+  background-color: var(--light-red-color);
+  color: var(--100-white-color);
+  border: none;
+}
+body section .below_section .below_cont .tables_bottom .right_cont {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+body section .below_section .below_cont .tables_bottom .right_cont .grey_text {
+  font-size: var(--15-font-size);
+  font-weight: var(--reg-font-weight);
+  color: var(--middle-grey-color);
+}
+body section .below_section .below_cont .tables_bottom .right_cont .btns_10_20_30 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+body section .below_section .below_cont .tables_bottom .right_cont .red_text {
+  font-size: var(--14-font-size);
+  font-weight: var(--semi-font-weight);
+  color: var(--light-red-color);
+}
+body section .below_section .below_cont .table_settings {
+  display: flex;
+  gap: 24px;
+  position: absolute;
+  padding: 16px;
+  background-color: var(--100-white-color);
+  border: 1px solid var(--grey-line-color);
+  border-radius: 16px;
+  left: 250px;
+  top: 56px;
+  box-shadow: 0px 10px 13px 0px rgba(27, 44, 49, 0.04);
+  opacity: 0;
+  z-index: -10;
+  transition: opacity 150ms ease-out;
+}
+body section .below_section .below_cont .table_settings .one_part {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+body section .below_section .below_cont .table_settings .one_part .row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-bottom: 1px solid var(--grey-line-color);
+  padding-bottom: 10px;
+  width: 164px;
+}
+body section .below_section .below_cont .table_settings .one_part .row h3 {
+  font-size: var(--14-font-size);
+  font-weight: var(--med-font-weight);
+  color: var(--dark-color);
+  text-wrap: nowrap;
+}
+body section .below_section .below_cont .table_settings .one_part .last {
+  border: none;
+  padding: 0;
+}
+body section .below_section .below_cont .table_settings .right_part .row {
+  width: 219px;
+}/*# sourceMappingURL=warehouses.css.map */

@@ -1,0 +1,247 @@
+/*=============== VARIABLES CSS ===============*/
+:root {
+  /*========== Colors ==========*/
+  /*Color mode HSL(hue, saturation, lightness)*/
+  --bg-color: hsl(220, 10%, 96%);
+  --grey-line-color: hsl(0, 0%, 89%);
+  --green-price-color: hsl(144, 81%, 40%);
+  --100-white-color: hsl(0, 0%, 100%);
+  --100-black-color: hsl(0, 0%, 0%);
+  --dark-color: hsl(0, 0%, 20%);
+  --middle-grey-color: hsl(0, 0%, 52%);
+  --super-light-color: hsl(240, 11%, 98%);
+  --red-color: hsl(0, 100%, 63%);
+  --light-red-color: hsl(0, 100%, 69%);
+  --blue-color: hsl(194, 100%, 43%);
+  --01-simple-color: hsl(194, 65%, 87%);
+  --02-simple-color: hsl(25, 89%, 96%);
+  /*========== Font and typography ==========*/
+  /*.5rem = 8px | 1rem = 16px ...*/
+  --body-font: "IBM Plex Sans", sans-serif;
+  --32-font-size: 2rem;
+  --26-font-size: 1.625rem;
+  --24-font-size: 1.5rem;
+  --18-font-size: 1.125rem;
+  --16-font-size: 1rem;
+  --15-font-size: .937rem;
+  --14-font-size: .875rem;
+  --11-font-size: .687rem;
+  /*========== Font weight ==========*/
+  --reg-font-weight: 400;
+  --med-font-weight: 500;
+  --semi-font-weight: 600;
+  /*========== z index ==========*/
+  --z-index-10: 10;
+  --z-index-100: 100;
+  --z-index-1000: 1000;
+}
+
+/*=============== BASE ===============*/
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--body-font);
+  font-size: var(--18-font-size);
+  background-color: var(--bg-color);
+  color: var(--dark-color);
+}
+
+h1, h2, h3, h4 {
+  color: var(--title-color);
+  font-weight: var(--semi-font-weight);
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+input, button {
+  font-family: var(--body-font);
+  outline: none;
+  border: none;
+}
+
+.input_value {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem 0.75rem 0.75rem;
+  width: 100%;
+  height: 3rem;
+  border: 1px solid var(--grey-line-color);
+  border-radius: 0.5rem;
+  font-size: var(--14-font-size);
+  font-weight: var(--med-font-weight);
+  gap: 0.75rem;
+}
+.input_value input {
+  width: 100%;
+}
+
+.new_search_field {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: var(--100-white-color);
+  border-radius: 8px;
+  border: 1px solid var(--grey-line-color);
+  padding: 9px 12px;
+  width: 100%;
+  height: 42px;
+}
+.new_search_field .input_field {
+  width: 100%;
+}
+.new_search_field a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/*========== Animations ==========*/
+@keyframes opacity_for_filter_in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--bg-color);
+  padding: 24px;
+}
+body .new_application {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 32px 178px;
+  background-color: var(--100-white-color);
+  border-radius: 24px;
+  width: 100%;
+  height: 100%;
+  gap: 38px;
+}
+body .new_application .above_block {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+body .new_application .above_block .block_1 {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+body .new_application .above_block .block_1 h1 {
+  font-size: var(--26-font-size);
+  font-weight: var(--semi-font-weight);
+  color: var(--dark-color);
+}
+body .new_application .above_block .block_1 .two_texts {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+body .new_application .above_block .block_1 .two_texts h3 {
+  font-size: var(--24-font-size);
+  font-weight: var(--med-font-weight);
+  color: var(--dark-color);
+}
+body .new_application .above_block .block_1 .two_texts h4 {
+  font-size: var(--16-font-size);
+  font-weight: var(--reg-font-weight);
+  color: var(--middle-grey-color);
+}
+body .new_application .above_block .h4_text {
+  font-size: var(--16-font-size);
+  font-weight: var(--reg-font-weight);
+  color: var(--middle-grey-color);
+}
+body .new_application .above_block .note {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-top: 1px solid var(--grey-line-color);
+  border-bottom: 1px solid var(--grey-line-color);
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
+body .new_application .above_block .note .right_text {
+  font-size: var(--16-font-size);
+  font-weight: var(--reg-font-weight);
+  color: var(--middle-grey-color);
+}
+body .new_application .above_block .texts_btn {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+body .new_application .above_block .texts_btn .left_right_blocks {
+  display: flex;
+  gap: 42px;
+}
+body .new_application .above_block .texts_btn .left_right_blocks .block {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+body .new_application .above_block .texts_btn .left_right_blocks .left_texts h3 {
+  font-size: var(--16-font-size);
+  font-weight: var(--med-font-weight);
+  color: var(--middle-grey-color);
+}
+body .new_application .above_block .texts_btn .left_right_blocks .right_texts h3 {
+  font-size: var(--16-font-size);
+  font-weight: var(--med-font-weight);
+  color: var(--dark-color);
+}
+body .new_application .above_block .texts_btn .text_link h3 {
+  font-size: var(--16-font-size);
+  font-weight: var(--med-font-weight);
+  color: var(--light-red-color);
+}
+body .new_application .below_block {
+  display: flex;
+  gap: 24px;
+}
+body .new_application .below_block .close_btn {
+  width: 106px;
+  height: 48px;
+  background-color: var(--100-white-color);
+  color: var(--light-red-color);
+  border: 2px solid var(--light-red-color);
+  border-radius: 8px;
+  font-size: var(--14-font-size);
+  font-weight: var(--med-font-weight);
+  color: var(--light-red-color);
+}
+body .new_application .below_block .spec_btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: transparent;
+  font-size: var(--14-font-size);
+  font-weight: var(--med-font-weight);
+  color: var(--middle-grey-color);
+}/*# sourceMappingURL=popup_window.css.map */

@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вход</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main_page.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <img src="{{ url_for('static', filename='images/logo_owwl.svg') }}" alt="The picture did not load">
+        <div class="right_cont">
+            <ul>
+                <li><a href="#" onclick="warehousesClicked()">А/м и склады</a></li>
+                <li><a href="#">Список ТК</a></li>
+                <li><a href="#">Журнал документов</a></li>
+                <li><a href="#">Вопрос ответ</a></li>
+            </ul>
+            <div class="settings">
+                <div class="logo_and_options">
+                    <img src="{{ url_for('static', filename='images/ava_no_updates.svg') }}" alt="The picture did not load">
+                    <div class="text_icon">
+                        <h4>Favorit Motors</h4>
+                        <a href="#"><img src="{{ url_for('static', filename='images/chevron-down.svg') }}" alt="The picture did not load"></a>
+                    </div>
+                </div>
+                <div class="two_icons">
+                    <div class="icon navbar_icon_message">
+                        <img class="img" src="{{ url_for('static', filename='images/Chat_white.svg') }}" alt="The picture did not load">
+                    </div>
+
+                    <div class="icon navbar_icon_message">
+                        <img class="img" src="{{ url_for('static', filename='images/Notification_white.svg') }}" alt="The picture did not load">
+                    </div>
+
+                    <div class="amount_messages">
+                        <h3>3</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="application_manager">
+        <div class="header_tabs_filter">
+            <div class="text_tabs">
+                <h1>Диспетчер заявок</h1>
+                <div class="tab_menu_2">
+                    <div class="upper_context new lined">
+                        <div class="context">
+                            <h4 class="text_grey new_text black">Новые заявки</h4>
+                            <div class="amount"><h4 class="amount_text">6</h4></div>
+                        </div>
+                    </div>
+                    <div onclick="redirectToWithResponse()" class="upper_context with_response">
+                        <div class="context">
+                            <h4 class="text_grey with_response_text">С откликом</h4>
+                            <div class="amount"><h4 class="amount_text">4</h4></div>
+                        </div>
+                    </div>
+                    <div class="upper_context delivery">
+                        <div class="context">
+                            <h4 class="text_grey delivery_text">В процессе доставки</h4>
+                            <div class="amount"><h4 class="amount_text">0</h4></div>
+                        </div>
+                    </div>
+                    <div class="upper_context done">
+                        <div class="context">
+                            <h4 class="text_grey done_text">Доставлены</h4>
+                            <div class="amount"><h4 class="amount_text">0</h4></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="filter_panel">
+                <button onclick="redirectToPopUpWindow()" class="create_request">Создать заявку</button>
+                <div class="new_search_field" onclick="searchBarClicked()">
+                    <img class="search_grey" src="{{ url_for('static', filename='images/Search.svg') }}" alt="The picture did not load">
+                    <img class="search_black" src="{{ url_for('static', filename='images/Search_black.svg') }}" alt="The picture did not load">
+                    <input class="input_field" type="text" placeholder="Поиск">
+                </div>
+                <div class="new_filter_button">
+                    <img class="filter_icon" src="{{ url_for('static', filename='images/Filter.svg') }}" alt="The picture did not load">
+                </div>
+            </div>
+        </div>
+
+        <div class="filter">
+            <div class="text_input">
+                <div class="text_icon">
+                    <h4>А/м</h4>
+                    <img src="{{ url_for('static', filename='images/carbon_reset.svg') }}" alt="The picture did not load">
+                </div>
+                <div class="toggle_btn car">
+                    <h4>Выберите автомобиль</h4>
+                    <img src="{{ url_for('static', filename='images/chevron-down.svg') }}" alt="The picture did not load">
+                </div>
+                <div class="hidden_div hidden_car">
+                    <h4>Audi A6 allroad I (C5)</h4>
+                </div>
+            </div>
+            <div class="text_input">
+                <div class="text_icon">
+                    <h4>Получатель</h4>
+                    <img src="{{ url_for('static', filename='images/carbon_reset.svg') }}" alt="The picture did not load">
+                </div>
+                <div class="toggle_btn recipient">
+                    <h4>Выберите получателя</h4>
+                    <img src="{{ url_for('static', filename='images/chevron-down.svg') }}" alt="The picture did not load">
+                </div>
+                <div class="hidden_div hidden_recipient">
+                    <h4>ООО Ромашка</h4>
+                    <div class="line"></div>
+                    <h4>Восход</h4>
+                    <div class="line"></div>
+                    <h4>Ауди центр Алтуфьево</h4>
+                </div>
+            </div>
+            <div class="text_input">
+                <div class="text_icon">
+                    <h4>Место отправки</h4>
+                    <img src="{{ url_for('static', filename='images/carbon_reset.svg') }}" alt="The picture did not load">
+                </div>
+                <div class="new_search_field">
+                    <a href="#"><img src="{{ url_for('static', filename='images/Search.svg') }}" alt="The picture did not load"></a>
+                    <input class="input_field" type="text" placeholder="Регион, город, насел. пункт">
+                </div>
+            </div>
+            <div class="text_input">
+                <div class="text_icon">
+                    <h4>Место доставки</h4>
+                    <img src="{{ url_for('static', filename='images/carbon_reset.svg') }}" alt="The picture did not load">
+                </div>
+                <div class="new_search_field">
+                    <a href="#"><img src="{{ url_for('static', filename='images/Search.svg') }}" alt="The picture did not load"></a>
+                    <input class="input_field" type="text" placeholder="Регион, город, насел. пункт">
+                </div>
+            </div>
+        </div>
+
+        <div class="statistics">
+            <div class="left_cont">
+                <div class="card">
+                    <h3>Нет действий 5 дней:</h3>
+                    <h4>3</h4>
+                </div>
+                <div class="card">
+                    <h3>10 дней:</h3>
+                    <h4>2</h4>
+                </div>
+                <div class="card">
+                    <h3>15 дней:</h3>
+                    <h4>1</h4>
+                </div>
+                <img src="{{ url_for('static', filename='images/carbon_reset.svg') }}" alt="The picture did not load">
+            </div>
+
+            <div class="right_cont">
+                <div class="sorting">
+                    <h4>По дате</h4>
+                    <a href="#"><img src="{{ url_for('static', filename='images/sort_1.svg') }}" alt="The picture did not load"></a>
+                </div>
+                <h4>По цене</h4>
+                <h4>По месту доставки</h4>
+            </div>
+        </div>
+    </div>
+
+    <div class="found">
+        <h3>Найдено:</h3>
+        <h4>6 заявок на сумму 120 000 ₽</h4>
+    </div>
+
+    <div class="cards">
+        <div class="next_layer">
+            <div class="card">
+                <div class="number_title">
+                    <h2>Номер заявки: 00001/210305</h2>
+                    <h3>Audi A6 allroad I (C5)</h3>
+                    <h4>VIN: X96330232F268854</h4>
+                </div>
+                <div class="btns">
+                    <div class="new small_btn"><h4>Новая</h4></div>
+                    <div class="days small_btn"><h4>1д 2ч</h4></div>
+                </div>
+                <div class="number_title">
+                    <h2>Дата создания: 21.08.22</h2>
+                    <h4>Калининград - Санкт-Петербург</h4>
+                    <h4>21 000 ₽</h4>
+                </div>
+                <div class="note">
+                    <img src="{{ url_for('static', filename='images/note.svg') }}" alt="The picture did not load">
+                    <h4>Заметка</h4>
+                </div>
+            </div>
+            <div class="card">
+                <div class="number_title">
+                    <h2>Номер заявки: 00001/210305</h2>
+                    <h3>Audi A6 allroad I (C5)</h3>
+                    <h4>VIN: X96330232F268854</h4>
+                </div>
+                <div class="btns">
+                    <div class="new small_btn"><h4>Новая</h4></div>
+                    <div class="days small_btn"><h4>1д 2ч</h4></div>
+                </div>
+                <div class="number_title">
+                    <h2>Дата создания: 21.08.22</h2>
+                    <h4>Калининград - Санкт-Петербург</h4>
+                    <h4>21 000 ₽</h4>
+                </div>
+                <div class="note">
+                    <img src="{{ url_for('static', filename='images/note.svg') }}" alt="The picture did not load">
+                    <h4>Заметка</h4>
+                </div>
+            </div>
+            <div class="card">
+                <div class="number_title">
+                    <h2>Номер заявки: 00001/210305</h2>
+                    <h3>Audi A6 allroad I (C5)</h3>
+                    <h4>VIN: X96330232F268854</h4>
+                </div>
+                <div class="btns">
+                    <div class="new small_btn"><h4>Новая</h4></div>
+                    <div class="days small_btn"><h4>1д 2ч</h4></div>
+                </div>
+                <div class="number_title">
+                    <h2>Дата создания: 21.08.22</h2>
+                    <h4>Калининград - Санкт-Петербург</h4>
+                    <h4>21 000 ₽</h4>
+                </div>
+                <div class="note">
+                    <img src="{{ url_for('static', filename='images/note.svg') }}" alt="The picture did not load">
+                    <h4>Заметка</h4>
+                </div>
+            </div>
+            <div class="card">
+                <div class="number_title">
+                    <h2>Номер заявки: 00001/210305</h2>
+                    <h3>Audi A6 allroad I (C5)</h3>
+                    <h4>VIN: X96330232F268854</h4>
+                </div>
+                <div class="btns">
+                    <div class="new small_btn"><h4>Новая</h4></div>
+                    <div class="days small_btn"><h4>1д 2ч</h4></div>
+                </div>
+                <div class="number_title">
+                    <h2>Дата создания: 21.08.22</h2>
+                    <h4>Калининград - Санкт-Петербург</h4>
+                    <h4>21 000 ₽</h4>
+                </div>
+                <div class="note">
+                    <img src="{{ url_for('static', filename='images/note.svg') }}" alt="The picture did not load">
+                    <h4>Заметка</h4>
+                </div>
+            </div>
+        </div>
+        <div class="next_layer">
+            <div class="card">
+                <div class="number_title">
+                    <h2>Номер заявки: 00001/210305</h2>
+                    <h3>Audi A6 allroad I (C5)</h3>
+                    <h4>VIN: X96330232F268854</h4>
+                </div>
+                <div class="btns">
+                    <div class="new small_btn"><h4>Новая</h4></div>
+                    <div class="days small_btn"><h4>1д 2ч</h4></div>
+                </div>
+                <div class="number_title">
+                    <h2>Дата создания: 21.08.22</h2>
+                    <h4>Калининград - Санкт-Петербург</h4>
+                    <h4>21 000 ₽</h4>
+                </div>
+                <div class="note">
+                    <img src="{{ url_for('static', filename='images/note.svg') }}" alt="The picture did not load">
+                    <h4>Заметка</h4>
+                </div>
+            </div>
+            <div class="card">
+                <div class="number_title">
+                    <h2>Номер заявки: 00001/210305</h2>
+                    <h3>Audi A6 allroad I (C5)</h3>
+                    <h4>VIN: X96330232F268854</h4>
+                </div>
+                <div class="btns">
+                    <div class="new small_btn"><h4>Новая</h4></div>
+                    <div class="days small_btn"><h4>1д 2ч</h4></div>
+                </div>
+                <div class="number_title">
+                    <h2>Дата создания: 21.08.22</h2>
+                    <h4>Калининград - Санкт-Петербург</h4>
+                    <h4>21 000 ₽</h4>
+                </div>
+                <div class="note">
+                    <img src="{{ url_for('static', filename='images/note.svg') }}" alt="The picture did not load">
+                    <h4>Заметка</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='scripts/script_1.js') }}"></script>
+</body>
+</html>

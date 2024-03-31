@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вход</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/popup_window_performer_selected.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="new_application">
+        <div class="above_block">
+            <div class="block_1">
+                <h1>Москва - Зеленоград</h1>
+                <div class="two_texts">
+                    <h3>5 000 ₽</h3>
+                    <h4>(включая НДС)</h4>
+                </div>
+            </div>
+            <h4 class="h4_text">BMW 7 серии VI (G11/G12) 740d xDrive</h4>
+            <div class="note">
+                <img src="{{ url_for('static', filename='images/Edit_Square_grey.svg') }}" alt="The picture did not load">
+                <h4 class="right_text">Заметка</h4>
+            </div>
+            <div class="texts_btn">
+                <div class="left_right_blocks">
+                    <div>
+                        <h3 class="left">VIN номер втомобиля</h3>
+                        <h3 class="right">X96330232F268854</h3>
+                    </div>
+                    <div>
+                        <h3 class="left">Адрес погрузки</h3>
+                        <h3 class="right">Москва, Случайный п., массив 1, стр. 2 (часы работы: с 7 до 18)</h3>
+                    </div>
+                    <div>
+                        <h3 class="left">Адрес доставки</h3>
+                        <h3 class="right">г. Зеленоград, ул. Сибирский тракт, 48</h3>
+                    </div>
+                </div>
+                <a href="#" class="text_link"><h3>Подробнее</h3></a>
+            </div>
+        </div>
+        <h3>Выбранная ТК</h3>
+        <div class="middle_block">
+            <div class="choose_tk_block">
+                <div class="TKChoose">
+                    <div class="left_cont">
+                        <div class="upper_block">
+                            <a href="#"><img src="{{ url_for('static', filename='images/tk_avatar_1.png') }}" alt="The picture did not load"></a>
+                            <h3>Cargo Unicorn</h3>
+                            <a href="#"><img src="{{ url_for('static', filename='images/Bookmark_grey.svg') }}" alt="The picture did not load"></a>
+                        </div>
+                        <div class="middle_block">
+                            <div class="suggested_price">
+                                <h3 class="text_16 grey_text">Предложенная цена:</h3>
+                                <h3 class="text_16 bl_text">6 000 ₽</h3>
+                                <h3 class="text_16 red_text">(+1000 ₽)</h3>
+                                <h3 class="text_16 easy_grey_text">(Включая НДС)</h3>
+                            </div>
+                            <div class="blocks">
+                                <div class="loading_time">
+                                    <h3 class="text_16 grey_text">Срок погрузки:</h3>                            <div class="working_hours">
+                                    <h3 class="text_16 bl_text">12.03.22</h3>
+                                </div>
+                                <div class="working_hours">
+                                    <h3 class="text_16 grey_text">Время работы на сайте</h3>                            <div class="working_hours">
+                                    <h3 class="text_16 bl_text">1 год и 2 мес.</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <h3>1 час назад</h3>
+                
+                    </div>
+                    <div class="right_cont">
+                        <div class="raiting_5">
+                           <h3>5.0</h3> 
+                           <img src="{{ url_for('static', filename='images/ant-design_red.svg') }}" alt="The picture did not load">
+                           <img src="{{ url_for('static', filename='images/ant-design_red.svg') }}" alt="The picture did not load">
+                           <img src="{{ url_for('static', filename='images/ant-design_red.svg') }}" alt="The picture did not load">
+                           <img src="{{ url_for('static', filename='images/ant-design_red.svg') }}" alt="The picture did not load">
+                           <img src="{{ url_for('static', filename='images/ant-design_grey.svg') }}" alt="The picture did not load">
+                        </div>
+                        <div class="btn_icon">
+                            <button>ТК Выбрано</button>
+                            <a href="#"><img src="{{ url_for('static', filename='images/Chat_red.svg') }}" alt="The picture did not load"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="responded">
+            <div class="upper_texts">
+                <h3>Cargo Unicom так же откликнулась на 4 ваши заявки</h3>
+                <div class="union_texts">
+                    <a href="#"><h3>Выбрать все</h3></a>
+                    <a href="#"><h3>Отменить выбор</h3></a>
+                </div>
+            </div>
+            <div class="union_blocks">
+                <div class="one_more_task">
+                    <div class="left_cont">
+                        <h3>1</h3>
+                        <img class="with_click" onclick="toggleClicked()" src="{{ url_for('static', filename='images/Checkbox_clicked.svg') }}" alt="The picture did not load">
+                        <img class="without_click" onclick="toggleClicked()" src="{{ url_for('static', filename='images/Checkbox.svg') }}" alt="The picture did not load">
+                        <div class="texts">
+                            <h3 class="upper">BMW 7 серии VI (G11/G12) 740d xDrive</h3>
+                            <div class="below_block">
+                                <h3 class="middle">Москва-Зеленоград</h3>
+                                <div class="below">
+                                    <h3 class="text left">X96330232F268854</h3>
+                                    <h3 class="text right">00001/210305</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="right_cont">
+                        <h3 class="text_above">6 000 ₽</h3>
+                        <h3 class="text_below">(+1000 ₽)</h3>
+                    </div>
+                </div>
+                <div class="one_more_task">
+                    <div class="left_cont">
+                        <h3>2</h3>
+                        <img class="with_click" onclick="toggleClicked()" src="{{ url_for('static', filename='images/Checkbox_clicked.svg') }}" alt="The picture did not load">
+                        <img class="without_click" onclick="toggleClicked()" src="{{ url_for('static', filename='images/Checkbox.svg') }}" alt="The picture did not load">
+                        <div class="texts">
+                            <h3 class="upper">BMW 7 серии VI (G11/G12) 740d xDrive</h3>
+                            <div class="below_block">
+                                <h3 class="middle">Москва-Зеленоград</h3>
+                                <div class="below">
+                                    <h3 class="text left">X96330232F268854</h3>
+                                    <h3 class="text right">00001/210305</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="right_cont">
+                        <h3 class="text_above">6 000 ₽</h3>
+                        <h3 class="text_below">(+1000 ₽)</h3>
+                    </div>
+                </div>
+                <div class="one_more_task">
+                    <div class="left_cont">
+                        <h3>3</h3>
+                        <img class="with_click" onclick="toggleClicked()" src="{{ url_for('static', filename='images/Checkbox_clicked.svg') }}" alt="The picture did not load">
+                        <img class="without_click" onclick="toggleClicked()" src="{{ url_for('static', filename='images/Checkbox.svg') }}" alt="The picture did not load">
+                        <div class="texts">
+                            <h3 class="upper">BMW 7 серии VI (G11/G12) 740d xDrive</h3>
+                            <div class="below_block">
+                                <h3 class="middle">Москва-Зеленоград</h3>
+                                <div class="below">
+                                    <h3 class="text left">X96330232F268854</h3>
+                                    <h3 class="text right">00001/210305</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="right_cont">
+                        <h3 class="text_above">6 000 ₽</h3>
+                        <h3 class="text_below">(+1000 ₽)</h3>
+                    </div>
+                </div>
+                <div class="one_more_task">
+                    <div class="left_cont">
+                        <h3>4</h3>
+                        <img class="with_click" onclick="toggleClicked()" src="{{ url_for('static', filename='images/Checkbox_clicked.svg') }}" alt="The picture did not load">
+                        <img class="without_click" onclick="toggleClicked()" src="{{ url_for('static', filename='images/Checkbox.svg') }}" alt="The picture did not load">
+                        <div class="texts">
+                            <h3 class="upper">BMW 7 серии VI (G11/G12) 740d xDrive</h3>
+                            <div class="below_block">
+                                <h3 class="middle">Москва-Зеленоград</h3>
+                                <div class="below">
+                                    <h3 class="text left">X96330232F268854</h3>
+                                    <h3 class="text right">00001/210305</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="right_cont">
+                        <h3 class="text_above">6 000 ₽</h3>
+                        <h3 class="text_below">(+1000 ₽)</h3>
+                    </div>
+                </div>
+            </div>
+            <h3>На сумму: 20 000 руб.</h3>
+        </div>
+        <div class="union_btns">
+            <button class="filled">Выбрать для 4 заявок</button>
+            <button class="empty">Закрыть</button>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='scripts/script_1.js') }}"></script>
+</body>
+</html>

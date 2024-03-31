@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вход</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/creating_application.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="main_block">
+        <div class="left_cont">
+            <div class="upper">
+                <h1>Создание заявки</h1>
+                <div class="block_1">
+                    <div class="block">
+                        <div class="text_star">
+                            <h3>Транспортное средство</h3>
+                            <img src="{{ url_for('static', filename='images/small_star_red.svg') }}" alt="The picture did not load">
+                        </div>
+                        <div class="choose_bar">
+                            <h3>Выберите авто</h3>
+                            <img src="{{ url_for('static', filename='images/chevron-down_dark.svg') }}" alt="The picture did not load">
+                        </div>
+                        <a href="#"><h3>Добавить а/м</h3></a>
+                    </div>
+                    <div class="block">
+                        <div class="text_star">
+                            <h3>Адрес погрузки</h3>
+                            <img src="{{ url_for('static', filename='images/small_star_red.svg') }}" alt="The picture did not load">
+                        </div>
+                        <div class="choose_bar">
+                            <h3>Выберите склад</h3>
+                            <img src="{{ url_for('static', filename='images/chevron-down_dark.svg') }}" alt="The picture did not load">
+                        </div>
+                    </div>
+                </div>
+                <div class="block_1 special">
+                    <div class="block">
+                        <div class="text_star">
+                            <h3>Адрес доставки</h3>
+                            <img src="{{ url_for('static', filename='images/small_star_red.svg') }}" alt="The picture did not load">
+                        </div>
+                        <div class="choose_bar">
+                            <input type="text" placeholder="Введите адрес в свободной форме">
+                        </div>
+                    </div>
+                </div>
+                <div class="block_1 another_form">
+                    <div class="block">
+                        <div class="text_star">
+                            <h3 class="grey_text">Получатель</h3>
+                            <img src="{{ url_for('static', filename='images/small_star_red.svg') }}" alt="The picture did not load">
+                        </div>
+                        <div class="choose_bar">
+                            <h3 class="grey_text">Выберите получателя</h3>
+                            <img src="{{ url_for('static', filename='images/chevron-down_grey.svg') }}" alt="The picture did not load">
+                        </div>
+                    </div>
+                    <div class="add_recipient">
+                        <a href="#"><h3>+ Добавить получателя</h3></a>
+                    </div>
+                </div>
+                <div class="below_block">
+                    <div class="left_side">
+                        <h3>Тип автовоза</h3>
+                        <div class="tab_2">
+                            <button class="filled">Стандартный</button>
+                            <button class="empty">Крытый</button>
+                        </div>
+                    </div>
+                    <div class="right_side">
+                        <h3>Комментарий для ТК</h3>
+                        <div class="input_box"><input type="text"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="right_cont">
+            <div class="upper_cont">
+                <div class="choose_block">
+                    <h3>Выберите дату доставки</h3>
+                    <div class="choose_bar">
+                        <h3>Выберите дату</h3>
+                        <img src="{{ url_for('static', filename='images/chevron-down_dark.svg') }}" alt="The picture did not load">
+                    </div>
+                </div>
+                <div class="choose_block">
+                    <h3>Временной интервал</h3>
+                    <div class="choose_bar">
+                        <h3>Выберите интервал</h3>
+                        <img src="{{ url_for('static', filename='images/chevron-down_dark.svg') }}" alt="The picture did not load">
+                    </div>
+                </div>
+                <div class="transportation_price">
+                    <div class="text_icon">
+                        <h3>Цена перевозки</h3>
+                        <img src="{{ url_for('static', filename='images/False_red.svg') }}" alt="The picture did not load">
+                    </div>
+                    <h1>0 ₽</h1>
+                </div>
+            </div>
+            <div class="below_cont">
+                <button class="filled">Создать</button>
+                <button class="outline">Закрыть</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='scripts/creating_application.js') }}"></script>
+</body>
+</html>

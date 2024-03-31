@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вход</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/popup_window_confirmed_by_customer.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="new_application">
+        <div class="upper_block">
+            <div class="first">
+                <div class="left_text_right_icons">
+                    <div class="left_texts">
+                        <h1>Москва - Зеленоград</h1>
+                        <div class="below_texts">
+                            <h3>5 000 ₽</h3>
+                            <h4>(включая НДС)</h4>
+                        </div>
+                    </div>
+                    <div class="right_icons">
+                        <div class="icon image_1" onmouseover="changeIconImageFirOver()" onmouseout="changeIconImageFirOut()" onclick="openRightMenu()">
+                            <img class="image_icon_1" src="{{ url_for('static', filename='images/Chat_red.svg') }}" alt="The picture did not load">
+                        </div>
+
+                        <div class="icon image_2" onmouseover="changeIconImageSecOver()" onmouseout="changeIconImageSecOut()" onclick="openRightMenu_2()">
+                            <img class="image_icon_2" src="{{ url_for('static', filename='images/Document_red.svg') }}" alt="The picture did not load">
+                        </div>
+    
+                        <div class="amount_messages">
+                            <h3>3</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="filled_outline_btns">
+                    <button class="filled">Исполнена</button>
+                </div>
+                <div class="time">
+                    <div class="upper_block">
+                        <h3 class="text">BMW 7 серии VI (G11/G12) 740d xDrive</h3>
+                        <h4 class="text">Ожидаемое время погрузки: 26 Августа 2020</h4>
+                    </div>
+                    <div class="below_block">
+                        <h3>Указать точное время погрузки</h3>
+                        <div class="note">
+                            <img src="{{ url_for('static', filename='images/Edit_Square_grey.svg') }}" alt="The picture did not load">
+                            <h4 class="right_text">Заметка</h4>
+                        </div>
+                        <div class="left_right_blocks">
+                            <div class="block left_texts">
+                                <h3>Номер заявки</h3>
+                                <h3>Дата создания заявки</h3>
+                                <h3>Дата доставки</h3>
+                                <h3>VIN номер втомобиля</h3>
+                                <h3>Марка и модель автомобиля</h3>
+                                <h3>Адрес погрузки</h3>
+                                <h3>Адрес доставки</h3>
+                                <h3>Тип автовоза</h3>
+                                <h3>Комментарий для ТК</h3>
+                            </div>
+                            <div class="block right_texts">
+                                <h3>#00001/210305и</h3>
+                                <h3>24.03.21</h3>
+                                <h3>24.03.21 (с 12 до 18 ч) </h3>
+                                <h3>X96330232F268854</h3>
+                                <h3>BMW 7 серии VI (G11/G12) 740d xDrive</h3>
+                                <h3>Москва, Случайный п., массив 1, стр. 2 (часы работы: с 7 до 18)</h3>
+                                <h3>г. Зеленоград, ул. Сибирский тракт, 48</h3>
+                                <h3>Крытый</h3>
+                                <h3>-</h3>
+                            </div>
+                        </div>
+                        <a href="#"><h3>Свернуть</h3></a>
+                    </div>
+                </div>
+            </div>
+            <div class="second">
+                <div class="firm">
+                    <a href="#"><img class="img" src="{{ url_for('static', filename='images/tk_avatar_1.png') }}" alt="The picture did not load"></a>
+                    <h3>Cargo Unicorn</h3>
+                    <a href="#"><img class="img" src="{{ url_for('static', filename='images/Bookmark_red.svg') }}" alt="The picture did not load"></a>
+                </div>
+                <div class="driver">
+                    <div class="block">
+                        <img class="img" src="{{ url_for('static', filename='images/Profile.svg') }}" alt="The picture did not load">
+                        <div class="rigth_block">
+                            <h3 class="text">Водитель:</h3>
+                            <h4 class="text">Петров Валентин Евгеньевич <br> +7 555-23-84-85 <br> +7 555-23-84-86</h4>
+                        </div>
+                    </div>
+                    <div class="block">
+                        <img class="img" src="{{ url_for('static', filename='images/delivery_truck.svg') }}" alt="The picture did not load">
+                        <div class="rigth_block">
+                            <h3 class="text">Автовоз:</h3>
+                            <h4 class="text">Mercedes-Benz Actros 2 <br> (Голова: А 333 АА 78 RUS, <br> прицеп: Б 333 АА 79 RUS)</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="rating">
+                    <div class="star_block">
+                        <h3>Время погрузки</h3>
+                        <div class="stars">
+                            <img class="star" src="{{ url_for('static', filename='images/Star_red.svg') }}" alt="The picture did not load">
+                            <img class="star" src="{{ url_for('static', filename='images/Star_red.svg') }}" alt="The picture did not load">
+                            <img class="star" src="{{ url_for('static', filename='images/Star_red.svg') }}" alt="The picture did not load">
+                            <img class="star" src="{{ url_for('static', filename='images/Star_red.svg') }}" alt="The picture did not load">
+                            <img class="star" src="{{ url_for('static', filename='images/Star_grey.svg') }}" alt="The picture did not load">
+                        </div>
+                    </div>
+                    <div class="star_block">
+                        <h3>Доставка</h3>
+                        <div class="stars">
+                            <img class="star" src="{{ url_for('static', filename='images/Star_grey.svg') }}" alt="The picture did not load">
+                            <img class="star" src="{{ url_for('static', filename='images/Star_grey.svg') }}" alt="The picture did not load">
+                            <img class="star" src="{{ url_for('static', filename='images/Star_grey.svg') }}" alt="The picture did not load">
+                            <img class="star" src="{{ url_for('static', filename='images/Star_grey.svg') }}" alt="The picture did not load">
+                            <img class="star" src="{{ url_for('static', filename='images/Star_grey.svg') }}" alt="The picture did not load">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="two_btns">
+            <button class="with_icon">
+                <img class="star" src="{{ url_for('static', filename='images/Arrow_down_red.svg') }}" alt="The picture did not load">
+                <h3>Вы подтвердили заявку</h3>
+            </button>
+            <button class="without">Закрыть</button>
+        </div>
+    </div>
+
+    <div class="right_side">
+        <div class="upper_menu">
+            <img src="{{ url_for('static', filename='images/tk_avatar_1.png') }}" alt="The picture did not load">
+            <div class="texts">
+                <h3 class="upper">Чат с Cargo Unicorn</h3>
+                <h3 class="below">№ Заявки 31434 234321</h3>
+                <div class="raiting_5">
+                    <h3>5.0</h3> 
+                    <img src="{{ url_for('static', filename='images/ant-design_red.svg') }}" alt="The picture did not load">
+                    <img src="{{ url_for('static', filename='images/ant-design_red.svg') }}" alt="The picture did not load">
+                    <img src="{{ url_for('static', filename='images/ant-design_red.svg') }}" alt="The picture did not load">
+                    <img src="{{ url_for('static', filename='images/ant-design_red.svg') }}" alt="The picture did not load">
+                    <img src="{{ url_for('static', filename='images/ant-design_grey.svg') }}" alt="The picture did not load">
+                 </div>
+            </div>
+        </div>
+        <div class="below_menu">
+            <div class="icons_input">
+                <a href="#"><img src="{{ url_for('static', filename='images/Image_2_red.svg') }}" alt="The picture did not load"></a>
+                <div class="input_box">
+                    <input class="input_field" type="text" placeholder="Напишите сообщение">
+                </div>
+                <a href="#"><img src="{{ url_for('static', filename='images/Send_red.svg') }}" alt="The picture did not load"></a>
+            </div>
+        </div>
+        <div class="text_block">
+            <h3>Сообщений нет</h3>
+        </div>
+    </div>
+
+    <div class="right_side_documents">
+        <h1>Документы по заявке</h1>
+        <div class="docs">
+            <div class="doc">
+                <div class="left_part">
+                    <img src="{{ url_for('static', filename='images/Document.svg') }}" alt="The picture did not load">
+                    <h3>Документ 1</h3>
+                </div>
+                <img src="{{ url_for('static', filename='images/Edit_red.svg') }}" alt="The picture did not load">
+            </div>
+            <div class="doc">
+                <div class="left_part">
+                    <img src="{{ url_for('static', filename='images/Document.svg') }}" alt="The picture did not load">
+                    <h3>Документ 1</h3>
+                </div>
+                <img src="{{ url_for('static', filename='images/Edit_red.svg') }}" alt="The picture did not load">
+            </div>
+            <div class="doc">
+                <div class="left_part">
+                    <img src="{{ url_for('static', filename='images/Document.svg') }}" alt="The picture did not load">
+                    <h3>Документ 1</h3>
+                </div>
+                <img src="{{ url_for('static', filename='images/Edit_red.svg') }}" alt="The picture did not load">
+            </div>
+
+            <div class="doc">
+                <div class="left_part">
+                    <img src="{{ url_for('static', filename='images/Document.svg') }}" alt="The picture did not load">
+                    <h3>Документ 1</h3>
+                </div>
+                <img src="{{ url_for('static', filename='images/Edit_red.svg') }}" alt="The picture did not load">
+            </div>
+        </div>
+        <a href="#"><h3>+ Загрузить документ</h3></a>
+        <div class="grey_line"></div>
+        <h1 class="doc_text">Документы ТК</h1>
+        <div class="docs">
+            <div class="doc">
+                <div class="left_part">
+                    <img src="{{ url_for('static', filename='images/Document.svg') }}" alt="The picture did not load">
+                    <h3>Доверенность от ТК</h3>
+                </div>
+            </div>
+            <div class="doc">
+                <div class="left_part">
+                    <img src="{{ url_for('static', filename='images/Document.svg') }}" alt="The picture did not load">
+                    <h3>Документ 1</h3>
+                </div>
+            </div>
+            <div class="doc">
+                <div class="left_part">
+                    <img src="{{ url_for('static', filename='images/Document.svg') }}" alt="The picture did not load">
+                    <h3>Документ 1</h3>
+                </div>
+            </div>
+            <div class="doc">
+                <div class="left_part">
+                    <img src="{{ url_for('static', filename='images/Document.svg') }}" alt="The picture did not load">
+                    <h3>Документ 1</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='scripts/script_1.js') }}"></script>
+</body>
+</html>

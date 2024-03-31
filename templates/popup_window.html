@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вход</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/popup_window.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="new_application">
+        <div class="above_block">
+            <div class="block_1">
+                <h1>Москва - Зеленоград</h1>
+                <div class="two_texts">
+                    <h3>5 000 ₽</h3>
+                    <h4>(включая НДС)</h4>
+                </div>
+            </div>
+            <h4 class="h4_text">BMW 7 серии VI (G11/G12) 740d xDrive</h4>
+            <div class="note">
+                <img src="{{ url_for('static', filename='images/Edit_Square_grey.svg') }}" alt="The picture did not load">
+                <h4 class="right_text">Заметка</h4>
+            </div>
+            <div class="texts_btn">
+                <div class="left_right_blocks">
+                    <div class="block left_texts">
+                        <h3>Номер заявки</h3>
+                        <h3>Дата создания заявки</h3>
+                        <h3>Дата доставки</h3>
+                        <h3>VIN номер втомобиля</h3>
+                        <h3>Марка и модель автомобиля</h3>
+                        <h3>Адрес погрузки</h3>
+                        <h3>Адрес доставки</h3>
+                        <h3>Тип автовоза</h3>
+                        <h3>Комментарий для ТК</h3>
+                    </div>
+                    <div class="block right_texts">
+                        <h3>#00001/210305и</h3>
+                        <h3>24.03.21</h3>
+                        <h3>24.03.21 (с 12 до 18 ч) </h3>
+                        <h3>X96330232F268854</h3>
+                        <h3>BMW 7 серии VI (G11/G12) 740d xDrive</h3>
+                        <h3>Москва, Случайный п., массив 1, стр. 2 (часы работы: с 7 до 18)</h3>
+                        <h3>г. Зеленоград, ул. Сибирский тракт, 48</h3>
+                        <h3>Крытый</h3>
+                        <h3>-</h3>
+                    </div>
+                </div>
+                <a href="#" class="text_link"><h3>Свернуть</h3></a>
+            </div>
+        </div>
+        <div class="below_block">
+            <button class="close_btn">Закрыть</button>
+            <button class="spec_btn">
+                <img src="{{ url_for('static', filename='images/Edit_grey.svg') }}" alt="The picture did not load">
+                <h3>Редактировать</h3>
+            </button>
+            <button class="spec_btn">
+                <img src="{{ url_for('static', filename='images/Delete_grey.svg') }}" alt="The picture did not load">
+                <h3>Отменить заявку</h3>
+            </button>
+        </div>
+    </div>
+</body>
+</html>

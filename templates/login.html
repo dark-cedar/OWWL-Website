@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вход</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/login.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <img src="{{ url_for('static', filename='images/logo_owwl.svg') }}" alt="The picture did not load">
+    </header>
+    <div class="login enter">
+        <form action="" method="get">
+            <h1>Вход</h1>
+            <div class="log_and_pass">
+                <div class="input_value">
+                    <img class="profile_icon" src="{{ url_for('static', filename='images/Profile.svg') }}" alt="The picture did not load">
+                    <input type="text" placeholder="Логин" required>
+                </div>
+                <div class="input_value">
+                    <img class="lock_icon" src="{{ url_for('static', filename='images/Lock.svg') }}" alt="The picture did not load">
+                    <input type="text" placeholder="Пароль" required>
+                </div>
+            </div>
+            <button>Войти</button>
+            <a href="#"><h4>Восстановить пароль</h4></a>
+        </form>
+    </div>
+    <div class="login recover_password">
+        <form action="" method="get">
+            <h1>Восстановить пароль</h1>
+            <h4>Введите ваш электронный адрес и мы вам отправим инструкцию, как восстановить пароль</h4>
+            <div class="log_and_pass">
+                <div class="old_fields input_value">
+                    <img class="lock_icon" src="{{ url_for('static', filename='images/Lock.svg') }}" alt="The picture did not load">
+                    <input type="text" placeholder="Ваш Email" required>
+                </div>
+            </div>
+            <button>Отправить</button>
+            <a href="#"><h3>Вернуться на <span class="simple_text">страницу входа</span></h3></a>
+        </form>
+    </div>
+</body>
+</html>

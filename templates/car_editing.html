@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вход</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/car_editing.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <section class="reg_auto">
+        <div class="upper_block">
+            <div class="impos_change_data">
+                <img src="{{ url_for('static', filename='images/Info_Circle_dark_grey.svg') }}" alt="The picture did not load">
+                <h3>Невозможно изменить данные авотмобиля, т.к. он находится в заявке.</h3>
+                <div class="block_with_image" onclick="closeUpperBlock()"><img src="{{ url_for('static', filename='images/Close_Square_dark_grey.svg') }}" alt="The picture did not load"></div>
+            </div>
+            <h1 class="editing_text">Редактирование а/м</h1>
+            <div class="go_to_application">
+                <div class="left_btns">
+                    <button class="amount_resps">12 откликов</button>
+                    <button class="amount_time">1д 2ч</button>
+                </div>
+                <button class="go_to_application_btn">Перейти к заявке</button>
+            </div>
+            <div class="line"></div>
+            <div class="input_fields">
+                <section class="one_part">
+                    <div class="text_input_field">
+                        <div class="text_icon">
+                            <h3 class="spec_text">VIN номер</h3>
+                            <img src="{{ url_for('static', filename='images/Small_star_red.svg') }}" alt="The picture did not load">
+                        </div>
+                        <div class="input_field">
+                            <input class="vin" type="text" placeholder="XTA210990Y2766389">
+                        </div>
+                    </div>
+                    <div class="text_input_field">
+                        <div class="text_icon">
+                            <h3 class="spec_text">Марка</h3>
+                            <img src="{{ url_for('static', filename='images/Small_star_red.svg') }}" alt="The picture did not load">
+                        </div>
+                        <div class="input_field">
+                            <input class="mark" type="text" placeholder="BMW">
+                        </div>
+                    </div>
+                    <div class="text_input_field">
+                        <div class="text_icon">
+                            <h3 class="spec_text">Модель автомобиля</h3>
+                            <img src="{{ url_for('static', filename='images/Small_star_red.svg') }}" alt="The picture did not load">
+                        </div>
+                        <div class="input_field">
+                            <input class="model" type="text" placeholder="Выберите модель">
+                        </div>
+                    </div>
+                </section>
+                <section class="one_part">
+                    <div class="text_input_field">
+                        <div class="text_icon">
+                            <h3 class="spec_text">Масса (кг)</h3>
+                        </div>
+                        <div class="input_field">
+                            <input class="weight" type="text" placeholder="Введите массу">
+                        </div>
+                    </div>
+                    <div class="text_input_field">
+                        <div class="text_icon">
+                            <h3 class="spec_text">Габариты (см)</h3>
+                        </div>
+                        <div class="input_field">
+                            <input class="size" type="text" placeholder="Ш / В / Д">
+                        </div>
+                    </div>
+                    <div class="text_input_field">
+                        <div class="text_icon">
+                            <h3 class="spec_text">Склад</h3>
+                            <img src="{{ url_for('static', filename='images/Small_star_red.svg') }}" alt="The picture did not load">
+                        </div>
+                        <div class="input_field">
+                            <input class="warehouse" type="text" placeholder="Выберите склад">
+                        </div>
+                        <a href="#"><h3>+ Добавить склад</h3></a>
+                    </div>
+                </section>
+            </div>
+        </div>
+        <div class="two_btns_delete">
+            <div class="two_btns">
+                <button class="filled" onclick="goOverCarPageWithRegData()">Сохранить</button>
+                <button class="outline" onclick="goOverCarPage()">Закрыть</button>
+            </div>
+            <button class="delete_btn">
+                <img src="{{ url_for('static', filename='images/Delete_grey.svg') }}" alt="The picture did not load">
+                <h3>Удалить</h3>
+            </button>
+        </div>
+    </section>
+
+    <script>
+        var impos_change_data = document.querySelector(".impos_change_data"); 
+        var editing_text = document.querySelector(".editing_text"); 
+        var go_to_application = document.querySelector(".go_to_application"); 
+        var line = document.querySelector(".line");
+        var filled = document.querySelector(".filled");
+        var delete_btn = document.querySelector(".delete_btn");
+
+        function goOverCarPage() {
+            window.location.href = "auto";
+        }
+        
+        function closeUpperBlock() {
+            impos_change_data.style.display = 'none';
+        }
+
+        function goOverCarPageWithRegData() {
+            impos_change_data.style.display = 'flex';
+            editing_text.style.border = 'none';
+            editing_text.style.padding = '0px';
+            go_to_application.style.display = 'flex';
+            line.style.display = 'flex';
+            filled.style.display = 'none';
+            delete_btn.style.display = 'none';
+        }
+    </script>
+</body>
+</html>

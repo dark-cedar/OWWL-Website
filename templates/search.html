@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вход</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/search.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <img src="{{ url_for('static', filename='images/logo_owwl.svg') }}" alt="The picture did not load">
+        <div class="right_cont">
+            <ul>
+                <li><a href="#">А/м и склады</a></li>
+                <li><a href="#">Список ТК</a></li>
+                <li><a href="#">Журнал документов</a></li>
+                <li><a href="#">Вопрос ответ</a></li>
+            </ul>
+            <div class="settings">
+                <div class="logo_and_options">
+                    <img src="{{ url_for('static', filename='images/ava_no_updates.svg') }}" alt="The picture did not load">
+                    <div class="text_icon">
+                        <h4>Favorit Motors</h4>
+                        <a href="#"><img src="{{ url_for('static', filename='images/chevron-down.svg') }}" alt="The picture did not load"></a>
+                    </div>
+                </div>
+                <div class="two_icons">
+                    <div class="icon navbar_icon_message">
+                        <img class="img" src="{{ url_for('static', filename='images/Chat_white.svg') }}" alt="The picture did not load">
+                    </div>
+
+                    <div class="icon navbar_icon_message">
+                        <img class="img" src="{{ url_for('static', filename='images/Notification_white.svg') }}" alt="The picture did not load">
+                    </div>
+
+                    <div class="amount_messages">
+                        <h3>3</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="application_manager">
+        <div class="header_tabs_filter">
+            <h1>Диспетчер заявок</h1>
+            <div class="filter_panel">
+                <button class="create_request">Создать заявку</button>
+                <div class="new_search_field">
+                    <a href="#"><img src="{{ url_for('static', filename='images/Search.svg') }}" alt="The picture did not load"></a>
+                    <input class="input_field" type="text" placeholder="Поиск">
+                </div>
+                <div class="new_filter_button">
+                    <img class="filter_icon" src="{{ url_for('static', filename='images/Filter.svg') }}" alt="The picture did not load">
+                </div>
+            </div>
+        </div>
+
+        <div class="statistics">
+            <div class="left_cont">
+                <div class="card">
+                    <h3>Новые:</h3>
+                    <h4>3</h4>
+                </div>
+                <div class="card">
+                    <h3>С откликом:</h3>
+                    <h4>2</h4>
+                </div>
+                <div class="card">
+                    <h3>В процессе доставки:</h3>
+                    <h4>1</h4>
+                </div>
+                <img src="{{ url_for('static', filename='images/carbon_reset.svg') }}" alt="The picture did not load">
+            </div>
+
+            <div class="right_cont">
+                <div class="sorting">
+                    <h4>По дате</h4>
+                    <a href="#"><img src="{{ url_for('static', filename='images/sort_1.svg') }}" alt="The picture did not load"></a>
+                </div>
+                <h4>По цене</h4>
+            </div>
+        </div>
+    </div>
+
+    <div class="found">
+        <h3>Найдено:</h3>
+        <h4>6 заявок на сумму 120 000 ₽</h4>
+    </div>
+
+    <div class="cards">
+        <div class="next_layer">
+            <div class="card">
+                <div class="number_title">
+                    <h2>Номер заявки: 00001/210305</h2>
+                    <h3>Audi A6 allroad I (C5)</h3>
+                    <h4>VIN: X96330232F268854</h4>
+                </div>
+                <div class="btns">
+                    <div class="new small_btn"><h4>Новая</h4></div>
+                    <div class="days small_btn"><h4>1д 2ч</h4></div>
+                </div>
+                <div class="number_title">
+                    <h2>Дата создания: 21.08.22</h2>
+                    <h4>Калининград - Санкт-Петербург</h4>
+                    <h4>21 000 ₽</h4>
+                </div>
+                <div class="note">
+                    <img src="{{ url_for('static', filename='images/note.svg') }}" alt="The picture did not load">
+                    <h4>Заметка</h4>
+                </div>
+            </div>
+            <div class="card">
+                <div class="number_title">
+                    <h2>Номер заявки: 00001/210305</h2>
+                    <h3>Audi A6 allroad I (C5)</h3>
+                    <h4>VIN: X96330232F268854</h4>
+                </div>
+                <div class="btns">
+                    <div class="new small_btn"><h4>Новая</h4></div>
+                    <div class="days small_btn"><h4>1д 2ч</h4></div>
+                </div>
+                <div class="number_title">
+                    <h2>Дата создания: 21.08.22</h2>
+                    <h4>Калининград - Санкт-Петербург</h4>
+                    <h4>21 000 ₽</h4>
+                </div>
+                <div class="note">
+                    <img src="{{ url_for('static', filename='images/note.svg') }}" alt="The picture did not load">
+                    <h4>Заметка</h4>
+                </div>
+            </div>
+            <div class="card">
+                <div class="number_title">
+                    <h2>Номер заявки: 00001/210305</h2>
+                    <h3>Audi A6 allroad I (C5)</h3>
+                    <h4>VIN: X96330232F268854</h4>
+                </div>
+                <div class="btns">
+                    <div class="new small_btn"><h4>Новая</h4></div>
+                    <div class="days small_btn"><h4>1д 2ч</h4></div>
+                </div>
+                <div class="number_title">
+                    <h2>Дата создания: 21.08.22</h2>
+                    <h4>Калининград - Санкт-Петербург</h4>
+                    <h4>21 000 ₽</h4>
+                </div>
+                <div class="note">
+                    <img src="{{ url_for('static', filename='images/note.svg') }}" alt="The picture did not load">
+                    <h4>Заметка</h4>
+                </div>
+            </div>
+            <div class="card">
+                <div class="number_title">
+                    <h2>Номер заявки: 00001/210305</h2>
+                    <h3>Audi A6 allroad I (C5)</h3>
+                    <h4>VIN: X96330232F268854</h4>
+                </div>
+                <div class="btns">
+                    <div class="new small_btn"><h4>Новая</h4></div>
+                    <div class="days small_btn"><h4>1д 2ч</h4></div>
+                </div>
+                <div class="number_title">
+                    <h2>Дата создания: 21.08.22</h2>
+                    <h4>Калининград - Санкт-Петербург</h4>
+                    <h4>21 000 ₽</h4>
+                </div>
+                <div class="note">
+                    <img src="{{ url_for('static', filename='images/note.svg') }}" alt="The picture did not load">
+                    <h4>Заметка</h4>
+                </div>
+            </div>
+        </div>
+        <div class="next_layer">
+            <div class="card">
+                <div class="number_title">
+                    <h2>Номер заявки: 00001/210305</h2>
+                    <h3>Audi A6 allroad I (C5)</h3>
+                    <h4>VIN: X96330232F268854</h4>
+                </div>
+                <div class="btns">
+                    <div class="new small_btn"><h4>Новая</h4></div>
+                    <div class="days small_btn"><h4>1д 2ч</h4></div>
+                </div>
+                <div class="number_title">
+                    <h2>Дата создания: 21.08.22</h2>
+                    <h4>Калининград - Санкт-Петербург</h4>
+                    <h4>21 000 ₽</h4>
+                </div>
+                <div class="note">
+                    <img src="{{ url_for('static', filename='images/note.svg') }}" alt="The picture did not load">
+                    <h4>Заметка</h4>
+                </div>
+            </div>
+            <div class="card">
+                <div class="number_title">
+                    <h2>Номер заявки: 00001/210305</h2>
+                    <h3>Audi A6 allroad I (C5)</h3>
+                    <h4>VIN: X96330232F268854</h4>
+                </div>
+                <div class="btns">
+                    <div class="new small_btn"><h4>Новая</h4></div>
+                    <div class="days small_btn"><h4>1д 2ч</h4></div>
+                </div>
+                <div class="number_title">
+                    <h2>Дата создания: 21.08.22</h2>
+                    <h4>Калининград - Санкт-Петербург</h4>
+                    <h4>21 000 ₽</h4>
+                </div>
+                <div class="note">
+                    <img src="{{ url_for('static', filename='images/note.svg') }}" alt="The picture did not load">
+                    <h4>Заметка</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
