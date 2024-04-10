@@ -9,22 +9,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
-    <script>      
-        var amountMessages = document.querySelector(".amount_messages");
-        function toggleOptions() {
-            var logoVars = document.querySelector(".logo_vars");
-            if (logoVars.style.display === "flex") {
-                logoVars.style.display = "none";
-                amountMessages.style.border = "none";
-                amountMessages.style.boxShadow = "0px 4px 12px 0px rgba(255, 166, 166, 0.6)";
-            } else {
-                logoVars.style.display = "flex";
-                logoVars.style.opacity = "1";
-                amountMessages.style.border = "2px solid rgba(255, 98, 98, 1)";
-                amountMessages.style.boxShadow = "0px 4px 12px 0px rgba(255, 166, 166, 0.6)";
-            }
-        }
-    </script>
 </head>
 <body>
     <header>
@@ -60,8 +44,117 @@
         </div>
     </header>
 
+    <div class="message_opening">
+        <div class="upper_menu">
+            <img src="{{ url_for('static', filename='images/tk_avatar_1.png') }}" alt="The picture did not load">
+            <div class="texts">
+                <h3 class="upper">Чат с Cargo Unicorn</h3>
+                <h3 class="below">№ Заявки 31434 234321</h3>
+                <div class="raiting_5">
+                    <h3>5.0</h3> 
+                    <img src="{{ url_for('static', filename='images/ant-design_red.svg') }}" alt="The picture did not load">
+                    <img src="{{ url_for('static', filename='images/ant-design_red.svg') }}" alt="The picture did not load">
+                    <img src="{{ url_for('static', filename='images/ant-design_red.svg') }}" alt="The picture did not load">
+                    <img src="{{ url_for('static', filename='images/ant-design_red.svg') }}" alt="The picture did not load">
+                    <img src="{{ url_for('static', filename='images/ant-design_grey.svg') }}" alt="The picture did not load">
+                 </div>
+            </div>
+        </div>
+        <div class="below_menu">
+            <form action="" method="post" class="icons_input" enctype="multipart/form-data">
+                <button class="open_img_btn">
+                    <img class="choose_img" src="{{ url_for('static', filename='images/Image_2_red.svg') }}" alt="The picture did not load">
+                </button>
+                <div class="input_box">
+                    <input class="input_field" name="text_input" type="text" placeholder="Напишите сообщение">
+                </div>
+                <button class="send_btn" name="chat_form" type="submit">
+                    <img src="{{ url_for('static', filename='images/Send_red.svg') }}" alt="The picture did not load">
+                </button>
+            </form>
+        </div>
+        {% if messages_lst|length == 0 %}
+            <div class="text_block">
+                <h3>Сообщений нет</h3>
+            </div>
+        {% else %}
+            <div class="spec_block">
+                {% for mes in messages_lst %}
+                    <div class="message_block">
+                        <img src="{{ url_for('static', filename='images/user_avatar.svg') }}" alt="The picture did not load">
+                        <div class="right_cont">
+                            <div class="two_upper_texts">
+                                <h3>Favorit Motors</h3>
+                                <h4>{{ mes[0] }}</h4>
+                            </div>
+                            <h1 class="below_text_h1">{{ mes[-1] }}</h1>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    </div>
+
     {% block main_cont %}{% endblock %}
 
     {% block script %}{% endblock %}
+
+    <script>      
+        var amountMessages = document.querySelector(".amount_messages");
+        var messageOpening = document.querySelector(".message_opening");
+        messageOpening.style.display = 'none';
+
+        document.addEventListener("click", function(event) {
+            if (!messageOpening.contains(event.target)) {
+                messageOpening.style.display = 'none'; 
+                messageOpening.style.opacity = '0';
+                messageOpened = false;
+            }
+            if (!inputBox.contains(event.target) && messageOpening.contains(event.target)) {
+                inputBox.style.border = '1px solid rgba(227, 227, 227, 1)'; 
+            }
+        });
+
+        function toggleOptions() {
+            var logoVars = document.querySelector(".logo_vars");
+            if (logoVars.style.display === "flex") {
+                logoVars.style.display = "none";
+                amountMessages.style.border = "none";
+                amountMessages.style.boxShadow = "0px 4px 12px 0px rgba(255, 166, 166, 0.6)";
+            } else {
+                logoVars.style.display = "flex";
+                logoVars.style.opacity = "1";
+                amountMessages.style.border = "2px solid rgba(255, 98, 98, 1)";
+                amountMessages.style.boxShadow = "0px 4px 12px 0px rgba(255, 166, 166, 0.6)";
+            }
+        }
+        
+        // for opening message right option
+        var navbarIconMessage = document.querySelector(".navbar_icon_message")
+        navbarIconMessage.addEventListener('click', function() {
+            event.stopPropagation();
+            var messageOpening = document.querySelector(".message_opening");
+            if (messageOpening.style.display === 'none') {
+                messageOpening.style.display = 'flex';
+                messageOpening.style.opacity = '1';
+                inputBox.style.border = '1px solid rgba(227, 227, 227, 1)'; 
+                messageOpened = true;
+            }
+        })
+
+        // red input box color changing
+        var inputBox = document.querySelector('.input_box')
+
+        inputBox.addEventListener("click", function(event) {
+            inputBox.style.border = '1px solid rgba(255, 98, 98, 1)'; 
+        });
+
+        document.addEventListener('keydown', function(event) {
+            if (event.key === "Escape") {
+                inputBox.style.border = '1px solid rgba(227, 227, 227, 1)';
+                inputBox.preventDefault();
+            }
+        });
+    </script>
 </body>
 </html>

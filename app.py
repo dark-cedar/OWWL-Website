@@ -3,12 +3,14 @@ from flask_mail import Mail, Message
 
 from data import db_session
 from data.users import User
+from data.messages import Message
 from data import db_session
 from werkzeug.security import check_password_hash, generate_password_hash
 from data.company_data import email_pass_data
 
 import secrets
 import string
+from datetime import datetime
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'yandexlyceum_secret_key'
@@ -22,8 +24,10 @@ app.config['MAIL_USE_TLS'] = False
 app.config['MAIL_USE_SSL'] = True
 app.config['MAIL_USERNAME'] = email_pass_data['email']
 app.config['MAIL_PASSWORD'] = email_pass_data['password']
-
 mail = Mail(app)
+
+# for text messages
+messages_lst = []
 
 
 def generate_password(length=12):
@@ -31,8 +35,10 @@ def generate_password(length=12):
     password = ''.join(secrets.choice(alphabet) for _ in range(length))
     return password
 
+
 def main():
     pass
+
 
 def authenticate_user(login, password):
     user = db_sess.query(User).filter(User.login == login).first()
@@ -76,13 +82,34 @@ def login():
             return redirect(url_for('login'))
     return render_template('login.html')
 
+
 @app.route('/search')
 def search():
     return render_template('search.html')
 
-@app.route('/main_page')
+
+@app.route('/main_page', methods=['GET', 'POST'])
 def main_page():
-    return render_template('main_page.html')
+    if request.method == 'POST':
+        if 'chat_form' in request.form:
+            text = request.form.get('text_input')
+
+            # time
+            now = datetime.now()
+            time, day, month, year = now.time(), now.day, now.month, now.year
+            string_for_db = f'{time} {day} {month} {year}'
+            if text:
+                message = Message()
+                message.text = text
+                message.timestamp = string_for_db
+                messages_lst.append([text, string_for_db])
+                
+                db_sess = db_session.create_session()
+                db_sess.add(message)
+                db_sess.commit()
+                
+    return render_template('main_page.html', messages_lst=messages_lst)
+
 
 @app.route('/with_response')
 def with_response():
@@ -147,6 +174,10 @@ def warehouses_editing():
 @app.route('/adding_legal_entity')
 def adding_legal_entity():
     return render_template('adding_legal_entity.html')
+
+@app.route('/header')
+def header():
+    return render_template('header.html')
 
 
 if __name__ == '__main__':
