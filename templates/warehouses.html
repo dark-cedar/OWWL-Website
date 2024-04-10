@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Вход</title>
+    <title>Регистрация / Склады</title>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/warehouses.css') }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -62,7 +62,7 @@
             </div>
             <section class="below_cont">
                 <div class="btns_search">
-                    <button class="filled add_auto" onclick="goOverCarRegistration()">Добавить склад</button>
+                    <button class="filled add_auto" onclick="goOverWarehousesRegistration()">Добавить склад</button>
                     <button class="filled view_btn">Вид</button>
                     <div class="new_search_field" onclick="searchBarClicked()">
                         <img class="search_grey" src="{{ url_for('static', filename='images/Search.svg') }}" alt="The picture did not load">
@@ -119,7 +119,7 @@
                     <div class="model model_hours">
                         <h3 class="below_text">С 8 До 21 (Вых: С 8 До 16)</h3>
                     </div>
-                    <div class="model model_action">
+                    <div class="model model_action action_icon">
                         <img src="{{ url_for('static', filename='images/More Circle.svg') }}" alt="The picture did not load">
                     </div>
                 </div>
@@ -683,12 +683,8 @@
             window.location.href = "auto";
         }
 
-        function goOverCarRegistration() {
-            window.location.href = "car_registration";
-        }
-
-        function goOverCarRegistration() {
-            window.location.href = "car_registration";
+        function goOverWarehousesRegistration() {
+            window.location.href = "warehouses_registration";
         }
     
         function ClipPathBtn_1Clicked() {
@@ -703,6 +699,11 @@
                 spec[i].style.display = 'flex';
             }
         }
+
+        var action_icon = document.querySelector(".action_icon");
+        action_icon.addEventListener('click', function() {
+            window.location.href = "warehouses_editing";
+        });
     </script>
 </body>
 </html>

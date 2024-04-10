@@ -1,0 +1,345 @@
+/*=============== VARIABLES CSS ===============*/
+:root {
+  /*========== Colors ==========*/
+  /*Color mode HSL(hue, saturation, lightness)*/
+  --bg-color: hsl(220, 10%, 96%);
+  --grey-line-color: hsl(0, 0%, 89%);
+  --green-price-color: hsl(144, 81%, 40%);
+  --100-white-color: hsl(0, 0%, 100%);
+  --100-black-color: hsl(0, 0%, 0%);
+  --dark-color: hsl(0, 0%, 20%);
+  --middle-grey-color: hsl(0, 0%, 52%);
+  --super-light-color: hsl(240, 11%, 98%);
+  --red-color: hsl(0, 100%, 63%);
+  --light-red-color: hsl(0, 100%, 69%);
+  --blue-color: hsl(194, 100%, 43%);
+  --01-simple-color: hsl(194, 65%, 87%);
+  --02-simple-color: hsl(25, 89%, 96%);
+  /*========== Font and typography ==========*/
+  /*.5rem = 8px | 1rem = 16px ...*/
+  --body-font: "IBM Plex Sans", sans-serif;
+  --32-font-size: 2rem;
+  --26-font-size: 1.625rem;
+  --24-font-size: 1.5rem;
+  --18-font-size: 1.125rem;
+  --16-font-size: 1rem;
+  --15-font-size: .937rem;
+  --13-font-size: .812rem;
+  --14-font-size: .875rem;
+  --11-font-size: .687rem;
+  /*========== Font weight ==========*/
+  --reg-font-weight: 400;
+  --med-font-weight: 500;
+  --semi-font-weight: 600;
+  /*========== z index ==========*/
+  --z-index-10: 10;
+  --z-index-100: 100;
+  --z-index-1000: 1000;
+}
+
+/*=============== BASE ===============*/
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--body-font);
+  font-size: var(--18-font-size);
+  background-color: var(--bg-color);
+  color: var(--dark-color);
+}
+
+h1, h2, h3, h4 {
+  color: var(--title-color);
+  font-weight: var(--semi-font-weight);
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  pointer-events: none;
+}
+
+input, button {
+  font-family: var(--body-font);
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+
+/*=============== READY ELEMENTS ===============*/
+.font_32_semi_100_black {
+  font-size: var(--32-font-size);
+  font-weight: var(--semi-font-weight);
+  color: var(--100-black-color);
+}
+
+.font_16_med_light_red {
+  font-size: var(--16-font-size);
+  font-weight: var(--med-font-weight);
+  color: var(--light-red-color);
+}
+
+.font_14_med_100_white {
+  font-size: var(--14-font-size);
+  font-weight: var(--med-font-weight);
+  color: var(--100-white-color);
+}
+
+.new_search_field {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: var(--100-white-color);
+  border-radius: 8px;
+  border: 1px solid var(--grey-line-color);
+  padding: 9px 12px;
+  width: 100%;
+  height: 42px;
+  cursor: default;
+}
+.new_search_field .input_field {
+  width: 100%;
+  height: 40px;
+  cursor: default;
+}
+.new_search_field a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.new_search_field:hover {
+  box-shadow: 0px 10px 13px 0px rgba(27, 44, 49, 0.04);
+}
+
+.search_black {
+  display: none;
+  opacity: 0;
+}
+
+.chosen {
+  background-color: var(--light-red-color);
+  border-radius: 16px;
+  padding: 4px 16px;
+  font-size: var(--16-font-size);
+  font-weight: var(--med-font-weight);
+  color: var(--100-white-color);
+}
+
+.not_chosen {
+  background-color: transparent;
+  font-size: var(--14-font-size);
+  font-weight: var(--semi-font-weight);
+  color: var(--light-red-color);
+}
+
+.below_text {
+  font-size: var(--14-font-size) !important;
+  font-weight: var(--reg-font-weight) !important;
+  color: var(--dark-color) !important;
+}
+
+.text_input_field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}
+.text_input_field .text_input_field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.text_input_field .text_input_field .text_icon {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.text_input_field .text_input_field .text_icon h3 {
+  font-size: var(--16-font-size);
+  font-weight: var(--med-font-weight);
+  color: var(--dark-color);
+}
+.text_input_field .input_field {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0px 12px 0px 12px;
+  border: 1px solid var(--grey-line-color);
+  border-radius: 8px;
+  height: 42px;
+}
+.text_input_field .input_field input {
+  width: 100%;
+  height: 100%;
+}
+.text_input_field .input_field input::-moz-placeholder {
+  font-size: var(--14-font-size);
+  font-weight: var(--med-font-weight);
+  color: var(--dark-color);
+}
+.text_input_field .input_field input::placeholder {
+  font-size: var(--14-font-size);
+  font-weight: var(--med-font-weight);
+  color: var(--dark-color);
+}
+.text_input_field .drop_down_list {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  border: 1px solid var(--grey-line-color);
+  border-radius: 8px;
+  background-color: var(--100-white-color);
+  box-shadow: 0px 10px 13px 0px rgba(27, 44, 49, 0.04);
+  gap: 10px;
+  opacity: 0;
+  animation-name: show;
+}
+.text_input_field .drop_down_list .firm {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+.text_input_field .drop_down_list .firm h3 {
+  font-size: var(--14-font-size);
+  font-weight: var(--med-font-weight);
+  color: var(--dark-color);
+}
+.text_input_field .drop_down_list .firm h4 {
+  font-size: var(--14-font-size);
+  font-weight: var(--med-font-weight);
+  color: var(--middle-grey-color);
+}
+.text_input_field .drop_down_list .line {
+  width: 100%;
+  height: 1px;
+  background-color: var(--grey-line-color);
+}
+.text_input_field a h3 {
+  font-size: var(--15-font-size);
+  font-weight: var(--reg-font-weight);
+  color: var(--light-red-color);
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  width: 100%;
+  height: 100%;
+}
+body section {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 24px;
+  width: 100%;
+  height: 650px;
+  background-color: var(--100-white-color);
+  border-radius: 24px;
+  padding: 32px 329px;
+}
+body section h1 {
+  font-size: var(--26-font-size);
+  font-weight: var(--semi-font-weight);
+  color: var(--dark-color);
+}
+body section .title_address {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+body section .legal_entity {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+body section .legal_entity .add_and_content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+body section .legal_entity .text_icon {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+body section .legal_entity .text_icon h3 {
+  font-size: var(--16-font-size);
+  font-weight: var(--med-font-weight);
+  color: var(--dark-color);
+}
+body section .legal_entity a h3 {
+  font-size: var(--15-font-size);
+  font-weight: var(--med-font-weight);
+  color: var(--light-red-color);
+}
+body section .legal_entity .add_block {
+  display: none;
+  flex-direction: column;
+  gap: 8px;
+}
+body section .legal_entity .add_block .upper_block {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+body section .legal_entity .add_block .upper_block h3 {
+  font-size: var(--16-font-size);
+  font-weight: var(--med-font-weight);
+  color: var(--dark-color);
+}
+body section .comb_btns {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+body section .comb_btns .two_left {
+  display: flex;
+  gap: 8px;
+}
+body section .comb_btns .two_left button {
+  padding: 15px 24px;
+  border-radius: 8px;
+  font-size: var(--14-font-size);
+  font-weight: var(--med-font-weight);
+}
+body section .comb_btns .two_left .filled {
+  background-color: var(--light-red-color);
+  color: var(--100-white-color);
+}
+body section .comb_btns .two_left .outline {
+  background-color: transparent;
+  color: var(--light-red-color);
+  border: 2px solid var(--light-red-color);
+}
+body section .comb_btns .empty {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+body section .comb_btns .empty h3 {
+  font-size: var(--14-font-size);
+  font-weight: var(--med-font-weight);
+  color: var(--middle-grey-color);
+}/*# sourceMappingURL=warehouses_editing.css.map */

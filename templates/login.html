@@ -14,35 +14,79 @@
         <img src="{{ url_for('static', filename='images/logo_owwl.svg') }}" alt="The picture did not load">
     </header>
     <div class="login enter">
-        <form action="" method="get">
-            <h1>Вход</h1>
+        <h1>Вход</h1>
+        
+        <form action="" method="POST">
             <div class="log_and_pass">
-                <div class="input_value">
+                <div class="input_value login_field">
                     <img class="profile_icon" src="{{ url_for('static', filename='images/Profile.svg') }}" alt="The picture did not load">
-                    <input type="text" placeholder="Логин" required>
+                    <input name="login" type="text" placeholder="Логин" required>
                 </div>
-                <div class="input_value">
+                <div class="input_value password_field">
                     <img class="lock_icon" src="{{ url_for('static', filename='images/Lock.svg') }}" alt="The picture did not load">
-                    <input type="text" placeholder="Пароль" required>
+                    <input name="password" type="password" placeholder="Пароль" required>
                 </div>
             </div>
-            <button>Войти</button>
+            <button class="login_btn" type="submit" name="login_form">Войти</button>
             <a href="#"><h4>Восстановить пароль</h4></a>
         </form>
     </div>
+
     <div class="login recover_password">
-        <form action="" method="get">
-            <h1>Восстановить пароль</h1>
-            <h4>Введите ваш электронный адрес и мы вам отправим инструкцию, как восстановить пароль</h4>
+        <h1>Восстановить пароль</h1>
+        <h4>Введите ваш электронный адрес и мы вам отправим инструкцию, как восстановить пароль</h4>
+        <form action="" method="POST" name="reset_form">
             <div class="log_and_pass">
-                <div class="old_fields input_value">
-                    <img class="lock_icon" src="{{ url_for('static', filename='images/Lock.svg') }}" alt="The picture did not load">
-                    <input type="text" placeholder="Ваш Email" required>
+                <div class="input_value email_field">
+                    <input name="email" type="text" placeholder="Ваш Email" required>
                 </div>
             </div>
-            <button>Отправить</button>
+            <button class="login_btn" name="reset_form">Отправить</button>
             <a href="#"><h3>Вернуться на <span class="simple_text">страницу входа</span></h3></a>
         </form>
     </div>
+
+    <script>
+        // variables
+        var loginField = document.querySelector(".login_field")
+        var passwordField = document.querySelector(".password_field")
+        var emailField = document.querySelector(".email_field")
+
+        loginField.addEventListener("click", function() {
+            loginField.style.border = '1px solid rgba(255, 98, 98, 1)';
+        });
+        
+        passwordField.addEventListener("click", function() {
+            passwordField.style.border = '1px solid rgba(255, 98, 98, 1)';
+        });
+
+        emailField.addEventListener("click", function() {
+            emailField.style.border = '1px solid rgba(255, 98, 98, 1)';
+        });
+
+        // To identify a click outside
+        document.addEventListener("click", function() {
+            var isClickInsideLoginField = loginField.contains(event.target);
+            var isClickInsidePasswordField = passwordField.contains(event.target);
+            var isClickInsideEmailField = emailField.contains(event.target);
+
+            if (!isClickInsideLoginField) {
+                loginField.style.border = '1px solid rgba(227, 227, 227, 1)';
+            }
+            if (!isClickInsidePasswordField) {
+                passwordField.style.border = '1px solid rgba(227, 227, 227, 1)';
+            }
+            if (!isClickInsideEmailField) {
+                emailField.style.border = '1px solid rgba(227, 227, 227, 1)';
+            }
+        });
+
+        window.onload = function() {
+            var alert_message = "{{ get_flashed_messages()[0] if get_flashed_messages() else '' }}";
+            if (alert_message) {
+                alert(alert_message);
+            }
+        };
+    </script>
 </body>
 </html>

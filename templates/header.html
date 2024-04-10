@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %}</title>
+    {% block css %}{% endblock %}
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/header.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+    <script>      
+        var amountMessages = document.querySelector(".amount_messages");
+        function toggleOptions() {
+            var logoVars = document.querySelector(".logo_vars");
+            if (logoVars.style.display === "flex") {
+                logoVars.style.display = "none";
+                amountMessages.style.border = "none";
+                amountMessages.style.boxShadow = "0px 4px 12px 0px rgba(255, 166, 166, 0.6)";
+            } else {
+                logoVars.style.display = "flex";
+                logoVars.style.opacity = "1";
+                amountMessages.style.border = "2px solid rgba(255, 98, 98, 1)";
+                amountMessages.style.boxShadow = "0px 4px 12px 0px rgba(255, 166, 166, 0.6)";
+            }
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <img src="{{ url_for('static', filename='images/logo_owwl.svg') }}" alt="The picture did not load">
+        <div class="right_cont">
+            <ul>
+                <li><a href="#">А/м и склады</a></li>
+                <li><a href="#">Список ТК</a></li>
+                <li><a href="#">Журнал документов</a></li>
+                <li><a href="#">Вопрос ответ</a></li>
+            </ul>
+            <div class="settings">
+                <div class="logo_and_options" onclick="toggleOptions()">
+                    <img src="{{ url_for('static', filename='images/ava_no_updates.svg') }}" alt="The picture did not load">
+                    <div class="text_icon">
+                        <h4>Favorit Motors</h4>
+                        <a href="#"><img src="{{ url_for('static', filename='images/chevron-down.svg') }}" alt="The picture did not load"></a>
+                    </div>
+                </div>
+                <div class="two_icons">
+                    <div class="icon navbar_icon_message"></div>
+                    <div class="icon navbar_icon_notification"></div>
+
+                    <div class="amount_messages">
+                        <h3 class="amount_messages_text">3</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="logo_vars">
+            <h3 class="profile" onclick="profileRedirection()">Профиль</h3>
+            <h3 class="out">Выйти</h3>
+        </div>
+    </header>
+
+    {% block main_cont %}{% endblock %}
+
+    {% block script %}{% endblock %}
+</body>
+</html>

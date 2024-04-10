@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Редактирование склад</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/warehouses_editing.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <section>
+        <h1>Редактировать склад</h1>
+        <div class="text_input_field">
+            <div class="text_input_field">
+                <div class="text_icon">
+                    <h3>Название</h3>
+                    <img src="{{ url_for('static', filename='images/Small_star_red.svg') }}" alt="The picture did not load">
+                </div>
+                <div class="input_field">
+                    <input class="vin title_input" type="text" placeholder="Назовите ваш склад">
+                </div>
+            </div>
+            <div class="text_input_field">
+                <div class="text_icon">
+                    <h3>Введите адрес</h3>
+                    <img src="{{ url_for('static', filename='images/Small_star_red.svg') }}" alt="The picture did not load">
+                </div>
+                <div class="input_field" onclick="inputField()">
+                    <input class="vin address_input" type="text" placeholder="Москва, Ленинградский проспект, 72к4">
+                </div>
+                <div class="drop_down_list">
+                    <div class="firm">
+                        <h3>ООО Рассвет</h3>
+                        <h4>Юр. лицо</h4>
+                    </div>
+                    <div class="line"></div>
+                    <div class="firm">
+                        <h3>ООО Ромашка</h3>
+                        <h4>Юр. лицо</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="legal_entity">
+            <div class="add_and_content">
+                <div class="text_icon">
+                    <h3>Юридическое лицо</h3>
+                    <img src="{{ url_for('static', filename='images/Small_star_red.svg') }}" alt="The picture did not load">
+                </div>
+                <div class="add_block">
+                    <div class="upper_block">
+                        <img src="{{ url_for('static', filename='images/Edit_Square_red.svg') }}" alt="The picture did not load">
+                        <h3>ООО Рассвет</h3>
+                    </div>
+                    <a href="#" class="standart_red_link hidden"><h3>- Удалить</h3></a>
+                </div>
+            </div>
+            <a href="#" class="standart_red_link_add"><h3>+ Добавить</h3></a>
+        </div>
+        <div class="comb_btns">
+            <div class="two_left">
+                <button class="filled redir_to_main">Сохранить</button>
+                <button class="outline redir_to_main">Закрыть</button>
+            </div>
+            <div class="empty">
+                <img src="{{ url_for('static', filename='images/Delete_grey.svg') }}" alt="The picture did not load">
+                <h3>Удалить</h3>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Button color processing
+        var titleInput = document.querySelector('.title_input');
+        var addressInput = document.querySelector('.address_input');
+        var greyBtn = document.querySelector('.grey_btn');
+        var thereIsTextInput1 = false;
+        var thereIsTextInput2 = false;
+
+        function checkInputFirst() {
+            if (titleInput.value.trim() !== '') {
+                thereIsTextInput1 = true;
+            } else {
+                thereIsTextInput1 = false;
+            }
+            paintButton()
+        }
+
+        function checkInputSecond() {
+            if (addressInput.value.trim() !== '') {
+                thereIsTextInput2 = true;
+            } else {
+                thereIsTextInput2 = false;
+            }
+            paintButton()
+        }
+
+        function paintButton() {
+            if (thereIsTextInput1 && thereIsTextInput2) {
+                greyBtn.style.backgroundColor = '#FF6262';
+                greyBtn.style.color = '#FFFFFF';
+            } else {
+                greyBtn.style.backgroundColor = '#F3F4F5';
+                greyBtn.style.color = '#858585';
+            }
+        }
+
+        titleInput.addEventListener('input', checkInputFirst);
+        addressInput.addEventListener('input', checkInputSecond);
+        // by default
+        window.addEventListener('load', checkInputFirst);
+        window.addEventListener('load', checkInputSecond);
+
+        // button pressing
+        function greyBtnClicked() {
+            if (thereIsTextInput1 && thereIsTextInput2) {
+                window.location.href = 'warehouses';
+            }
+        }
+
+        // Enter the address
+
+        function inputField() {
+            var drop_down_list = document.querySelector('.drop_down_list');
+            if (drop_down_list.style.display === "flex") {
+                drop_down_list.style.display = "none";
+                drop_down_list.style.opacity = "0";
+                document.removeEventListener("click", closeInputFieldOutside);
+            } else {
+                drop_down_list.style.display = "flex";
+                drop_down_list.style.opacity = "1";
+                document.addEventListener("click", closeInputFieldOutside);
+            }
+        }
+
+        function closeInputFieldOutside(event) {
+            var addressInput = document.querySelector(".address_input");
+
+            if (!addressInput.contains(event.target)) {
+                var drop_down_list = document.querySelector('.drop_down_list');
+                drop_down_list.style.display = "none";
+                drop_down_list.style.opacity = "0";
+                document.removeEventListener("click", closeInputFieldOutside);
+            }
+        }
+
+        // editing
+        var standartRedLink = document.querySelector('.standart_red_link');
+        var addBlock = document.querySelector('.add_block');
+        var standartRedLinkAdd = document.querySelector('.standart_red_link_add');
+        var redirToMain = document.querySelectorAll('.redir_to_main');
+
+        standartRedLink.addEventListener('click', function() {
+            addBlock.style.display = 'none';
+        });
+
+        standartRedLinkAdd.addEventListener('click', function() {
+            addBlock.style.display = 'flex';
+        });
+
+        redirToMain.forEach(elem => {
+            elem.addEventListener('click', function() {
+                window.location.href = 'warehouses';
+            });
+        })
+
+        var emptyBtn = document.querySelector('.empty');
+        emptyBtn.addEventListener('click', function() {
+            window.location.href = 'warehouses';
+        });
+    </script>
+</body>
+</html>

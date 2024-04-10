@@ -1,48 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Вход</title>
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/auto.css') }}">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
-</head>
-<body>
-    <header>
-        <img src="{{ url_for('static', filename='images/logo_owwl.svg') }}" alt="The picture did not load">
-        <div class="right_cont">
-            <ul>
-                <li><a href="#">А/м и склады</a></li>
-                <li><a href="#">Список ТК</a></li>
-                <li><a href="#">Журнал документов</a></li>
-                <li><a href="#">Вопрос ответ</a></li>
-            </ul>
-            <div class="settings">
-                <div class="logo_and_options" onclick="toggleOptions()">
-                    <img src="{{ url_for('static', filename='images/ava_no_updates.svg') }}" alt="The picture did not load">
-                    <div class="text_icon">
-                        <h4>Favorit Motors</h4>
-                        <a href="#"><img src="{{ url_for('static', filename='images/chevron-down.svg') }}" alt="The picture did not load"></a>
-                    </div>
-                </div>
-                <div class="two_icons">
-                    <div class="icon navbar_icon_message" onmouseover="messageIconOnMouseOver()" onmouseout="messageIconOnMouseOut()"></div>
-                    <div class="icon navbar_icon_notification"></div>
+{% extends "header.html" %}
 
-                    <div class="amount_messages">
-                        <h3 class="amount_messages_text">3</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="logo_vars">
-            <h3 class="profile" onclick="profileRedirection()">Профиль</h3>
-            <h3 class="out">Выйти</h3>
-        </div>
-    </header>
+{% block title %}Личный кабинет / Автомобили{% endblock %}
+{% block css %}<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/auto.css') }}">{% endblock %}
 
+{% block main_cont %}
     <section>
         <div class="upper_texts">
             <a href="main_page"><h3 class="font_16_med_light_red">На главную</h3></a>
@@ -475,10 +436,10 @@
             </section>
         </section>
     </section>
+{% endblock %}
 
-    <!-- inherited files -->
-    <script src="{{ url_for('static', filename='scripts/header.js') }}"></script>
-    
+
+{% block script %}
     <script>
         const new_search_field = document.querySelector(".new_search_field");
         const search_grey = document.querySelector('.search_grey');
@@ -735,6 +696,18 @@
         // cells selected
         const deleteSelectedBtn = document.querySelector(".deleteSelectedBtn"); 
 
+        var sel_main = false;
+        var sel_1 = false;
+        var sel_2 = false;
+        var sel_3 = false;
+        var sel_4 = false;
+        var sel_5 = false;
+        var sel_6 = false;
+        var sel_7 = false;
+        var sel_8 = false;
+        var sel_9 = false;
+        var sel_10 = false;
+
         function cellClick(cell_num) {
             if (cell_num === 'main_cell') {
                 const main_cell_image = document.querySelector(".main_cell_image");
@@ -742,143 +715,186 @@
                     main_cell_image.style.display = 'none'
                     main_cell_image.style.opacity = '0';
                     document.querySelector(".spec_main").style.backgroundColor = '#FFF';
+                    sel_main = false;
                 } else {
                     main_cell_image.style.display = 'flex';
                     main_cell_image.style.opacity = '1';
                     document.querySelector(".spec_main").style.backgroundColor = '#FEF4ED';
                     deleteSelectedBtn.style.backgroundColor = '#FF6262';
                     deleteSelectedBtn.style.color = '#FFF';
+                    sel_main = true;
                 }
+                checkAtLeastOne()
             } else if (cell_num === 1) {
                 const check_icon_1 = document.querySelector(".check_icon_1");
                 if (check_icon_1.style.display == 'flex') {
                     check_icon_1.style.display = 'none'
                     check_icon_1.style.opacity = '0';
                     document.querySelector(".spec_1").style.backgroundColor = '#FFF';
+                    sel_1 = false;
                 } else {
                     check_icon_1.style.display = 'flex';
                     check_icon_1.style.opacity = '1';
                     document.querySelector(".spec_1").style.backgroundColor = '#FEF4ED';
                     deleteSelectedBtn.style.backgroundColor = '#FF6262';
                     deleteSelectedBtn.style.color = '#FFF';
+                    sel_1 = true;
                 }
+                checkAtLeastOne()
             } else if (cell_num === 2) {
                 const check_icon_2 = document.querySelector(".check_icon_2");
                 if (check_icon_2.style.display == 'flex') {
                     check_icon_2.style.display = 'none'
                     check_icon_2.style.opacity = '0';
                     document.querySelector(".spec_2").style.backgroundColor = '#FFF';
+                    sel_2 = false;
                 } else {
                     check_icon_2.style.display = 'flex';
                     check_icon_2.style.opacity = '1';
                     document.querySelector(".spec_2").style.backgroundColor = '#FEF4ED';
                     deleteSelectedBtn.style.backgroundColor = '#FF6262';
                     deleteSelectedBtn.style.color = '#FFF';
+                    sel_2 = true;
                 }
+                checkAtLeastOne()
             } else if (cell_num === 3) {
                 const check_icon_3 = document.querySelector(".check_icon_3");
                 if (check_icon_3.style.display == 'flex') {
                     check_icon_3.style.display = 'none'
                     check_icon_3.style.opacity = '0';
                     document.querySelector(".spec_3").style.backgroundColor = '#FFF';
+                    sel_3 = false;
                 } else {
                     check_icon_3.style.display = 'flex';
                     check_icon_3.style.opacity = '1';
                     document.querySelector(".spec_3").style.backgroundColor = '#FEF4ED';
                     deleteSelectedBtn.style.backgroundColor = '#FF6262';
                     deleteSelectedBtn.style.color = '#FFF';
+                    sel_3 = true;
                 }
+                checkAtLeastOne()
             } else if (cell_num === 4) {
                 const check_icon_4 = document.querySelector(".check_icon_4");
                 if (check_icon_4.style.display == 'flex') {
                     check_icon_4.style.display = 'none'
                     check_icon_4.style.opacity = '0';
                     document.querySelector(".spec_4").style.backgroundColor = '#FFF';
+                    sel_4 = false;
                 } else {
                     check_icon_4.style.display = 'flex';
                     check_icon_4.style.opacity = '1';
                     document.querySelector(".spec_4").style.backgroundColor = '#FEF4ED';
                     deleteSelectedBtn.style.backgroundColor = '#FF6262';
                     deleteSelectedBtn.style.color = '#FFF';
+                    sel_4 = true;
                 }
+                checkAtLeastOne()
             } else if (cell_num === 5) {
                 const check_icon_5 = document.querySelector(".check_icon_5");
                 if (check_icon_5.style.display == 'flex') {
                     check_icon_5.style.display = 'none'
                     check_icon_5.style.opacity = '0';
                     document.querySelector(".spec_5").style.backgroundColor = '#FFF';
+                    sel_5 = false;
                 } else {
                     check_icon_5.style.display = 'flex';
                     check_icon_5.style.opacity = '1';
                     document.querySelector(".spec_5").style.backgroundColor = '#FEF4ED';
                     deleteSelectedBtn.style.backgroundColor = '#FF6262';
                     deleteSelectedBtn.style.color = '#FFF';
+                    sel_5 = true;
                 }
+                checkAtLeastOne()
             } else if (cell_num === 6) {
                 const check_icon_6 = document.querySelector(".check_icon_6");
                 if (check_icon_6.style.display == 'flex') {
                     check_icon_6.style.display = 'none'
                     check_icon_6.style.opacity = '0';
                     document.querySelector(".spec_6").style.backgroundColor = '#FFF';
+                    sel_6 = false;
                 } else {
                     check_icon_6.style.display = 'flex';
                     check_icon_6.style.opacity = '1';
                     document.querySelector(".spec_6").style.backgroundColor = '#FEF4ED';
                     deleteSelectedBtn.style.backgroundColor = '#FF6262';
                     deleteSelectedBtn.style.color = '#FFF';
+                    sel_6 = true;
                 }
+                checkAtLeastOne()
             } else if (cell_num === 7) {
                 const check_icon_7 = document.querySelector(".check_icon_7");
                 if (check_icon_7.style.display == 'flex') {
                     check_icon_7.style.display = 'none'
                     check_icon_7.style.opacity = '0';
                     document.querySelector(".spec_7").style.backgroundColor = '#FFF';
+                    sel_7 = false;
                 } else {
                     check_icon_7.style.display = 'flex';
                     check_icon_7.style.opacity = '1';
                     document.querySelector(".spec_7").style.backgroundColor = '#FEF4ED';
                     deleteSelectedBtn.style.backgroundColor = '#FF6262';
                     deleteSelectedBtn.style.color = '#FFF';
+                    sel_7 = true;
                 }
+                checkAtLeastOne()
             } else if (cell_num === 8) {
                 const check_icon_8 = document.querySelector(".check_icon_8");
                 if (check_icon_8.style.display == 'flex') {
                     check_icon_8.style.display = 'none'
                     check_icon_8.style.opacity = '0';
                     document.querySelector(".spec_8").style.backgroundColor = '#FFF';
+                    sel_8 = false;
                 } else {
                     check_icon_8.style.display = 'flex';
                     check_icon_8.style.opacity = '1';
                     document.querySelector(".spec_8").style.backgroundColor = '#FEF4ED';
                     deleteSelectedBtn.style.backgroundColor = '#FF6262';
                     deleteSelectedBtn.style.color = '#FFF';
+                    sel_8 = true;
                 }
+                checkAtLeastOne()
             } else if (cell_num === 9) {
                 const check_icon_9 = document.querySelector(".check_icon_9");
                 if (check_icon_9.style.display == 'flex') {
                     check_icon_9.style.display = 'none'
                     check_icon_9.style.opacity = '0';
                     document.querySelector(".spec_9").style.backgroundColor = '#FFF';
+                    sel_9 = false;
                 } else {
                     check_icon_9.style.display = 'flex';
                     check_icon_9.style.opacity = '1';
                     document.querySelector(".spec_9").style.backgroundColor = '#FEF4ED';
                     deleteSelectedBtn.style.backgroundColor = '#FF6262';
                     deleteSelectedBtn.style.color = '#FFF';
+                    sel_9 = true;
                 }
+                checkAtLeastOne()
             } else if (cell_num === 10) {
                 const check_icon_10 = document.querySelector(".check_icon_10");
                 if (check_icon_10.style.display == 'flex') {
                     check_icon_10.style.display = 'none'
                     check_icon_10.style.opacity = '0';
                     document.querySelector(".spec_10").style.backgroundColor = '#FFF';
+                    sel_10 = false;
                 } else {
                     check_icon_10.style.display = 'flex';
                     check_icon_10.style.opacity = '1';
                     document.querySelector(".spec_10").style.backgroundColor = '#FEF4ED';
                     deleteSelectedBtn.style.backgroundColor = '#FF6262';
                     deleteSelectedBtn.style.color = '#FFF';
+                    sel_10 = true;
                 }
+                checkAtLeastOne()
+            }
+        }
+
+        function checkAtLeastOne() {
+            if ([sel_main, sel_1, sel_2, sel_3, sel_4, sel_5, sel_6, sel_7, sel_8, sel_9, sel_10].every(element => element === false)) {
+                deleteSelectedBtn.style.backgroundColor = '#F3F4F5';
+                deleteSelectedBtn.style.color = '#858585';
+            } else {
+                deleteSelectedBtn.style.backgroundColor = '#FF6262';
+                deleteSelectedBtn.style.color = '#FFF';
             }
         }
 
@@ -989,5 +1005,4 @@
             }
         }
     </script>
-</body>
-</html>
+{% endblock %}
