@@ -134,6 +134,10 @@ input, button {
     }
 }
 
+.with_icon, .without {
+    cursor: pointer;
+}
+
 /*========== Animations ==========*/
 @keyframes opacity_for_filter_in {
     from {

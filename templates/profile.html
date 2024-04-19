@@ -1,0 +1,304 @@
+{% extends "header.html" %}
+
+{% block title %}Профиль / личные данные{% endblock %}
+{% block css %}<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/profile.css') }}">{% endblock %}
+
+{% block main_cont %}
+    <section>
+        <div class="upper_texts">
+            <a href="main_page"><h3 class="font_16_med_light_red">На главную</h3></a>
+            <h1 class="font_32_semi_100_black">Профиль</h1>
+        </div>
+        <section class="below_section">
+            <div class="btn_transparent">
+                <div class="clip_path_btn_data">
+                    <h3>Личные данные</h3>
+                </div>
+                <div class="clip_path_btn_documents">
+                    <h3>Договора</h3>
+                </div>
+            </div>
+            <section class="below_cont">
+                <div class="hint_block">
+                    <img class="Info_Circle_dark_grey" src="{{ url_for('static', filename='images/Info_Circle_dark_grey.svg') }}" alt="The picture did not load">
+                    <h3>Используйте номер ИНН для автоматического заполнения полей</h3>
+                    <a onclick="closeHintBlock()"><img class="Close_Square_dark_grey" src="{{ url_for('static', filename='images/Close_Square_dark_grey.svg') }}" alt="The picture did not load"></a>
+                </div>
+                <form class="all_information_block" action="/profile" method="POST" enctype="multipart/form-data">
+                    <div class="avatar_section">
+                        {% if max_id_filename is none %}
+                            <div class="empty_avat">
+                                <h3>FM</h3>
+                            </div>
+                        {% else %}
+                            <img class="avatar_img" src="{{ url_for('static', filename='user_avatars/' + max_id_filename) }}" alt="The picture did not load">
+                        {% endif %}
+
+                        <div class="right_cont">
+                            <div class="above">
+                                <div class="right_texts">
+                                    <h3 class="download_avat_text">Загрузить аватар</h3>
+                                    <input name="image" type="file" class="imageInput" style="display: none;">
+                                    <h4>Favorit Motors</h4>
+                                </div>
+                                <a class="add_contact_person"><h3>+ Добавить контактное лицо</h3></a>
+                                <div class="input_block">
+                                    <h3>Контактное лицо</h3>
+                                    <div class="input_icon_text">
+                                        <img class="Edit_Square_grey_icon" src="{{ url_for('static', filename='images/Edit_Square_grey.svg') }}" alt="The picture did not load">
+                                        <input name="contact_person" class="input_box" type="text" placeholder="{{ dict_['contact_person'] }}">
+                                    </div>
+                                </div>
+                                <div class="input_block">
+                                    <h3>Должность</h3>
+                                    <div class="input_icon_text">
+                                        <img class="Edit_Square_grey_icon" src="{{ url_for('static', filename='images/Edit_Square_grey.svg') }}" alt="The picture did not load">
+                                        <input name="position" class="input_box entered" type="text" placeholder="{{ dict_['position'] }}">
+                                    </div>
+                                </div>
+                                <div class="input_block">
+                                    <h3>Рабочий телефон:</h3>
+                                    <div class="input_icon_text">
+                                        <img class="Edit_Square_grey_icon" src="{{ url_for('static', filename='images/Edit_Square_grey.svg') }}" alt="The picture did not load">
+                                        <input name="work_phone_num" class="input_box entered" type="text" placeholder="{{ dict_['work_phone_num'] }}">
+                                    </div>
+                                </div>
+                                <div class="input_block">
+                                    <h3>Мобильный телефон:</h3>
+                                    <div class="input_icon_text">
+                                        <img class="Edit_Square_grey_icon" src="{{ url_for('static', filename='images/Edit_Square_grey.svg') }}" alt="The picture did not load">
+                                        <input name="mobile_phone_num" class="input_box entered" type="text" placeholder="{{ dict_['mobile_phone_num'] }}">
+                                    </div>
+                                </div>
+                                <div class="input_block">
+                                    <h3>Почта</h3>
+                                    <div class="input_icon_text">
+                                        <img class="Edit_Square_grey_icon" src="{{ url_for('static', filename='images/Edit_Square_grey.svg') }}" alt="The picture did not load">
+                                        <input name="mail" class="input_box entered" type="text" placeholder="{{ dict_['mail'] }}">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="below">
+                                <h1>Бухгалтерия</h1>
+                                <div class="input_block">
+                                    <h3>Рабочий телефон:</h3>
+                                    <div class="input_icon_text">
+                                        <img class="Edit_Square_grey_icon" src="{{ url_for('static', filename='images/Edit_Square_grey.svg') }}" alt="The picture did not load">
+                                        <input name="accounting_work_phone_num" class="input_box entered" type="text" placeholder="{{ dict_['accounting_work_phone_num'] }}">
+                                    </div>
+                                </div>
+                                <div class="input_block">
+                                    <h3>Мобильный телефон:</h3>
+                                    <div class="input_icon_text">
+                                        <img class="Edit_Square_grey_icon" src="{{ url_for('static', filename='images/Edit_Square_grey.svg') }}" alt="The picture did not load">
+                                        <input name="accounting_mobile_phone_num" class="input_box entered" type="text" placeholder="{{ dict_['accounting_mobile_phone_num'] }}">
+                                    </div>
+                                </div>
+                                <div class="input_block">
+                                    <h3>Почта</h3>
+                                    <div class="input_icon_text">
+                                        <img class="Edit_Square_grey_icon" src="{{ url_for('static', filename='images/Edit_Square_grey.svg') }}" alt="The picture did not load">
+                                        <input name="accounting_mail" class="input_box entered" type="text" placeholder="{{ dict_['accounting_mail'] }}">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <section class="company_inputs">
+                        <div class="text_input">
+                            <div class="name_req">
+                                <h2>Полное наименование</h2>
+                                <img class="Small_star_red_icon" src="{{ url_for('static', filename='images/Small_star_red.svg') }}" alt="The picture did not load">
+                            </div>
+                            <div class="input_box">
+                                <img class="Edit_Square_grey_icon" src="{{ url_for('static', filename='images/Edit_Square_grey.svg') }}" alt="The picture did not load">
+                                <input name="full_name" type="text" placeholder="{{ dict_['full_name'] }}">
+                            </div>
+                        </div>
+                        <div class="text_input">
+                            <div class="name_req">
+                                <h2>Краткое наименование</h2>
+                                <img class="Small_star_red_icon" src="{{ url_for('static', filename='images/Small_star_red.svg') }}" alt="The picture did not load">
+                            </div>
+                            <div class="input_box">
+                                <img class="Edit_Square_grey_icon" src="{{ url_for('static', filename='images/Edit_Square_grey.svg') }}" alt="The picture did not load">
+                                <input name="short_name" type="text" placeholder="{{ dict_['short_name'] }}">
+                            </div>
+                        </div>
+                        <div class="text_input">
+                            <div class="name_req">
+                                <h2>Генеральный директор</h2>
+                                <img class="Small_star_red_icon" src="{{ url_for('static', filename='images/Small_star_red.svg') }}" alt="The picture did not load">
+                            </div>
+                            <div class="input_box">
+                                <img class="Edit_Square_grey_icon" src="{{ url_for('static', filename='images/Edit_Square_grey.svg') }}" alt="The picture did not load">
+                                <input name="general_manager" type="text" placeholder="{{ dict_['general_manager'] }}">
+                            </div>
+                        </div>
+                        <div class="text_input">
+                            <div class="name_req">
+                                <h2>Главный Бухгалтер</h2>
+                                <img class="Small_star_red_icon" src="{{ url_for('static', filename='images/Small_star_red.svg') }}" alt="The picture did not load">
+                            </div>
+                            <div class="input_box">
+                                <img class="Edit_Square_grey_icon" src="{{ url_for('static', filename='images/Edit_Square_grey.svg') }}" alt="The picture did not load">
+                                <input name="chief_accountant" type="text" placeholder="{{ dict_['chief_accountant'] }}">
+                            </div>
+                        </div>
+                        <div class="text_input">
+                            <div class="name_req">
+                                <h2>Юридический адрес</h2>
+                                <img class="Small_star_red_icon" src="{{ url_for('static', filename='images/Small_star_red.svg') }}" alt="The picture did not load">
+                            </div>
+                            <div class="input_box">
+                                <img class="Edit_Square_grey_icon" src="{{ url_for('static', filename='images/Edit_Square_grey.svg') }}" alt="The picture did not load">
+                                <input name="legal_address" type="text" placeholder="{{ dict_['legal_address'] }}">
+                            </div>
+                        </div>
+                        <div class="text_input">
+                            <div class="name_req">
+                                <h2>Почтовый адрес</h2>
+                                <img class="Small_star_red_icon" src="{{ url_for('static', filename='images/Small_star_red.svg') }}" alt="The picture did not load">
+                            </div>
+                            <div class="input_box">
+                                <img class="Edit_Square_grey_icon" src="{{ url_for('static', filename='images/Edit_Square_grey.svg') }}" alt="The picture did not load">
+                                <input name="postal_address" type="text" placeholder="{{ dict_['postal_address'] }}">
+                            </div>
+                        </div>
+                        <div class="two_input_fields">
+                            <div class="text_input">
+                                <div class="name_req">
+                                    <h2>Телефон</h2>
+                                    <img class="Small_star_red_icon" src="{{ url_for('static', filename='images/Small_star_red.svg') }}" alt="The picture did not load">
+                                </div>
+                                <div class="input_box">
+                                    <img class="Edit_Square_grey_icon" src="{{ url_for('static', filename='images/Edit_Square_grey.svg') }}" alt="The picture did not load">
+                                    <input name="phone" type="text" placeholder="{{ dict_['phone'] }}">
+                                </div>
+                            </div>
+                            <div class="text_input">
+                                <div class="name_req">
+                                    <h2>Email</h2>
+                                    <img class="Small_star_red_icon" src="{{ url_for('static', filename='images/Small_star_red.svg') }}" alt="The picture did not load">
+                                </div>
+                                <div class="input_box">
+                                    <img class="Edit_Square_grey_icon" src="{{ url_for('static', filename='images/Edit_Square_grey.svg') }}" alt="The picture did not load">
+                                    <input name="email" type="text" placeholder="{{ dict_['email'] }}">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="two_input_fields">
+                            <div class="text_input">
+                                <div class="name_req">
+                                    <h2>ИНН</h2>
+                                    <img class="Small_star_red_icon" src="{{ url_for('static', filename='images/Small_star_red.svg') }}" alt="The picture did not load">
+                                </div>
+                                <div class="input_box">
+                                    <img class="Edit_Square_grey_icon" src="{{ url_for('static', filename='images/Edit_Square_grey.svg') }}" alt="The picture did not load">
+                                    <input name="inn" type="text" placeholder="{{ dict_['inn'] }}">
+                                </div>
+                            </div>
+                            <div class="text_input">
+                                <div class="name_req">
+                                    <h2>КПП</h2>
+                                    <img class="Small_star_red_icon" src="{{ url_for('static', filename='images/Small_star_red.svg') }}" alt="The picture did not load">
+                                </div>
+                                <div class="input_box">
+                                    <img class="Edit_Square_grey_icon" src="{{ url_for('static', filename='images/Edit_Square_grey.svg') }}" alt="The picture did not load">
+                                    <input name="kpp" type="text" placeholder="{{ dict_['kpp'] }}">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="two_input_fields">
+                            <div class="text_input">
+                                <div class="name_req">
+                                    <h2>ОГРН</h2>
+                                    <img class="Small_star_red_icon" src="{{ url_for('static', filename='images/Small_star_red.svg') }}" alt="The picture did not load">
+                                </div>
+                                <div class="input_box">
+                                    <img class="Edit_Square_grey_icon" src="{{ url_for('static', filename='images/Edit_Square_grey.svg') }}" alt="The picture did not load">
+                                    <input name="ogrn" type="text" placeholder="{{ dict_['ogrn'] }}">
+                                </div>
+                            </div>
+                            <div class="text_input">
+                                <div class="name_req">
+                                    <h2>Система налогооблажения</h2>
+                                    <img class="Small_star_red_icon" src="{{ url_for('static', filename='images/Small_star_red.svg') }}" alt="The picture did not load">
+                                </div>
+                                <div class="input_box">
+                                    <img class="Edit_Square_grey_icon" src="{{ url_for('static', filename='images/Edit_Square_grey.svg') }}" alt="The picture did not load">
+                                    <input name="tax_system" type="text" placeholder="{{ dict_['tax_system'] }}">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="text_input">
+                            <div class="name_req">
+                                <h2>Полное наименование банка</h2>
+                                <img class="Small_star_red_icon" src="{{ url_for('static', filename='images/Small_star_red.svg') }}" alt="The picture did not load">
+                            </div>
+                            <div class="input_box">
+                                <img class="Edit_Square_grey_icon" src="{{ url_for('static', filename='images/Edit_Square_grey.svg') }}" alt="The picture did not load">
+                                <input name="full_bank_name" type="text" placeholder="{{ dict_['full_bank_name'] }}">
+                            </div>
+                        </div>
+                        <div class="two_input_fields">
+                            <div class="text_input">
+                                <div class="name_req">
+                                    <h2>Расчетный счет</h2>
+                                    <img class="Small_star_red_icon" src="{{ url_for('static', filename='images/Small_star_red.svg') }}" alt="The picture did not load">
+                                </div>
+                                <div class="input_box">
+                                    <img class="Edit_Square_grey_icon" src="{{ url_for('static', filename='images/Edit_Square_grey.svg') }}" alt="The picture did not load">
+                                    <input name="payment_account" type="text" placeholder="{{ dict_['payment_account'] }}">
+                                </div>
+                            </div>
+                            <div class="text_input">
+                                <div class="name_req">
+                                    <h2>БИК</h2>
+                                    <img class="Small_star_red_icon" src="{{ url_for('static', filename='images/Small_star_red.svg') }}" alt="The picture did not load">
+                                </div>
+                                <div class="input_box">
+                                    <img class="Edit_Square_grey_icon" src="{{ url_for('static', filename='images/Edit_Square_grey.svg') }}" alt="The picture did not load">
+                                    <input name="bik" type="text" placeholder="{{ dict_['bik'] }}">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="text_input">
+                            <div class="name_req">
+                                <h2>Корреспондентский счет банка</h2>
+                                <img class="Small_star_red_icon" src="{{ url_for('static', filename='images/Small_star_red.svg') }}" alt="The picture did not load">
+                            </div>
+                            <div class="input_box">
+                                <img class="Edit_Square_grey_icon" src="{{ url_for('static', filename='images/Edit_Square_grey.svg') }}" alt="The picture did not load">
+                                <input name="correspondent_account" type="text" placeholder="{{ dict_['correspondent_account'] }}">
+                            </div>
+                        </div>
+                        <button class="save_btn" type="submit">Сохранить</button>
+                    </section>
+                </form>
+            </section>
+        </section>
+    </section>
+{% endblock %}
+
+{% block script %}
+    <script>
+        var DownloadAvatText = document.querySelector('.download_avat_text');
+        var imageInput = document.querySelector('.imageInput');
+        DownloadAvatText.addEventListener('click', function() {
+            imageInput.click();
+        });
+
+        function closeHintBlock() {
+            document.querySelector('.hint_block').style.opacity = '0';
+            setTimeout(function() {
+                document.querySelector('.hint_block').style.display = 'none';
+            }, 225);
+        }
+
+        var clipPathBtnDocuments = document.querySelector('.clip_path_btn_documents');
+        clipPathBtnDocuments.addEventListener('click', function() {
+            window.location.href = 'documents'
+        });
+    </script>
+{% endblock %}

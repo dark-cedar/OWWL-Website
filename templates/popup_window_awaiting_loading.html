@@ -111,7 +111,7 @@
             </div>
         </div>
         <div class="two_btns">
-            <button class="filled">Закрыть</button>
+            <button class="filled btn">Закрыть</button>
             <button class="outline">Открыть спор</button>
         </div>
     </div>
@@ -211,5 +211,12 @@
     </div>
 
     <script src="{{ url_for('static', filename='scripts/script_1.js') }}"></script>
+
+    <script>
+        var btnFilled = document.querySelector('.filled.btn')
+        btnFilled.addEventListener('click', function handleClick() {
+            window.location.href = 'main_page';
+        });
+    </script>
 </body>
 </html>

@@ -22,7 +22,3 @@ document.addEventListener("click", function(event) {
         new_search_field.style.border = '1px solid var(--grey-line-color)';
     }
 });
-
-document.querySelector(".add_recipient").addEventListener("click", function() {
-    window.location.href = "add_recipient";
-});

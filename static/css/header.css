@@ -129,6 +129,10 @@ input, button {
   color: var(--middle-grey-color);
 }
 
+.profile, .out {
+  cursor: pointer;
+}
+
 body header {
   display: flex;
   align-items: center;
@@ -299,6 +303,7 @@ body .message_opening {
   right: 0px;
   top: 0px;
   overflow: scroll;
+  z-index: 1000;
 }
 body .message_opening .upper_menu {
   display: flex;

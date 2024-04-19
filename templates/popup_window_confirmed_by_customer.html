@@ -124,11 +124,11 @@
             </div>
         </div>
         <div class="two_btns">
-            <button class="with_icon">
+            <button class="with_icon btn">
                 <img class="star" src="{{ url_for('static', filename='images/Arrow_down_red.svg') }}" alt="The picture did not load">
                 <h3>Вы подтвердили заявку</h3>
             </button>
-            <button class="without">Закрыть</button>
+            <button class="without btn">Закрыть</button>
         </div>
     </div>
 
@@ -227,5 +227,12 @@
     </div>
 
     <script src="{{ url_for('static', filename='scripts/script_1.js') }}"></script>
+
+    <script>
+        var withoutBtn = document.querySelector('.without.btn')
+        withoutBtn.addEventListener('click', function() {
+            window.location.href = 'main_page';
+        });
+    </script>
 </body>
 </html>

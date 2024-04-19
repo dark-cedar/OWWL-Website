@@ -1,0 +1,434 @@
+/*=============== VARIABLES CSS ===============*/
+:root {
+  /*========== Colors ==========*/
+  /*Color mode HSL(hue, saturation, lightness)*/
+  --bg-color: hsl(220, 10%, 96%);
+  --grey-line-color: hsl(0, 0%, 89%);
+  --green-price-color: hsl(144, 81%, 40%);
+  --100-white-color: hsl(0, 0%, 100%);
+  --100-black-color: hsl(0, 0%, 0%);
+  --dark-color: hsl(0, 0%, 20%);
+  --middle-grey-color: hsl(0, 0%, 52%);
+  --super-light-color: hsl(240, 11%, 98%);
+  --red-color: hsl(0, 100%, 63%);
+  --light-red-color: hsl(0, 100%, 69%);
+  --blue-color: hsl(194, 100%, 43%);
+  --01-simple-color: hsl(194, 65%, 87%);
+  --02-simple-color: hsl(25, 89%, 96%);
+  /*========== Font and typography ==========*/
+  /*.5rem = 8px | 1rem = 16px ...*/
+  --body-font: "IBM Plex Sans", sans-serif;
+  --32-font-size: 2rem;
+  --24-font-size: 1.5rem;
+  --19-font-size: 1.187rem;
+  --18-font-size: 1.125rem;
+  --16-font-size: 1rem;
+  --15-font-size: .937rem;
+  --13-font-size: .812rem;
+  --14-font-size: .875rem;
+  --11-font-size: .687rem;
+  /*========== Font weight ==========*/
+  --reg-font-weight: 400;
+  --med-font-weight: 500;
+  --semi-font-weight: 600;
+  /*========== z index ==========*/
+  --z-index-10: 10;
+  --z-index-100: 100;
+  --z-index-1000: 1000;
+}
+
+/*=============== BASE ===============*/
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--body-font);
+  font-size: var(--18-font-size);
+  background-color: var(--bg-color);
+  color: var(--dark-color);
+}
+
+h1, h2, h3, h4 {
+  color: var(--title-color);
+  font-weight: var(--semi-font-weight);
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  pointer-events: none;
+}
+
+input, button {
+  font-family: var(--body-font);
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+
+/*=============== READY ELEMENTS ===============*/
+.font_32_semi_100_black {
+  font-size: var(--32-font-size);
+  font-weight: var(--semi-font-weight);
+  color: var(--100-black-color);
+}
+
+.font_16_med_light_red {
+  font-size: var(--16-font-size);
+  font-weight: var(--med-font-weight);
+  color: var(--light-red-color);
+}
+
+.font_14_med_100_white {
+  font-size: var(--14-font-size);
+  font-weight: var(--med-font-weight);
+  color: var(--100-white-color);
+}
+
+.new_search_field {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: var(--100-white-color);
+  border-radius: 8px;
+  border: 1px solid var(--grey-line-color);
+  padding: 0px 12px;
+  width: 100%;
+  height: 42px;
+  cursor: default;
+}
+.new_search_field .input_field {
+  width: 100%;
+  height: 80%;
+  cursor: default;
+}
+.new_search_field a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.new_search_field:hover {
+  box-shadow: 0px 10px 13px 0px rgba(27, 44, 49, 0.04);
+}
+
+.search_black {
+  display: none;
+  opacity: 0;
+}
+
+.chosen {
+  background-color: var(--light-red-color);
+  border-radius: 16px;
+  padding: 4px 16px;
+  font-size: var(--16-font-size);
+  font-weight: var(--med-font-weight);
+  color: var(--100-white-color);
+}
+
+.not_chosen {
+  background-color: transparent;
+  font-size: var(--14-font-size);
+  font-weight: var(--semi-font-weight);
+  color: var(--light-red-color);
+}
+
+body section {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  padding: 56px 42px 42px 42px;
+}
+body section .upper_texts {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}
+body section .upper_texts a, body section .upper_texts .font_16_med_light_red {
+  display: inline-block;
+  width: 92px;
+  height: 23px;
+}
+body section .below_section {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  gap: 0px;
+}
+body section .below_section .btn_transparent {
+  display: flex;
+}
+body section .below_section .btn_transparent .clip_path_btn_data {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 4em;
+  width: 172px;
+  line-height: 2;
+  height: 56px;
+  position: relative;
+  background-color: var(--100-white-color);
+  color: var(--dark-color);
+  cursor: pointer;
+  margin-left: 14px;
+}
+body section .below_section .btn_transparent .clip_path_btn_data:before {
+  content: "";
+  position: absolute;
+  left: -14px;
+  width: 14px;
+  height: 56px;
+  background-color: var(--100-white-color);
+  border-radius: 16px 0 0 0;
+  bottom: 0;
+  transform-origin: bottom left;
+}
+body section .below_section .btn_transparent .clip_path_btn_data:after {
+  content: "";
+  position: absolute;
+  right: -0.5em;
+  width: 38px;
+  height: 56px;
+  background-color: var(--100-white-color);
+  border-radius: 0 16px 0 0;
+  bottom: 0;
+  transform: skew(22deg);
+  transform-origin: bottom right;
+}
+body section .below_section .btn_transparent .clip_path_btn_data h3 {
+  font-size: var(--16-font-size);
+  font-weight: var(--med-font-weight);
+  color: var(--dark-color);
+}
+body section .below_section .btn_transparent .clip_path_btn_documents {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 165px;
+  height: 56px;
+  cursor: pointer;
+  margin-left: 38px;
+}
+body section .below_section .btn_transparent .clip_path_btn_documents h3 {
+  font-size: var(--16-font-size);
+  font-weight: var(--med-font-weight);
+  color: var(--middle-grey-color);
+}
+body section .below_section .below_cont {
+  display: flex;
+  flex-direction: column;
+  padding: 32px 38px;
+  border-radius: 0px 16px 16px 16px;
+  background-color: #FFF;
+}
+body section .below_section .below_cont .hint_block {
+  display: flex;
+  align-items: center;
+  padding: 16px;
+  background-color: rgb(242, 249, 255);
+  border-radius: 8px;
+  gap: 16px;
+  opacity: 1;
+  transition: opacity 100ms ease-in-out;
+}
+body section .below_section .below_cont .hint_block h3 {
+  font-size: var(--15-font-size);
+  font-weight: var(--reg-font-weight);
+  color: rgb(106, 143, 174);
+  width: 100%;
+}
+body section .below_section .below_cont .hint_block a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+body section .below_section .below_cont .all_information_block {
+  display: flex;
+  gap: 63px;
+}
+body section .below_section .below_cont .all_information_block .avatar_section {
+  display: flex;
+  gap: 20px;
+}
+body section .below_section .below_cont .all_information_block .avatar_section .empty_avat {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 100%;
+  background-color: var(--red-color);
+  overflow: hidden;
+}
+body section .below_section .below_cont .all_information_block .avatar_section .empty_avat h3 {
+  font-size: var(--22-font-size);
+  font-weight: var(--reg-font-weight);
+  color: var(--100-white-color);
+}
+body section .below_section .below_cont .all_information_block .avatar_section .avatar_img {
+  width: 60px;
+  height: 60px;
+}
+body section .below_section .below_cont .all_information_block .avatar_section .right_cont {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+body section .below_section .below_cont .all_information_block .avatar_section .right_cont .above {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+body section .below_section .below_cont .all_information_block .avatar_section .right_cont .below {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+body section .below_section .below_cont .all_information_block .avatar_section .right_cont .right_texts {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin: 1.5px 0px 1.5px 0px;
+}
+body section .below_section .below_cont .all_information_block .avatar_section .right_cont .right_texts .download_avat_text {
+  cursor: pointer;
+}
+body section .below_section .below_cont .all_information_block .avatar_section .right_cont .right_texts h3 {
+  font-size: var(--16-font-size);
+  font-weight: var(--reg-font-weight);
+  color: var(--red-color);
+}
+body section .below_section .below_cont .all_information_block .avatar_section .right_cont .right_texts h4 {
+  font-size: var(--19-font-size);
+  font-weight: var(--med-font-weight);
+  color: var(--dark-color);
+}
+body section .below_section .below_cont .all_information_block .avatar_section .right_cont .add_contact_person h3 {
+  font-size: var(--15-font-size);
+  font-weight: var(--med-font-weight);
+  color: var(--light-red-color);
+  cursor: pointer;
+  text-wrap: nowrap;
+}
+body section .below_section .below_cont .all_information_block .avatar_section .right_cont .input_block {
+  display: flex;
+  flex-direction: column;
+}
+body section .below_section .below_cont .all_information_block .avatar_section .right_cont .input_block h3 {
+  font-size: var(--16-font-size);
+  font-weight: var(--med-font-weight);
+  color: var(--dark-color);
+}
+body section .below_section .below_cont .all_information_block .avatar_section .right_cont .input_block .input_icon_text {
+  display: flex;
+  gap: 4px;
+  height: 40px;
+}
+body section .below_section .below_cont .all_information_block .avatar_section .right_cont .input_block .input_icon_text .Edit_Square_grey_icon {
+  width: 24px;
+  height: 24px;
+  margin-top: 8px;
+}
+body section .below_section .below_cont .all_information_block .avatar_section .right_cont .input_block .input_icon_text .input_box {
+  margin: 8px;
+}
+body section .below_section .below_cont .all_information_block .avatar_section .right_cont .input_block .input_icon_text .input_box::-moz-placeholder {
+  font-size: var(--16-font-size);
+  font-weight: var(--reg-font-weight);
+  color: var(--middle-grey-color);
+}
+body section .below_section .below_cont .all_information_block .avatar_section .right_cont .input_block .input_icon_text .input_box::placeholder {
+  font-size: var(--16-font-size);
+  font-weight: var(--reg-font-weight);
+  color: var(--middle-grey-color);
+}
+body section .below_section .below_cont .all_information_block .avatar_section .right_cont .input_block .input_icon_text .entered::-moz-placeholder {
+  color: rgb(51, 51, 51);
+}
+body section .below_section .below_cont .all_information_block .avatar_section .right_cont .input_block .input_icon_text .entered::placeholder {
+  color: rgb(51, 51, 51);
+}
+body section .below_section .below_cont .all_information_block .company_inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 0;
+  width: 100%;
+}
+body section .below_section .below_cont .all_information_block .company_inputs .text_input {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}
+body section .below_section .below_cont .all_information_block .company_inputs .text_input .name_req {
+  display: flex;
+  justify-content: space-between;
+  max-width: 608px;
+}
+body section .below_section .below_cont .all_information_block .company_inputs .text_input .name_req h2 {
+  font-size: var(--16-font-size);
+  font-weight: var(--med-font-weight);
+  color: var(--dark-color);
+}
+body section .below_section .below_cont .all_information_block .company_inputs .text_input .name_req .Small_star_red_icon {
+  width: 21px;
+  height: 21px;
+}
+body section .below_section .below_cont .all_information_block .company_inputs .text_input .input_box {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+  width: 100%;
+  height: 42px;
+  border: 1px solid var(--grey-line-color);
+  padding: 0px 12px;
+  border-radius: 8px;
+  background-color: #FFF;
+  max-width: 608px;
+}
+body section .below_section .below_cont .all_information_block .company_inputs .text_input .input_box .Edit_Square_grey_icon {
+  width: 22px;
+  height: 22px;
+}
+body section .below_section .below_cont .all_information_block .company_inputs .text_input .input_box input {
+  font-size: var(--14-font-size);
+  font-weight: var(--med-font-weight);
+  color: var(--dark-color);
+  width: 100%;
+  background-color: transparent;
+}
+body section .below_section .below_cont .all_information_block .company_inputs .two_input_fields {
+  display: flex;
+  gap: 16px;
+  max-width: 608px;
+}
+body section .below_section .below_cont .all_information_block .company_inputs .save_btn {
+  background-color: var(--light-red-color);
+  border-radius: 8px;
+  padding: 12px;
+  width: 120px;
+  font-size: var(--14-font-size);
+  font-weight: var(--med-font-weight);
+  color: var(--100-white-color);
+  cursor: pointer;
+}/*# sourceMappingURL=profile.css.map */

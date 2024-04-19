@@ -133,6 +133,10 @@ input, button {
     }
 }
 
+.filled, .outline {
+    cursor: pointer;
+}
+
 /*========== Animations ==========*/
 @keyframes opacity_for_filter_in {
     from {

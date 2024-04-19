@@ -126,6 +126,10 @@ input, button {
   color: var(--light-red-color);
 }
 
+.filled, .outline {
+  cursor: pointer;
+}
+
 /*========== Animations ==========*/
 @keyframes opacity_for_filter_in {
   from {

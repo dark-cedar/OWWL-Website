@@ -109,14 +109,14 @@ input, button {
     background-color: var(--100-white-color);
     border-radius: 8px;
     border: 1px solid var(--grey-line-color);
-    padding: 9px 12px;
+    padding: 0px 12px;
     width: 100%;
     height: 42px;
     cursor: default;
 
     .input_field {
         width: 100%;
-        height: 40px;
+        height: 80%;
         cursor: default;
     }
 
@@ -186,45 +186,65 @@ body {
             .btn_transparent {
                 display: flex;
 
-                .clip_path_btn {
+                .clip_path_btn_data {
                     display: flex;
                     align-items: center;
                     justify-content: center;
-                    width: 196px;
+                    font-size: 4em;
+                    width: 143px;
+                    line-height: 2;
                     height: 56px;
+                    position: relative;
+                    background-color: var(--100-white-color);
+                    color: var(--dark-color); 
                     cursor: pointer;
+                    margin-left: 14px;
 
-                    .skeleton {
-                        z-index: var(--z-index-10);
+                    &:before {
+                        content:'';
                         position: absolute;
+                        left: -14px;
+                        width: 14px;
+                        height: 56px;
+                        background-color: var(--100-white-color);
+                        border-radius: 16px 0 0 0;
+                        bottom: 0;
+                        transform-origin:bottom left;
+                    }
+
+                    &:after {
+                        content:'';
+                        position: absolute;
+                        right: -.5em;
+                        width: 38px;
+                        height: 56px;
+                        background-color: var(--100-white-color);
+                        border-radius: 0 16px 0 0;
+                        bottom: 0;
+                        transform: skew(22deg);
+                        transform-origin:bottom right;
                     }
 
                     h3 {
                         font-size: var(--16-font-size);
                         font-weight: var(--med-font-weight);
-                        color: var(--dark-color);
-                        z-index: var(--z-index-100);
+                        color: var(--dark-color); 
                     }
-                }
-
-                .clip_path_warehouses {
+                }  
+                
+                .clip_path_btn_documents {
                     display: flex;
                     align-items: center;
                     justify-content: center;
                     width: 116px;
                     height: 56px;
                     cursor: pointer;
+                    margin-left: 38px;
 
                     h3 {
                         font-size: var(--16-font-size);
                         font-weight: var(--med-font-weight);
-                        color: var(--middle-grey-color);  
-                        z-index: var(--z-index-10);
-                    }
-
-                    .clip_path_btn_warehouses {
-                        position: absolute;
-                        opacity: 0;
+                        color: var(--middle-grey-color);
                     }
                 }
             }
@@ -271,7 +291,7 @@ body {
                     }
 
                     .table_settings {
-                        display: flex;
+                        display: none;
                         gap: 24px;
                         position: absolute;
                         padding: 16px;
@@ -446,7 +466,7 @@ body {
                     }
 
                     .action_block {
-                        display: flex;
+                        display: none;
                         flex-direction: column;
                         gap: 10px;
                         padding: 16px;

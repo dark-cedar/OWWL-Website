@@ -89,6 +89,10 @@ input {
     width: 100%;
 }
 
+button {
+    cursor: pointer;
+}
+
 .input_value {
     display: flex;
     align-items: center;
@@ -144,7 +148,7 @@ input {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 12px;
+    padding: 0px 12px;
     width: 100%;
     min-height: 42px;
     border: 1px solid var(--grey-line-color);
@@ -158,6 +162,7 @@ input {
 
     input {
         width: 100%;
+        height: 80%;
     }
 
     input::placeholder {
@@ -169,6 +174,10 @@ input {
     .grey_text {
         color: var(--middle-grey-color);
     }
+}
+
+.choose_bar_hover {
+    box-shadow: 0px 10px 13px 0px rgba(27, 44, 49, 0.04);
 }
 
 /*========== Animations ==========*/
@@ -265,7 +274,10 @@ body {
                     }
 
                     .add_recipient {
-                        padding-top: 34px;
+                        .add_recipient_btn {
+                            margin-bottom: 17px;
+                            cursor: pointer;
+                        }
 
                         a {
                             h3 {
@@ -275,7 +287,38 @@ body {
                                 text-wrap: nowrap;
                             }
                         }
+
+                        .recipient {
+                            display: none;
+                            flex-direction: column;
+                            width: 135px;
+                            
+                            .upper {
+                                display: flex;
+                                flex-direction: row;
+                                justify-content: flex-start;
+                                gap: 12px;
+
+                                h2 {
+                                    font-size: var(--16-font-size);
+                                    font-weight: var(--med-font-weight);
+                                    color: var(--dark-color);
+                                    text-wrap: nowrap;
+                                }
+                            }
+
+                            h3.delete_btn {
+                                font-size: var(--15-font-size);
+                                font-weight: var(--reg-font-weight);
+                                color: rgba(255, 98, 98, 1); 
+                                cursor: pointer; 
+                            }
+                        }
                     }
+                }
+
+                .another_form {
+                    align-items: flex-end;
                 }
 
                 .special {
@@ -313,10 +356,13 @@ body {
 
                         .tab_2 {
                             display: flex;
+                            align-items: center;
+                            justify-content: center;
                             padding: 4px;
                             border: 1px solid var(--grey-line-color);
                             border-radius: 8px;
                             max-width: 334px;
+                            height: 42px;
 
                             button {
                                 font-size: var(--14-font-size);
@@ -353,10 +399,17 @@ body {
 
                         .input_box {
                             display: flex;
-                            padding: 12px;
+                            align-items: center;
+                            justify-content: center;
+                            padding: 0px 12px;
                             border: 1px solid var(--grey-line-color);
                             min-width: 100%;
                             border-radius: 8px;
+                            height: 42px;
+
+                            input {
+                                height: 80%;
+                            }
                         }
                     }
                 }
@@ -418,6 +471,31 @@ body {
                         font-size: var(--26-font-size);
                         font-weight: var(--semi-font-weight);
                         color: var(--dark-color);
+                    }
+
+                    .tooltip_hidden {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        position: absolute;
+                        margin-top: 30px;
+                        margin-left: -27px;
+                        width: 337px;
+                        opacity: 0;
+                        visibility: hidden;
+                        transition: all 300ms ease-in-out;
+        
+                        .dark_block {
+                            padding: 16px;
+                            border-radius: 4px;
+                            background-color: var(--dark-color);
+                            
+                            h4 {
+                                font-size: var(--14-font-size);
+                                font-weight: var(--reg-font-weight);
+                                color: var(--100-white-color);
+                            }
+                        }
                     }
                 }
             }

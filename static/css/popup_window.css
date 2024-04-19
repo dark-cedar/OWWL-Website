@@ -216,13 +216,191 @@ body .new_application .above_block .texts_btn .left_right_blocks .right_texts h3
   font-weight: var(--med-font-weight);
   color: var(--dark-color);
 }
+body .new_application .above_block .texts_btn .text_link {
+  width: 74px;
+}
 body .new_application .above_block .texts_btn .text_link h3 {
   font-size: var(--16-font-size);
   font-weight: var(--med-font-weight);
   color: var(--light-red-color);
 }
+body .new_application .middle_block_opening {
+  display: none;
+  flex-direction: column;
+  gap: 24px;
+  width: 100%;
+}
+body .new_application .middle_block_opening .popupsearchbar {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+}
+body .new_application .middle_block_opening .popupsearchbar h4 {
+  font-size: var(--18-font-size);
+  font-weight: var(--med-font-weight);
+  color: var(--dark-color);
+}
+body .new_application .middle_block_opening .popupsearchbar .search_btns {
+  display: flex;
+  gap: 8px;
+  width: 100%;
+}
+body .new_application .middle_block_opening .popupsearchbar .search_btns .new_search_field {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: var(--100-white-color);
+  border-radius: 8px;
+  border: 1px solid var(--grey-line-color);
+  padding: 0px 12px;
+  min-width: 0.75em;
+  min-height: 48px;
+}
+body .new_application .middle_block_opening .popupsearchbar .search_btns .new_search_field .input_field {
+  width: 100%;
+  height: 80%;
+}
+body .new_application .middle_block_opening .popupsearchbar .search_btns .new_search_field a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+body .new_application .middle_block_opening .popupsearchbar .search_btns .sort_by_date_btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  gap: 4px;
+  border: 1px solid var(--grey-line-color);
+  min-height: 48px;
+  text-wrap: nowrap;
+  min-width: 192px;
+  border-radius: 8px;
+}
+body .new_application .middle_block_opening .popupsearchbar .search_btns .sort_by_date_btn h3 {
+  font-size: var(--14-font-size);
+  font-weight: var(--med-font-weight);
+  color: var(--dark-color);
+}
+body .new_application .middle_block_opening .popupsearchbar .search_btns .favourites {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 48px;
+  min-height: 48px;
+  border: 1px solid var(--grey-line-color);
+  border-radius: 8px;
+  background-color: transparent;
+}
+body .new_application .middle_block_opening .choose_tk_block {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+body .new_application .middle_block_opening .choose_tk_block .TKChoose {
+  display: flex;
+  justify-content: space-between;
+}
+body .new_application .middle_block_opening .choose_tk_block .TKChoose .left_cont {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+body .new_application .middle_block_opening .choose_tk_block .TKChoose .left_cont .upper_block {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+body .new_application .middle_block_opening .choose_tk_block .TKChoose .left_cont .upper_block h3 {
+  font-size: var(--18-font-size);
+  font-weight: var(--med-font-weight);
+  color: var(--dark-color);
+}
+body .new_application .middle_block_opening .choose_tk_block .TKChoose .left_cont .upper_block a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+body .new_application .middle_block_opening .choose_tk_block .TKChoose .left_cont .middle_block {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+body .new_application .middle_block_opening .choose_tk_block .TKChoose .left_cont .middle_block .suggested_price {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+body .new_application .middle_block_opening .choose_tk_block .TKChoose .left_cont .middle_block .blocks {
+  display: flex;
+  flex-direction: column;
+}
+body .new_application .middle_block_opening .choose_tk_block .TKChoose .left_cont .middle_block .blocks .loading_time {
+  display: flex !important;
+  gap: 8px;
+}
+body .new_application .middle_block_opening .choose_tk_block .TKChoose .left_cont .middle_block .blocks .working_hours {
+  display: flex !important;
+  gap: 8px;
+}
+body .new_application .middle_block_opening .choose_tk_block .TKChoose .left_cont .middle_block .text_16 {
+  font-size: var(--16-font-size);
+}
+body .new_application .middle_block_opening .choose_tk_block .TKChoose .left_cont .middle_block .grey_text {
+  font-weight: var(--med-font-weight);
+  color: var(--middle-grey-color);
+}
+body .new_application .middle_block_opening .choose_tk_block .TKChoose .left_cont .middle_block .bl_text {
+  font-weight: var(--med-font-weight);
+  color: var(--100-black-color);
+}
+body .new_application .middle_block_opening .choose_tk_block .TKChoose .left_cont .middle_block .red_text {
+  font-weight: var(--reg-font-weight);
+  color: var(--light-red-color);
+}
+body .new_application .middle_block_opening .choose_tk_block .TKChoose .left_cont .middle_block .easy_grey_text {
+  font-weight: var(--reg-font-weight);
+  color: var(--middle-grey-color);
+}
+body .new_application .middle_block_opening .choose_tk_block .TKChoose .right_cont {
+  display: flex;
+  align-items: flex-end;
+  flex-direction: column;
+  gap: 19px;
+}
+body .new_application .middle_block_opening .choose_tk_block .TKChoose .btn_icon {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+body .new_application .middle_block_opening .choose_tk_block .TKChoose .btn_icon button {
+  min-width: 127px;
+  height: 42px;
+  background-color: var(--light-red-color);
+  border-radius: 8px;
+  font-size: var(--14-font-size);
+  font-weight: var(--med-font-weight);
+  color: var(--100-white-color);
+}
+body .new_application .middle_block_opening .choose_tk_block .TKChoose .btn_icon a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  background-color: var(--100-white-color);
+  border: 2px solid var(--light-red-color);
+  border-radius: 100%;
+}
+body .new_application .middle_block_opening .choose_tk_block h3 {
+  font-size: var(--16-font-size);
+  font-weight: var(--med-font-weight);
+  color: var(--middle-grey-color);
+}
 body .new_application .below_block {
   display: flex;
+  align-items: center;
   gap: 24px;
 }
 body .new_application .below_block .close_btn {
@@ -239,9 +417,12 @@ body .new_application .below_block .close_btn {
 body .new_application .below_block .spec_btn {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 10px;
   background-color: transparent;
   font-size: var(--14-font-size);
   font-weight: var(--med-font-weight);
   color: var(--middle-grey-color);
+  cursor: pointer;
+  height: 48px;
 }/*# sourceMappingURL=popup_window.css.map */

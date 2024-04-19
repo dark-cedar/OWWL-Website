@@ -122,6 +122,14 @@ input, button {
     }
 }
 
+.choose_all_btn, .delete_choice_btn {
+    cursor: pointer;
+}
+
+.filled, .empty {
+    cursor: pointer;
+}
+
 /*========== Animations ==========*/
 @keyframes opacity_for_filter_in {
     from {
@@ -155,6 +163,7 @@ body {
             display: flex;
             flex-direction: column;
             gap: 24px;
+            width: 100%;
 
             .block_1 {
                 display: flex;
@@ -200,6 +209,7 @@ body {
                 border-bottom: 1px solid var(--grey-line-color);
                 padding-top: 16px;
                 padding-bottom: 16px;
+                width: 100%;
 
                 .right_text {
                     font-size: var(--16-font-size);
@@ -532,13 +542,15 @@ body {
                         align-items: flex-start;
                         gap: 16px;
 
-                        img {
-                            cursor: pointer;
-                        }
-
-                        .without_click {
-                            display: none;
-                            opacity: 0;
+                        .checkbox {
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            min-width: 18px;
+                            min-height: 18px;
+                            border: 1px solid rgba(224, 224, 224, 1);
+                            background-color: #FFFFFF;
+                            border-radius: 4px;
                         }
 
                         h3 {

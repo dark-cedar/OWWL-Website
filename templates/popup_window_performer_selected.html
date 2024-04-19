@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Вход</title>
+    <title>Исполнитель выбран</title>
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='images/logo_owwl_image.svg') }}">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/popup_window_performer_selected.css') }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -96,16 +97,17 @@
             <div class="upper_texts">
                 <h3>Cargo Unicom так же откликнулась на 4 ваши заявки</h3>
                 <div class="union_texts">
-                    <a href="#"><h3>Выбрать все</h3></a>
-                    <a href="#"><h3>Отменить выбор</h3></a>
+                    <a><h3 class="choose_all_btn">Выбрать все</h3></a>
+                    <a><h3 class="delete_choice_btn">Отменить выбор</h3></a>
                 </div>
             </div>
             <div class="union_blocks">
                 <div class="one_more_task">
                     <div class="left_cont">
                         <h3>1</h3>
-                        <img class="with_click" onclick="toggleClicked()" src="{{ url_for('static', filename='images/Checkbox_clicked.svg') }}" alt="The picture did not load">
-                        <img class="without_click" onclick="toggleClicked()" src="{{ url_for('static', filename='images/Checkbox.svg') }}" alt="The picture did not load">
+                        <div class="checkbox checkbox_1">
+                            <img class="checkbox_1_img" src="{{ url_for('static', filename='images/check.svg') }}" alt="The picture did not load">
+                        </div>
                         <div class="texts">
                             <h3 class="upper">BMW 7 серии VI (G11/G12) 740d xDrive</h3>
                             <div class="below_block">
@@ -125,8 +127,9 @@
                 <div class="one_more_task">
                     <div class="left_cont">
                         <h3>2</h3>
-                        <img class="with_click" onclick="toggleClicked()" src="{{ url_for('static', filename='images/Checkbox_clicked.svg') }}" alt="The picture did not load">
-                        <img class="without_click" onclick="toggleClicked()" src="{{ url_for('static', filename='images/Checkbox.svg') }}" alt="The picture did not load">
+                        <div class="checkbox checkbox_2">
+                            <img class="checkbox_2_img" src="{{ url_for('static', filename='images/check.svg') }}" alt="The picture did not load">
+                        </div>
                         <div class="texts">
                             <h3 class="upper">BMW 7 серии VI (G11/G12) 740d xDrive</h3>
                             <div class="below_block">
@@ -146,8 +149,9 @@
                 <div class="one_more_task">
                     <div class="left_cont">
                         <h3>3</h3>
-                        <img class="with_click" onclick="toggleClicked()" src="{{ url_for('static', filename='images/Checkbox_clicked.svg') }}" alt="The picture did not load">
-                        <img class="without_click" onclick="toggleClicked()" src="{{ url_for('static', filename='images/Checkbox.svg') }}" alt="The picture did not load">
+                        <div class="checkbox checkbox_3">
+                            <img class="checkbox_3_img" src="{{ url_for('static', filename='images/check.svg') }}" alt="The picture did not load">
+                        </div>
                         <div class="texts">
                             <h3 class="upper">BMW 7 серии VI (G11/G12) 740d xDrive</h3>
                             <div class="below_block">
@@ -167,8 +171,9 @@
                 <div class="one_more_task">
                     <div class="left_cont">
                         <h3>4</h3>
-                        <img class="with_click" onclick="toggleClicked()" src="{{ url_for('static', filename='images/Checkbox_clicked.svg') }}" alt="The picture did not load">
-                        <img class="without_click" onclick="toggleClicked()" src="{{ url_for('static', filename='images/Checkbox.svg') }}" alt="The picture did not load">
+                        <div class="checkbox checkbox_4">
+                            <img class="checkbox_4_img" src="{{ url_for('static', filename='images/check.svg') }}" alt="The picture did not load">
+                        </div>
                         <div class="texts">
                             <h3 class="upper">BMW 7 серии VI (G11/G12) 740d xDrive</h3>
                             <div class="below_block">
@@ -194,6 +199,75 @@
         </div>
     </div>
 
-    <script src="{{ url_for('static', filename='scripts/script_1.js') }}"></script>
+    <script>
+        var chooseAllBtn = document.querySelector('.choose_all_btn')
+        var deleteChoiceBtn = document.querySelector('.delete_choice_btn')
+
+        var checkbox1 = document.querySelector('.checkbox_1')
+        var checkbox2 = document.querySelector('.checkbox_2')
+        var checkbox3 = document.querySelector('.checkbox_3')
+        var checkbox4 = document.querySelector('.checkbox_4')
+
+        var checkboxImg1 = document.querySelector('.checkbox_1_img')
+        var checkboxImg2 = document.querySelector('.checkbox_2_img')
+        var checkboxImg3 = document.querySelector('.checkbox_3_img')
+        var checkboxImg4 = document.querySelector('.checkbox_4_img')
+
+        var btnFilled = document.querySelector('.filled')
+        var btnEmpty = document.querySelector('.empty')
+
+        checkbox1.addEventListener('click', function() {
+            if (checkboxImg1.style.display === 'none') {
+                checkboxImg1.style.display = 'flex'
+            } else {
+                checkboxImg1.style.display = 'none'
+            }
+        });
+
+        checkbox2.addEventListener('click', function() {
+            if (checkboxImg2.style.display === 'none') {
+                checkboxImg2.style.display = 'flex'
+            } else {
+                checkboxImg2.style.display = 'none'
+            }
+        });
+
+        checkbox3.addEventListener('click', function() {
+            if (checkboxImg3.style.display === 'none') {
+                checkboxImg3.style.display = 'flex'
+            } else {
+                checkboxImg3.style.display = 'none'
+            }
+        });
+
+        checkbox4.addEventListener('click', function() {
+            if (checkboxImg4.style.display === 'none') {
+                checkboxImg4.style.display = 'flex'
+            } else {
+                checkboxImg4.style.display = 'none'
+            }
+        });
+        
+        chooseAllBtn.addEventListener('click', function() {
+            checkboxImg1.style.display = 'flex';
+            checkboxImg2.style.display = 'flex';
+            checkboxImg3.style.display = 'flex';
+            checkboxImg4.style.display = 'flex';
+        });
+
+        deleteChoiceBtn.addEventListener('click', function() {
+            checkboxImg1.style.display = 'none';
+            checkboxImg2.style.display = 'none';
+            checkboxImg3.style.display = 'none';
+            checkboxImg4.style.display = 'none';
+        });
+
+        function handleClick() {
+            window.location.href = 'main_page';
+        }
+
+        btnFilled.addEventListener('click', handleClick);
+        btnEmpty.addEventListener('click', handleClick);
+    </script>
 </body>
 </html>

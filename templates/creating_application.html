@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Вход</title>
+    <title>Создание заявки</title>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/creating_application.css') }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -24,7 +24,7 @@
                             <h3>Выберите авто</h3>
                             <img src="{{ url_for('static', filename='images/chevron-down_dark.svg') }}" alt="The picture did not load">
                         </div>
-                        <a href="#"><h3>Добавить а/м</h3></a>
+                        <a href="car_registration"><h3>Добавить а/м</h3></a>
                     </div>
                     <div class="block">
                         <div class="text_star">
@@ -43,8 +43,8 @@
                             <h3>Адрес доставки</h3>
                             <img src="{{ url_for('static', filename='images/small_star_red.svg') }}" alt="The picture did not load">
                         </div>
-                        <div class="choose_bar">
-                            <input type="text" placeholder="Введите адрес в свободной форме">
+                        <div class="choose_bar choose_bar_address">
+                            <input class="choose_bar_address_input_box" type="text" placeholder="Введите адрес в свободной форме">
                         </div>
                     </div>
                 </div>
@@ -60,20 +60,27 @@
                         </div>
                     </div>
                     <div class="add_recipient">
-                        <a href="#"><h3>+ Добавить получателя</h3></a>
+                        <a><h3 class="add_recipient_btn">+ Добавить получателя</h3></a>
+                        <div class="hidden_block recipient">
+                            <div class="upper">
+                                <img src="{{ url_for('static', filename='images/Edit_Square_red.svg') }}" alt="The picture did not load">
+                                <h2>ООО Рассвет</h2>
+                            </div>
+                            <h3 class="delete_btn">- Удалить</h3>
+                        </div>
                     </div>
                 </div>
                 <div class="below_block">
                     <div class="left_side">
                         <h3>Тип автовоза</h3>
                         <div class="tab_2">
-                            <button class="filled">Стандартный</button>
-                            <button class="empty">Крытый</button>
+                            <button class="filled standart_btn">Стандартный</button>
+                            <button class="empty indoor_btn">Крытый</button>
                         </div>
                     </div>
                     <div class="right_side">
                         <h3>Комментарий для ТК</h3>
-                        <div class="input_box"><input type="text"></div>
+                        <div class="input_box choose_bar_comm"><input class="choose_bar_comm_input_box" type="text"></div>
                     </div>
                 </div>
             </div>
@@ -97,9 +104,16 @@
                 <div class="transportation_price">
                     <div class="text_icon">
                         <h3>Цена перевозки</h3>
-                        <img src="{{ url_for('static', filename='images/False_red.svg') }}" alt="The picture did not load">
+                        <img class="tooltip_icon" src="{{ url_for('static', filename='images/False_red.svg') }}" alt="The picture did not load">
                     </div>
                     <h1>0 ₽</h1>
+                    <div class="tooltip_hidden">
+                        <img src="{{ url_for('static', filename='images/arrow_down_filled.svg') }}" alt="The picture did not load">
+                        <div class="dark_block">
+                            <h4>Приказ (доверенность, иной документ) о предоставлении соответствующих полномочий лицам, имеющим право подписывать ТН, Акты, счета и счета-фактуры, и содержащий образцы подписей данных лиц.
+                            </h4>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="below_cont">
@@ -109,6 +123,98 @@
         </div>
     </div>
 
-    <script src="{{ url_for('static', filename='scripts/creating_application.js') }}"></script>
+    <script>
+        var outline = document.querySelector('.outline')
+        outline.addEventListener('click', function() {
+            window.location.href = 'main_page';
+        });
+
+        document.querySelector(".add_recipient").addEventListener("click", function() {
+            // window.location.href = "add_recipient";
+        });
+
+        var chooseBarAddress = document.querySelector('.choose_bar.choose_bar_address')
+        var chooseBarAddressInputBox = document.querySelector('.choose_bar_address_input_box')
+        var chooseBarComm = document.querySelector('.choose_bar_comm')
+        var chooseBarCommInputBox = document.querySelector('.choose_bar_comm_input_box')
+        // address
+        chooseBarAddress.addEventListener('mouseover', function() {
+            if (this.style.border !== '1px solid rgb(255, 98, 98)') {
+                this.classList.add('choose_bar_hover');
+            }
+        });
+        chooseBarAddressInputBox.addEventListener('click', function() {
+            chooseBarAddress.style.border = '1px solid rgba(255, 98, 98, 1)';
+            chooseBarAddress.classList.remove('choose_bar_hover');
+        });
+        chooseBarAddress.addEventListener('mouseleave', function() {
+            this.classList.remove('choose_bar_hover');
+        });
+        // comments
+        chooseBarComm.addEventListener('mouseover', function() {
+            if (this.style.border !== '1px solid rgb(255, 98, 98)') {
+                this.classList.add('choose_bar_hover');
+            }
+        });
+        chooseBarCommInputBox.addEventListener('click', function() {
+            chooseBarComm.style.border = '1px solid rgba(255, 98, 98, 1)';
+            chooseBarComm.classList.remove('choose_bar_hover');
+        });
+        chooseBarComm.addEventListener('mouseleave', function() {
+            this.classList.remove('choose_bar_hover');
+        });
+
+        // for all clicks
+        document.addEventListener('click', function(event) {
+            if (!chooseBarAddress.contains(event.target)) {
+                chooseBarAddress.style.border = '1px solid rgba(227, 227, 227, 1)';
+            }
+            if (!chooseBarComm.contains(event.target)) {
+                chooseBarComm.style.border = '1px solid rgba(227, 227, 227, 1)';
+            }
+        });
+
+        var standartBtn = document.querySelector('.standart_btn')
+        var indoorBtn = document.querySelector('.indoor_btn')
+        standartBtn.addEventListener('click', function() {
+            // for this
+            this.style.backgroundColor = 'rgba(255, 98, 98, 1)';
+            this.style.color = '#FFF';
+            // for another
+            indoorBtn.style.backgroundColor = 'transparent';
+            indoorBtn.style.color = 'rgba(133, 133, 133, 1)';
+        });
+        indoorBtn.addEventListener('click', function() {
+            // for this
+            this.style.backgroundColor = 'rgba(255, 98, 98, 1)';
+            this.style.color = '#FFF';
+            // for another
+            standartBtn.style.backgroundColor = 'transparent';
+            standartBtn.style.color = 'rgba(133, 133, 133, 1)';
+        });
+
+        var addRecipientBtn = document.querySelector('.add_recipient_btn')
+        var recipient = document.querySelector('.recipient')
+        var deleteBtn = document.querySelector('.delete_btn')
+        addRecipientBtn.addEventListener('click', function() {
+            this.style.display = 'none';
+            recipient.style.display = 'flex';
+        });
+        deleteBtn.addEventListener('click', function() {
+            recipient.style.display = 'none';
+            addRecipientBtn.style.display = 'flex';
+        });
+
+        var tooltipIcon = document.querySelector('.tooltip_icon')
+        var tooltipHidden = document.querySelector('.tooltip_hidden')
+        tooltipIcon.addEventListener('mouseover', function() {
+            tooltipHidden.style.visibility = 'visible';
+            tooltipHidden.style.opacity = '1';
+        });
+        tooltipIcon.addEventListener('mouseleave', function() {
+            tooltipHidden.style.visibility = 'hidden';
+            tooltipHidden.style.opacity = '0';
+        });
+    </script>
 </body>
 </html>

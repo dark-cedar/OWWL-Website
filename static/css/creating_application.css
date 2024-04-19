@@ -86,6 +86,10 @@ input {
   width: 100%;
 }
 
+button {
+  cursor: pointer;
+}
+
 .input_value {
   display: flex;
   align-items: center;
@@ -137,7 +141,7 @@ input {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 12px;
+  padding: 0px 12px;
   width: 100%;
   min-height: 42px;
   border: 1px solid var(--grey-line-color);
@@ -150,6 +154,7 @@ input {
 }
 .choose_bar input {
   width: 100%;
+  height: 80%;
 }
 .choose_bar input::-moz-placeholder {
   font-size: var(--14-font-size) !important;
@@ -163,6 +168,10 @@ input {
 }
 .choose_bar .grey_text {
   color: var(--middle-grey-color);
+}
+
+.choose_bar_hover {
+  box-shadow: 0px 10px 13px 0px rgba(27, 44, 49, 0.04);
 }
 
 /*========== Animations ==========*/
@@ -250,14 +259,41 @@ body .main_block .left_cont .upper .block_1 .block a h3 {
   font-weight: var(--reg-font-weight);
   color: var(--light-red-color);
 }
-body .main_block .left_cont .upper .block_1 .add_recipient {
-  padding-top: 34px;
+body .main_block .left_cont .upper .block_1 .add_recipient .add_recipient_btn {
+  margin-bottom: 17px;
+  cursor: pointer;
 }
 body .main_block .left_cont .upper .block_1 .add_recipient a h3 {
   font-size: var(--25-font-size);
   font-weight: var(--med-font-weight);
   color: var(--light-red-color);
   text-wrap: nowrap;
+}
+body .main_block .left_cont .upper .block_1 .add_recipient .recipient {
+  display: none;
+  flex-direction: column;
+  width: 135px;
+}
+body .main_block .left_cont .upper .block_1 .add_recipient .recipient .upper {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  gap: 12px;
+}
+body .main_block .left_cont .upper .block_1 .add_recipient .recipient .upper h2 {
+  font-size: var(--16-font-size);
+  font-weight: var(--med-font-weight);
+  color: var(--dark-color);
+  text-wrap: nowrap;
+}
+body .main_block .left_cont .upper .block_1 .add_recipient .recipient h3.delete_btn {
+  font-size: var(--15-font-size);
+  font-weight: var(--reg-font-weight);
+  color: rgb(255, 98, 98);
+  cursor: pointer;
+}
+body .main_block .left_cont .upper .another_form {
+  align-items: flex-end;
 }
 body .main_block .left_cont .upper .special {
   min-width: 100%;
@@ -289,10 +325,13 @@ body .main_block .left_cont .upper .below_block .left_side h3 {
 }
 body .main_block .left_cont .upper .below_block .left_side .tab_2 {
   display: flex;
+  align-items: center;
+  justify-content: center;
   padding: 4px;
   border: 1px solid var(--grey-line-color);
   border-radius: 8px;
   max-width: 334px;
+  height: 42px;
 }
 body .main_block .left_cont .upper .below_block .left_side .tab_2 button {
   font-size: var(--14-font-size);
@@ -323,10 +362,16 @@ body .main_block .left_cont .upper .below_block .right_side h3 {
 }
 body .main_block .left_cont .upper .below_block .right_side .input_box {
   display: flex;
-  padding: 12px;
+  align-items: center;
+  justify-content: center;
+  padding: 0px 12px;
   border: 1px solid var(--grey-line-color);
   min-width: 100%;
   border-radius: 8px;
+  height: 42px;
+}
+body .main_block .left_cont .upper .below_block .right_side .input_box input {
+  height: 80%;
 }
 body .main_block .right_cont {
   display: flex;
@@ -375,6 +420,28 @@ body .main_block .right_cont .upper_cont .transportation_price h1 {
   font-size: var(--26-font-size);
   font-weight: var(--semi-font-weight);
   color: var(--dark-color);
+}
+body .main_block .right_cont .upper_cont .transportation_price .tooltip_hidden {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  margin-top: 30px;
+  margin-left: -27px;
+  width: 337px;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 300ms ease-in-out;
+}
+body .main_block .right_cont .upper_cont .transportation_price .tooltip_hidden .dark_block {
+  padding: 16px;
+  border-radius: 4px;
+  background-color: var(--dark-color);
+}
+body .main_block .right_cont .upper_cont .transportation_price .tooltip_hidden .dark_block h4 {
+  font-size: var(--14-font-size);
+  font-weight: var(--reg-font-weight);
+  color: var(--100-white-color);
 }
 body .main_block .right_cont .below_cont {
   display: flex;

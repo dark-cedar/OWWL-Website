@@ -1,0 +1,346 @@
+/*=============== VARIABLES CSS ===============*/
+:root {
+  /*========== Colors ==========*/
+  /*Color mode HSL(hue, saturation, lightness)*/
+  --bg-color: hsl(220, 10%, 96%);
+  --grey-line-color: hsl(0, 0%, 89%);
+  --green-price-color: hsl(144, 81%, 40%);
+  --100-white-color: hsl(0, 0%, 100%);
+  --100-black-color: hsl(0, 0%, 0%);
+  --dark-color: hsl(0, 0%, 20%);
+  --middle-grey-color: hsl(0, 0%, 52%);
+  --super-light-color: hsl(240, 11%, 98%);
+  --red-color: hsl(0, 100%, 63%);
+  --light-red-color: hsl(0, 100%, 69%);
+  --blue-color: hsl(194, 100%, 43%);
+  --01-simple-color: hsl(194, 65%, 87%);
+  --02-simple-color: hsl(25, 89%, 96%);
+  /*========== Font and typography ==========*/
+  /*.5rem = 8px | 1rem = 16px ...*/
+  --body-font: "IBM Plex Sans", sans-serif;
+  --32-font-size: 2rem;
+  --24-font-size: 1.5rem;
+  --19-font-size: 1.187rem;
+  --18-font-size: 1.125rem;
+  --16-font-size: 1rem;
+  --15-font-size: .937rem;
+  --13-font-size: .812rem;
+  --14-font-size: .875rem;
+  --11-font-size: .687rem;
+  /*========== Font weight ==========*/
+  --reg-font-weight: 400;
+  --med-font-weight: 500;
+  --semi-font-weight: 600;
+  /*========== z index ==========*/
+  --z-index-10: 10;
+  --z-index-100: 100;
+  --z-index-1000: 1000;
+}
+
+/*=============== BASE ===============*/
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--body-font);
+  font-size: var(--18-font-size);
+  background-color: var(--bg-color);
+  color: var(--dark-color);
+}
+
+h1, h2, h3, h4 {
+  color: var(--title-color);
+  font-weight: var(--semi-font-weight);
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  pointer-events: none;
+}
+
+input, button {
+  font-family: var(--body-font);
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+
+/*=============== READY ELEMENTS ===============*/
+.font_32_semi_100_black {
+  font-size: var(--32-font-size);
+  font-weight: var(--semi-font-weight);
+  color: var(--100-black-color);
+}
+
+.font_16_med_light_red {
+  font-size: var(--16-font-size);
+  font-weight: var(--med-font-weight);
+  color: var(--light-red-color);
+}
+
+.font_14_med_100_white {
+  font-size: var(--14-font-size);
+  font-weight: var(--med-font-weight);
+  color: var(--100-white-color);
+}
+
+.new_search_field {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: var(--100-white-color);
+  border-radius: 8px;
+  border: 1px solid var(--grey-line-color);
+  padding: 0px 12px;
+  width: 100%;
+  height: 42px;
+  cursor: default;
+}
+.new_search_field .input_field {
+  width: 100%;
+  height: 80%;
+  cursor: default;
+}
+.new_search_field a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.new_search_field {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: var(--100-white-color);
+  border-radius: 8px;
+  border: 1px solid var(--grey-line-color);
+  padding: 0px 12px;
+  width: 100%;
+  height: 42px;
+}
+.new_search_field .input_field {
+  width: 100%;
+  height: 80%;
+}
+.new_search_field a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.new_search_field:hover {
+  box-shadow: 0px 10px 13px 0px rgba(27, 44, 49, 0.04);
+}
+
+body section {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 56px 42px 42px 42px;
+}
+body section .upper_block {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 100%;
+}
+body section .upper_block .upper_texts {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}
+body section .upper_block .upper_texts a h3 {
+  font-size: var(--16-font-size);
+  font-weight: var(--med-font-weight);
+  color: var(--red-color);
+  cursor: pointer;
+}
+body section .upper_block .upper_texts h1 {
+  font-size: var(--32-font-size);
+  font-weight: var(--semi-font-weight);
+  color: var(--100-black-color);
+}
+body section .upper_block .create_req__search {
+  display: flex;
+  gap: 8px;
+  max-height: 42px;
+}
+body section .upper_block .create_req__search .create_request {
+  padding: 12px 24px;
+  background-color: var(--light-red-color);
+  border-radius: 8px;
+  max-height: 42px;
+  text-wrap: nowrap;
+  font-size: var(--14-font-size);
+  font-weight: var(--med-font-weight);
+  color: var(--100-white-color);
+}
+body section .filter {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 16px 0px 16px 16px;
+  border: 1px solid var(--grey-line-color);
+  border-radius: 16px;
+}
+body section .filter .text_icon {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 400px;
+}
+body section .filter .text_icon h3 {
+  font-size: var(--16-font-size);
+  font-weight: var(--med-font-weight);
+  color: var(--dark-color);
+}
+body section .filter .two-btns {
+  display: flex;
+  gap: 8px;
+}
+body section .filter .two-btns button {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px;
+  border: 1px solid var(--grey-line-color);
+  border-radius: 8px;
+  width: 196px;
+  background-color: var(--100-white-color);
+}
+body section .filter .calendar {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  padding: 24px;
+  background-color: var(--100-white-color);
+  border-radius: 8px;
+  border: 1px solid var(--grey-line-color);
+  position: absolute;
+  margin-top: 87px;
+  width: 267px;
+}
+body section .filter .calendar .upper_part {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+body section .filter .calendar .upper_part h3 {
+  font-size: var(--15-font-size);
+  font-weight: var(--semi-font-weight);
+  color: var(--dark-color);
+}
+body section .filter .calendar .upper_part .two_arrows {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  width: 60px;
+  height: 25px;
+}
+body section .filter .calendar .upper_part .two_arrows a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 25px;
+  height: 25px;
+}
+body section .filter .calendar .upper_part .two_arrows .right {
+  margin-bottom: 2px;
+}
+body section .tables_bg_notifications {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 24px 38px;
+  background-color: var(--100-white-color);
+  border-radius: 16px;
+}
+body section .tables_bg_notifications .text_date_block {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--grey-line-color);
+}
+body section .tables_bg_notifications .text_date_block h2 {
+  font-size: var(--19-font-size);
+  font-weight: var(--med-font-weight);
+  color: var(--dark-color);
+}
+body section .tables_bg_notifications .text_date_block .date_block {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+body section .tables_bg_notifications .text_date_block .date_block .left_right_arrows {
+  display: flex;
+}
+body section .tables_bg_notifications .text_date_block .date_block .left_right_arrows a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+body section .tables_bg_notifications .text_date_block .date_block .month_text {
+  font-size: var(--24-font-size);
+  font-weight: var(--med-font-weight);
+  color: var(--dark-color);
+}
+body section .tables_bg_notifications .logs {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+body section .tables_bg_notifications .logs .log {
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+}
+body section .tables_bg_notifications .logs .log .icon_box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 38px;
+  min-height: 38px;
+  background-color: var(--100-white-color);
+  box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.07);
+  border-radius: 100%;
+}
+body section .tables_bg_notifications .logs .log .icon_box img {
+  min-width: 24px;
+  min-height: 24px;
+}
+body section .tables_bg_notifications .logs .log .right_cont {
+  display: flex;
+  flex-direction: column;
+  width: 792px;
+}
+body section .tables_bg_notifications .logs .log .right_cont .date_text {
+  font-size: var(--15-font-size);
+  font-weight: var(--reg-font-weight);
+  color: var(--middle-grey-color);
+}
+body section .tables_bg_notifications .logs .log .right_cont .content_text {
+  font-size: var(--16-font-size);
+  font-weight: var(--reg-font-weight);
+  color: var(--dark-color);
+}
+body section .tables_bg_notifications .logs .log .right_cont .content_text span {
+  color: var(--light-red-color);
+}/*# sourceMappingURL=notifications_center.css.map */

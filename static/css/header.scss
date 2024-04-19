@@ -139,6 +139,10 @@ input, button {
     color: var(--middle-grey-color);
 }
 
+.profile, .out {
+    cursor: pointer;
+}
+
 body {
     header {
         display: flex;
@@ -328,6 +332,7 @@ body {
         right: 0px;
         top: 0px;
         overflow: scroll;
+        z-index: 1000;
 
         .upper_menu {
             display: flex;

@@ -335,7 +335,7 @@ body section .below_section {
 body section .below_section .btn_transparent {
   display: flex;
 }
-body section .below_section .btn_transparent .clip_path_btn {
+body section .below_section .btn_transparent .clip_path_btn_data {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -343,34 +343,55 @@ body section .below_section .btn_transparent .clip_path_btn {
   height: 56px;
   cursor: pointer;
 }
-body section .below_section .btn_transparent .clip_path_btn .skeleton {
-  z-index: var(--z-index-10);
-  position: absolute;
-  opacity: 0;
-}
-body section .below_section .btn_transparent .clip_path_btn h3 {
+body section .below_section .btn_transparent .clip_path_btn_data h3 {
   font-size: var(--16-font-size);
   font-weight: var(--med-font-weight);
   color: var(--middle-grey-color);
   z-index: var(--z-index-100);
 }
-body section .below_section .btn_transparent .clip_path_warehouses {
+body section .below_section .btn_transparent .clip_path_btn_documents {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 185px;
+  font-size: 4em;
+  width: 108px;
+  line-height: 2;
   height: 56px;
+  position: relative;
+  border-radius: 0.3em 0.3em 0 0;
+  background-color: var(--100-white-color);
+  color: var(--dark-color);
+  margin-left: 36px;
   cursor: pointer;
 }
-body section .below_section .btn_transparent .clip_path_warehouses h3 {
+body section .below_section .btn_transparent .clip_path_btn_documents:before {
+  content: "";
+  position: absolute;
+  left: -0.5em;
+  width: 40px;
+  height: 56px;
+  background-color: var(--100-white-color);
+  border-radius: 16px 0 0 0;
+  bottom: 0;
+  transform: skew(-22deg);
+  transform-origin: bottom left;
+}
+body section .below_section .btn_transparent .clip_path_btn_documents:after {
+  content: "";
+  position: absolute;
+  right: -0.5em;
+  width: 40px;
+  height: 56px;
+  background-color: var(--100-white-color);
+  border-radius: 0 16px 0 0;
+  bottom: 0;
+  transform: skew(22deg);
+  transform-origin: bottom right;
+}
+body section .below_section .btn_transparent .clip_path_btn_documents h3 {
   font-size: var(--16-font-size);
   font-weight: var(--med-font-weight);
   color: var(--dark-color);
-  z-index: var(--z-index-10);
-}
-body section .below_section .btn_transparent .clip_path_warehouses .clip_path_btn_warehouses {
-  position: absolute;
-  opacity: 1;
 }
 body section .below_section .below_cont {
   display: flex;

@@ -104,12 +104,13 @@ input, button {
   background-color: var(--100-white-color);
   border-radius: 8px;
   border: 1px solid var(--grey-line-color);
-  padding: 9px 12px;
+  padding: 0px 12px;
   width: 100%;
   height: 42px;
 }
 .new_search_field .input_field {
   width: 100%;
+  height: 80%;
 }
 .new_search_field a {
   display: flex;
@@ -117,13 +118,21 @@ input, button {
   justify-content: center;
 }
 
-.new_search_field:hover {
-  box-shadow: 0px 10px 13px 0px rgba(27, 44, 49, 0.04);
-}
-
 .search_black {
   display: none;
   opacity: 0;
+}
+
+.open_panel {
+  padding: 0px 12px;
+}
+.open_panel input {
+  height: 80%;
+}
+
+.reset_btn {
+  width: 16px;
+  height: 16px;
 }
 
 /*========== Animations ==========*/
@@ -227,7 +236,6 @@ body .application_manager .header_tabs_filter .filter_panel .new_filter_button {
 body .application_manager .filter {
   display: none;
   opacity: 0;
-  height: 103px;
   gap: 22px;
   padding: 16px;
   border: 1px solid var(--grey-line-color);
@@ -235,6 +243,7 @@ body .application_manager .filter {
   animation-name: opacity_for_filter_in;
   animation-duration: 0.5s;
   animation-direction: alternate;
+  height: auto;
 }
 body .application_manager .filter .text_input {
   display: flex;
@@ -245,32 +254,41 @@ body .application_manager .filter .text_input {
 body .application_manager .filter .text_input .text_icon {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 body .application_manager .filter .text_input .text_icon h4 {
   font-size: var(--16-font-size);
   font-weight: var(--med-font-weight);
   color: var(--dark-color);
 }
-body .application_manager .filter .text_input .toggle_btn {
+body .application_manager .filter .text_input .toggle_hidden_union {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}
+body .application_manager .filter .text_input .toggle_hidden_union .toggle_btn {
   display: flex;
   align-items: center;
   justify-content: space-between;
   width: 100%;
   padding: 12px;
-  border: 1px solid var(--grey-line-color);
+  border: 1px solid rgb(227, 227, 227);
   border-radius: 8px;
   background-color: var(--100-white-color);
 }
-body .application_manager .filter .text_input .toggle_btn h4 {
+body .application_manager .filter .text_input .toggle_hidden_union .toggle_btn h4 {
   font-size: var(--14-font-size);
   font-weight: var(--med-font-weight);
   color: var(--dark-color);
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
 }
-body .application_manager .filter .text_input .hidden_div {
-  display: flex;
+body .application_manager .filter .text_input .toggle_hidden_union .hidden_div {
+  display: none;
   flex-direction: column;
-  gap: 10px;
-  width: 100%;
+  gap: 12px;
   padding: 12px;
   background-color: var(--100-white-color);
   border: 1px solid var(--grey-line-color);
@@ -278,11 +296,19 @@ body .application_manager .filter .text_input .hidden_div {
   opacity: 0;
   transition: opacity 0.2s ease-in-out;
   z-index: var(--z-index-10);
+  width: 100%;
 }
-body .application_manager .filter .text_input .hidden_div h4 {
+body .application_manager .filter .text_input .toggle_hidden_union .hidden_div h4 {
   font-size: var(--14-font-size);
   font-weight: var(--med-font-weight);
   color: var(--dark-color);
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+}
+body .application_manager .filter .text_input .hidden_recipient {
+  display: none;
+  opacity: 0;
 }
 body .application_manager .filter .text_input .hidden_recipient .line {
   width: 100%;

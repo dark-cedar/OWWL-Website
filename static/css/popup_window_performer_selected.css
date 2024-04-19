@@ -116,6 +116,14 @@ input, button {
   justify-content: center;
 }
 
+.choose_all_btn, .delete_choice_btn {
+  cursor: pointer;
+}
+
+.filled, .empty {
+  cursor: pointer;
+}
+
 /*========== Animations ==========*/
 @keyframes opacity_for_filter_in {
   from {
@@ -148,6 +156,7 @@ body .new_application .above_block {
   display: flex;
   flex-direction: column;
   gap: 24px;
+  width: 100%;
 }
 body .new_application .above_block .block_1 {
   display: flex;
@@ -187,6 +196,7 @@ body .new_application .above_block .note {
   border-bottom: 1px solid var(--grey-line-color);
   padding-top: 16px;
   padding-bottom: 16px;
+  width: 100%;
 }
 body .new_application .above_block .note .right_text {
   font-size: var(--16-font-size);
@@ -467,12 +477,15 @@ body .new_application .responded .union_blocks .one_more_task .left_cont {
   align-items: flex-start;
   gap: 16px;
 }
-body .new_application .responded .union_blocks .one_more_task .left_cont img {
-  cursor: pointer;
-}
-body .new_application .responded .union_blocks .one_more_task .left_cont .without_click {
-  display: none;
-  opacity: 0;
+body .new_application .responded .union_blocks .one_more_task .left_cont .checkbox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 18px;
+  min-height: 18px;
+  border: 1px solid rgb(224, 224, 224);
+  background-color: #FFFFFF;
+  border-radius: 4px;
 }
 body .new_application .responded .union_blocks .one_more_task .left_cont h3 {
   font-size: var(--14-font-size);

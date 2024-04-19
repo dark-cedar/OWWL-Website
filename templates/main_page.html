@@ -15,7 +15,7 @@
                             <div class="amount"><h4 class="amount_text">6</h4></div>
                         </div>
                     </div>
-                    <div onclick="redirectToWithResponse()" class="upper_context with_response">
+                    <div class="upper_context with_response">
                         <div class="context">
                             <h4 class="text_grey with_response_text">С откликом</h4>
                             <div class="amount"><h4 class="amount_text">4</h4></div>
@@ -36,8 +36,8 @@
                 </div>
             </div>
             <div class="filter_panel">
-                <button onclick="redirectToPopUpWindow()" class="create_request">Создать заявку</button>
-                <div class="new_search_field" onclick="searchBarClicked()">
+                <button class="create_request">Создать заявку</button>
+                <div class="new_search_field">
                     <img class="search_grey" src="{{ url_for('static', filename='images/Search.svg') }}" alt="The picture did not load">
                     <img class="search_black" src="{{ url_for('static', filename='images/Search_black.svg') }}" alt="The picture did not load">
                     <input class="input_field" type="text" placeholder="Поиск">
@@ -50,53 +50,57 @@
 
         <div class="filter">
             <div class="text_input">
-                <div class="text_icon">
+                <div class="text_icon reset_btn_auto">
                     <h4>А/м</h4>
-                    <img src="{{ url_for('static', filename='images/carbon_reset.svg') }}" alt="The picture did not load">
+                    <img class="reset_btn" src="{{ url_for('static', filename='images/carbon_reset.svg') }}" alt="The picture did not load">
                 </div>
-                <div class="toggle_btn car">
-                    <h4>Выберите автомобиль</h4>
-                    <img src="{{ url_for('static', filename='images/chevron-down.svg') }}" alt="The picture did not load">
-                </div>
-                <div class="hidden_div hidden_car">
-                    <h4>Audi A6 allroad I (C5)</h4>
+                <div class="toggle_hidden_union">
+                    <div class="toggle_btn car">
+                        <h4 class="toggle_btn_car_text">Выберите автомобиль</h4>
+                        <img src="{{ url_for('static', filename='images/chevron-down.svg') }}" alt="The picture did not load">
+                    </div>
+                    <div class="hidden_div hidden_car">
+                        <h4 class="hidden_car_text_1">Audi A6 allroad I (C5)</h4>
+                    </div>
                 </div>
             </div>
             <div class="text_input">
-                <div class="text_icon">
+                <div class="text_icon reset_btn_recipient">
                     <h4>Получатель</h4>
-                    <img src="{{ url_for('static', filename='images/carbon_reset.svg') }}" alt="The picture did not load">
+                    <img class="reset_btn" src="{{ url_for('static', filename='images/carbon_reset.svg') }}" alt="The picture did not load">
                 </div>
-                <div class="toggle_btn recipient">
-                    <h4>Выберите получателя</h4>
-                    <img src="{{ url_for('static', filename='images/chevron-down.svg') }}" alt="The picture did not load">
-                </div>
-                <div class="hidden_div hidden_recipient">
-                    <h4>ООО Ромашка</h4>
-                    <div class="line"></div>
-                    <h4>Восход</h4>
-                    <div class="line"></div>
-                    <h4>Ауди центр Алтуфьево</h4>
+                <div class="toggle_hidden_union">
+                    <div class="toggle_btn recipient">
+                        <h4 class="toggle_btn_recipient_text">Выберите получателя</h4>
+                        <img src="{{ url_for('static', filename='images/chevron-down.svg') }}" alt="The picture did not load">
+                    </div>
+                    <div class="hidden_div hidden_recipient">
+                        <h4 class="hidden_recipient_text_1">ООО Ромашка</h4>
+                        <div class="line"></div>
+                        <h4 class="hidden_recipient_text_2">Восход</h4>
+                        <div class="line"></div>
+                        <h4 class="hidden_recipient_text_3">Ауди центр Алтуфьево</h4>
+                    </div>
                 </div>
             </div>
             <div class="text_input">
-                <div class="text_icon">
+                <div class="text_icon reset_btn_place_1">
                     <h4>Место отправки</h4>
-                    <img src="{{ url_for('static', filename='images/carbon_reset.svg') }}" alt="The picture did not load">
+                    <img class="reset_btn" src="{{ url_for('static', filename='images/carbon_reset.svg') }}" alt="The picture did not load">
                 </div>
-                <div class="new_search_field">
+                <div class="new_search_field open_panel open_panel_1">
                     <a href="#"><img src="{{ url_for('static', filename='images/Search.svg') }}" alt="The picture did not load"></a>
-                    <input class="input_field" type="text" placeholder="Регион, город, насел. пункт">
+                    <input class="input_field place_1" type="text" placeholder="Регион, город, насел. пункт">
                 </div>
             </div>
             <div class="text_input">
-                <div class="text_icon">
+                <div class="text_icon reset_btn_place_2">
                     <h4>Место доставки</h4>
-                    <img src="{{ url_for('static', filename='images/carbon_reset.svg') }}" alt="The picture did not load">
+                    <img class="reset_btn" src="{{ url_for('static', filename='images/carbon_reset.svg') }}" alt="The picture did not load">
                 </div>
-                <div class="new_search_field">
+                <div class="new_search_field open_panel open_panel_2">
                     <a href="#"><img src="{{ url_for('static', filename='images/Search.svg') }}" alt="The picture did not load"></a>
-                    <input class="input_field" type="text" placeholder="Регион, город, насел. пункт">
+                    <input class="input_field place_2" type="text" placeholder="Регион, город, насел. пункт">
                 </div>
             </div>
         </div>
@@ -115,7 +119,7 @@
                     <h3>15 дней:</h3>
                     <h4>1</h4>
                 </div>
-                <img src="{{ url_for('static', filename='images/carbon_reset.svg') }}" alt="The picture did not load">
+                <img class="reset_btn" src="{{ url_for('static', filename='images/carbon_reset.svg') }}" alt="The picture did not load">
             </div>
 
             <div class="right_cont">
@@ -136,7 +140,7 @@
 
     <div class="cards">
         <div class="next_layer">
-            <div class="card">
+            <div class="card card_first">
                 <div class="number_title">
                     <h2>Номер заявки: 00001/210305</h2>
                     <h3>Audi A6 allroad I (C5)</h3>
@@ -156,7 +160,7 @@
                     <h4>Заметка</h4>
                 </div>
             </div>
-            <div class="card">
+            <div class="card card_second">
                 <div class="number_title">
                     <h2>Номер заявки: 00001/210305</h2>
                     <h3>Audi A6 allroad I (C5)</h3>
@@ -176,7 +180,7 @@
                     <h4>Заметка</h4>
                 </div>
             </div>
-            <div class="card">
+            <div class="card card_third">
                 <div class="number_title">
                     <h2>Номер заявки: 00001/210305</h2>
                     <h3>Audi A6 allroad I (C5)</h3>
@@ -196,7 +200,7 @@
                     <h4>Заметка</h4>
                 </div>
             </div>
-            <div class="card">
+            <div class="card card_auto">
                 <div class="number_title">
                     <h2>Номер заявки: 00001/210305</h2>
                     <h3>Audi A6 allroad I (C5)</h3>
@@ -218,7 +222,7 @@
             </div>
         </div>
         <div class="next_layer">
-            <div class="card">
+            <div class="card card_auto">
                 <div class="number_title">
                     <h2>Номер заявки: 00001/210305</h2>
                     <h3>Audi A6 allroad I (C5)</h3>
@@ -238,7 +242,7 @@
                     <h4>Заметка</h4>
                 </div>
             </div>
-            <div class="card">
+            <div class="card card_auto">
                 <div class="number_title">
                     <h2>Номер заявки: 00001/210305</h2>
                     <h3>Audi A6 allroad I (C5)</h3>
@@ -270,5 +274,141 @@
                 alert(alert_message);
             }
         };
+
+        var createRequest = document.querySelector('.create_request')
+        createRequest.addEventListener('click', function() {
+            window.location.href = 'creating_application';
+        });
+
+        /*=============== CONSTS ===============*/
+        // fot first
+        const car = document.querySelector('.car');
+        const hidden_car = document.querySelector('.hidden_car');
+        // fot_second
+        const recipient = document.querySelector('.recipient');
+        const hidden_recipient = document.querySelector('.hidden_recipient');
+        // other
+        const new_filter_button = document.querySelector('.new_filter_button');
+        const filter = document.querySelector('.filter');
+        const filter_icon = document.querySelector('.filter_icon');
+        const upper_contexts = document.querySelectorAll('.upper_context');
+        const text_grey = document.querySelector('.text_grey');
+        const search_grey = document.querySelector('.search_grey');
+        const search_black = document.querySelector('.search_black');
+
+        /*=============== EVENTS ===============*/
+
+        new_filter_button.addEventListener('click', function() {
+            var rootStyles = getComputedStyle(document.documentElement);
+            const color_white = rootStyles.getPropertyValue('--100-white-color');
+            const color_red = rootStyles.getPropertyValue('--light-red-color');
+
+            if (filter.style.display === 'flex') {
+                filter.style.display = 'none';
+                filter.style.opacity = '0';
+                new_filter_button.style.backgroundColor = color_red;
+                filter_icon.src = '/static/images/Filter.svg';
+
+                hidden_car.style.opacity = '0';
+                hidden_recipient.style.opacity = '0';
+                document.querySelector('.input_field').value = '';
+            } else {
+                filter.style.display = 'flex';
+                filter.style.opacity = '1';
+                new_filter_button.style.backgroundColor = color_white;
+                filter_icon.src = '/static/images/Filter_dark.svg';
+            }
+        });
+
+        const allTexts = document.querySelectorAll('.text_grey');
+        upper_contexts.forEach(function(upper_context) {
+        upper_context.addEventListener('click', function() {
+            // deleting elements without that class
+            upper_contexts.forEach(function(upper_context) {
+                upper_context.classList.remove('lined');
+            });
+            allTexts.forEach(function(text) {
+                text.style.color = '#858585';
+            });
+            // adding for div
+            upper_context.classList.add('lined');
+            // adding for text
+            const allClasses = upper_context.classList;
+            if (allClasses.contains('new')) {
+                var name_text = document.querySelector('.new_text');
+            } else if (allClasses.contains('with_response')) {
+                var name_text = document.querySelector('.with_response_text');
+            } else if (allClasses.contains('delivery')) {
+                var name_text = document.querySelector('.delivery_text');
+            } else if (allClasses.contains('done')) {
+                var name_text = document.querySelector('.done_text');
+            }
+            var black_color = getComputedStyle(document.documentElement).getPropertyValue('--dark-color');
+            name_text.style.color = black_color;
+            });
+        });
+
+        var newSearchField = document.querySelector('.new_search_field')
+        newSearchField.addEventListener('click', function() {
+            newSearchField.style.border = '1px solid rgba(255, 98, 98, 1)';
+            newSearchField.style.boxShadow = '0px 10px 13px 0px rgba(27, 44, 49, 0.04)';
+        });
+
+        var openPanel1 = document.querySelector('.open_panel_1')
+        var openPanel2 = document.querySelector('.open_panel_2')
+        openPanel1.addEventListener('click', function() {
+            openPanel1.style.border = '1px solid rgba(255, 98, 98, 1)';
+            openPanel1.style.boxShadow = '0px 10px 13px 0px rgba(27, 44, 49, 0.04)';
+        });
+        openPanel2.addEventListener('click', function() {
+            openPanel2.style.border = '1px solid rgba(255, 98, 98, 1)';
+            openPanel2.style.boxShadow = '0px 10px 13px 0px rgba(27, 44, 49, 0.04)';
+        });
+
+        // for all document
+        document.addEventListener("click", function(event) {
+            if (!newSearchField.contains(event.target)) {
+                newSearchField.style.border = '1px solid rgba(227, 227, 227, 1)';
+                newSearchField.style.boxShadow = 'none';
+            }
+            if (!openPanel1.contains(event.target)) {
+                openPanel1.style.border = '1px solid rgba(227, 227, 227, 1)';
+                openPanel1.style.boxShadow = 'none';
+            }
+            if (!openPanel2.contains(event.target)) {
+                openPanel2.style.border = '1px solid rgba(227, 227, 227, 1)';
+                openPanel2.style.boxShadow = 'none';
+            }
+            if (!toggleBtnCar.contains(event.target)) {
+                toggleBtnCar.style.border = '1px solid rgba(227, 227, 227, 1)';
+                toggleBtnCar.style.boxShadow = 'none';
+            }
+            if (!toggleBtnRecipient.contains(event.target)) {
+                toggleBtnRecipient.style.border = '1px solid rgba(227, 227, 227, 1)';
+                toggleBtnRecipient.style.boxShadow = 'none';
+            }
+        });
+
+        var cardAuto = document.querySelectorAll('.card.card_auto')
+        cardAuto.forEach(function(elem) {
+            elem.addEventListener('click', function() {
+                window.location.href = 'popup_window';
+            });
+        })
+        var cardFirst = document.querySelector('.card.card_first')
+        cardFirst.addEventListener('click', function() {
+            window.location.href = 'popup_window_performer_selected';
+        });
+        var cardSecond = document.querySelector('.card.card_second')
+        cardSecond.addEventListener('click', function() {
+            window.location.href = 'popup_window_awaiting_loading';
+        });
+
+        var cardThird = document.querySelector('.card.card_third')
+        cardThird.addEventListener('click', function() {
+            window.location.href = 'popup_window_confirmed_by_customer';
+        });
     </script>
+
+    <script src="{{ url_for('static', filename='scripts/toggle_btn.js') }}"></script>
 {% endblock %}

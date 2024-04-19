@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Вход</title>
+    <title>Заявка с откликами</title>
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='images/logo_owwl_image.svg') }}">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/popup_window.css') }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -49,20 +50,208 @@
                         <h3>-</h3>
                     </div>
                 </div>
-                <a href="#" class="text_link"><h3>Свернуть</h3></a>
+                <a href="#" class="text_link">
+                    <h3>Свернуть</h3>
+                </a>
+            </div>
+        </div>
+        <div class="middle_block_opening">
+            <div class="popupsearchbar">
+                <h4>Отклики (4)</h4>
+                <div class="search_btns">
+                    <div class="new_search_field">
+                        <a href="#"><img src="{{ url_for('static', filename='images/Search.svg') }}" alt="The picture did not load"></a>
+                        <input class="input_field" type="text" placeholder="Поиск">
+                    </div>
+                    <div class="sort_by_date_btn">
+                        <h3>Сортировать по дате</h3>
+                        <img src="{{ url_for('static', filename='images/chevron-down_dark.svg') }}" alt="The picture did not load">
+                    </div>
+                    <button class="favourites"><img src="{{ url_for('static', filename='images/Bookmark_dark.svg') }}" alt="The picture did not load"></button>
+                </div>
+            </div>
+            <div class="choose_tk_block">
+                <div class="TKChoose">
+                    <div class="left_cont">
+                        <div class="upper_block">
+                            <a href="#"><img src="{{ url_for('static', filename='images/tk_avatar_1.png') }}" alt="The picture did not load"></a>
+                            <h3>Cargo Unicorn</h3>
+                            <a href="#"><img src="{{ url_for('static', filename='images/Bookmark_grey.svg') }}" alt="The picture did not load"></a>
+                        </div>
+                        <div class="middle_block">
+                            <div class="suggested_price">
+                                <h3 class="text_16 grey_text">Предложенная цена:</h3>
+                                <h3 class="text_16 bl_text">6 000 ₽</h3>
+                                <h3 class="text_16 red_text">(+1000 ₽)</h3>
+                                <h3 class="text_16 easy_grey_text">(Включая НДС)</h3>
+                            </div>
+                            <div class="blocks">
+                                <div class="loading_time">
+                                    <h3 class="text_16 grey_text">Срок погрузки:</h3>                            <div class="working_hours">
+                                    <h3 class="text_16 bl_text">12.03.22</h3>
+                                </div>
+                                <div class="working_hours">
+                                    <h3 class="text_16 grey_text">Время работы на сайте</h3>                            <div class="working_hours">
+                                    <h3 class="text_16 bl_text">1 год и 2 мес.</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <h3>1 час назад</h3>
+                
+                    </div>
+                    <div class="right_cont">
+                        <div class="raiting_5">
+                           <h3>5.0</h3> 
+                           <img src="{{ url_for('static', filename='images/ant-design_red.svg') }}" alt="The picture did not load">
+                           <img src="{{ url_for('static', filename='images/ant-design_red.svg') }}" alt="The picture did not load">
+                           <img src="{{ url_for('static', filename='images/ant-design_red.svg') }}" alt="The picture did not load">
+                           <img src="{{ url_for('static', filename='images/ant-design_red.svg') }}" alt="The picture did not load">
+                           <img src="{{ url_for('static', filename='images/ant-design_grey.svg') }}" alt="The picture did not load">
+                        </div>
+                        <div class="btn_icon">
+                            <button onclick="tkChooseBtnClicked()" class="tk_choose_btn">Выбрать ТК</button>
+                            <a href="#"><img src="{{ url_for('static', filename='images/Chat_red.svg') }}" alt="The picture did not load"></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="TKChoose">
+                    <div class="left_cont">
+                        <div class="upper_block">
+                            <a href="#"><img src="{{ url_for('static', filename='images/tk_avatar_2.png') }}" alt="The picture did not load"></a>
+                            <h3>ТК Экспресс</h3>
+                            <a href="#"><img src="{{ url_for('static', filename='images/Bookmark_grey.svg') }}" alt="The picture did not load"></a>
+                        </div>
+                        <div class="middle_block">
+                            <div class="suggested_price">
+                                <h3 class="text_16 grey_text">Предложенная цена:</h3>
+                                <h3 class="text_16 bl_text">6 000 ₽</h3>
+                                <h3 class="text_16 red_text">(+1000 ₽)</h3>
+                                <h3 class="text_16 easy_grey_text">(Включая НДС)</h3>
+                            </div>
+                            <div class="blocks">
+                                <div class="loading_time">
+                                    <h3 class="text_16 grey_text">Срок погрузки:</h3>                            <div class="working_hours">
+                                    <h3 class="text_16 bl_text">12.03.22</h3>
+                                </div>
+                                <div class="working_hours">
+                                    <h3 class="text_16 grey_text">Время работы на сайте</h3>                            <div class="working_hours">
+                                    <h3 class="text_16 bl_text">1 год и 2 мес.</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <h3>1 час назад</h3>
+                </div>
+                    <div class="right_cont">
+                        <div class="raiting_5">
+                           <h3>5.0</h3> 
+                           <img src="{{ url_for('static', filename='images/ant-design_red.svg') }}" alt="The picture did not load">
+                           <img src="{{ url_for('static', filename='images/ant-design_red.svg') }}" alt="The picture did not load">
+                           <img src="{{ url_for('static', filename='images/ant-design_red.svg') }}" alt="The picture did not load">
+                           <img src="{{ url_for('static', filename='images/ant-design_red.svg') }}" alt="The picture did not load">
+                           <img src="{{ url_for('static', filename='images/ant-design_grey.svg') }}" alt="The picture did not load">
+                        </div>
+                        <div class="btn_icon">
+                            <button onclick="tkChooseBtnClicked()" class="tk_choose_btn">Выбрать ТК</button>
+                            <a href="#"><img src="{{ url_for('static', filename='images/Chat_red.svg') }}" alt="The picture did not load"></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="TKChoose">
+                    <div class="left_cont">
+                        <div class="upper_block">
+                            <a href="#"><img src="{{ url_for('static', filename='images/tk_avatar_3.png') }}" alt="The picture did not load"></a>
+                            <h3>ТК Скорость</h3>
+                            <a href="#"><img src="{{ url_for('static', filename='images/Bookmark_grey.svg') }}" alt="The picture did not load"></a>
+                        </div>
+                        <div class="middle_block">
+                            <div class="suggested_price">
+                                <h3 class="text_16 grey_text">Предложенная цена:</h3>
+                                <h3 class="text_16 bl_text">6 000 ₽</h3>
+                                <h3 class="text_16 red_text">(+1000 ₽)</h3>
+                                <h3 class="text_16 easy_grey_text">(Включая НДС)</h3>
+                            </div>
+                            <div class="blocks">
+                                <div class="loading_time">
+                                    <h3 class="text_16 grey_text">Срок погрузки:</h3>
+                                    <h3 class="text_16 bl_text">12.03.22</h3>
+                                </div>
+                                <div class="working_hours">
+                                    <h3 class="text_16 grey_text">Время работы на сайте</h3>
+                                    <h3 class="text_16 bl_text">1 год и 2 мес.</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="right_cont">
+                        <div class="raiting_5">
+                            <h3>5.0</h3> 
+                            <img src="{{ url_for('static', filename='images/ant-design_red.svg') }}" alt="The picture did not load">
+                            <img src="{{ url_for('static', filename='images/ant-design_red.svg') }}" alt="The picture did not load">
+                            <img src="{{ url_for('static', filename='images/ant-design_red.svg') }}" alt="The picture did not load">
+                            <img src="{{ url_for('static', filename='images/ant-design_red.svg') }}" alt="The picture did not load">
+                            <img src="{{ url_for('static', filename='images/ant-design_grey.svg') }}" alt="The picture did not load">
+                        </div>
+                        <div class="btn_icon">
+                            <button onclick="tkChooseBtnClicked()" class="tk_choose_btn">Выбрать ТК</button>
+                            <a href="#"><img src="{{ url_for('static', filename='images/Chat_red.svg') }}" alt="The picture did not load"></a>
+                        </div>
+                    </div>
+                </div>
+                <h3>1 час назад</h3>
             </div>
         </div>
         <div class="below_block">
             <button class="close_btn">Закрыть</button>
-            <button class="spec_btn">
+            <button class="spec_btn edit">
                 <img src="{{ url_for('static', filename='images/Edit_grey.svg') }}" alt="The picture did not load">
                 <h3>Редактировать</h3>
             </button>
-            <button class="spec_btn">
+            <button class="spec_btn delete">
                 <img src="{{ url_for('static', filename='images/Delete_grey.svg') }}" alt="The picture did not load">
                 <h3>Отменить заявку</h3>
             </button>
         </div>
     </div>
+
+    <script>
+        var textLink = document.querySelector('.text_link')
+        var middleBlockOpening = document.querySelector('.middle_block_opening')
+        // lower btns
+        var closeBtn = document.querySelector('.close_btn')
+        var specBtnEdit = document.querySelector('.spec_btn.edit')
+        var specBtnDelete = document.querySelector('.spec_btn.delete')
+        textLink.addEventListener('click', function() {
+            if (middleBlockOpening.style.display === 'flex') {
+                middleBlockOpening.style.display = 'none';
+                closeBtn.style.display = 'flex';
+                specBtnEdit.style.display = 'flex';
+            } else {
+                middleBlockOpening.style.display = 'flex';
+                closeBtn.style.display = 'none';
+                specBtnEdit.style.display = 'none';
+            }
+        });
+
+        var newSearchField = document.querySelector('.new_search_field')
+        newSearchField.addEventListener('click', function() {
+            newSearchField.style.border = '1px solid rgba(255, 98, 98, 1)';
+            newSearchField.style.boxShadow = '0px 10px 13px 0px rgba(27, 44, 49, 0.04)';
+        });
+
+        document.addEventListener("click", function(event) {
+            if (!newSearchField.contains(event.target)) {
+                newSearchField.style.border = '1px solid rgba(227, 227, 227, 1)';
+                newSearchField.style.boxShadow = 'none';
+            }
+        });
+
+        specBtnDelete.addEventListener('click', function() {
+            window.location.href = 'main_page';
+        });
+    </script>
 </body>
 </html>

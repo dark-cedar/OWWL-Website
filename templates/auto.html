@@ -12,13 +12,11 @@
 
         <section class="below_section">
             <div class="btn_transparent">
-                <div class="clip_path_btn" onclick="ClipPathBtn_1Clicked()">
-                    <img class="skeleton" src="{{ url_for('static', filename='images/skeleton.svg') }}" alt="The picture did not load">
-                    <h3 class="autos_text">Автомобили</h3>
+                <div class="clip_path_btn_data">
+                    <h3>Автомобили</h3>
                 </div>
-                <div class="clip_path_warehouses" onclick="ClipPathBtn_2Clicked()">
-                    <img class="clip_path_btn_warehouses" src="{{ url_for('static', filename='images/clip_path_btn_warehouses.svg') }}" alt="The picture did not load">
-                    <h3 class="warehouses_text">Склады</h3>
+                <div class="clip_path_btn_documents">
+                    <h3>Склады</h3>
                 </div>
             </div>
             <section class="below_cont">
@@ -226,7 +224,7 @@
                     <div class="model model_warehouse addTextWarehouse"><h3 class="text">Южный</h3></div>
                     <div class="model_spec model_status"><button class="grey_btn">Ожидает погрузку</button></div>
                     <div class="model model_num"><h3 class="text">#00001/210305</h3></div>
-                    <div class="model model_action model_action_1" onclick="modelActionClicked()">
+                    <div class="model model_action model_action_1 for_click" onclick="modelActionClicked()">
                         <img src="{{ url_for('static', filename='images/More Circle.svg') }}" alt="The picture did not load">
                     </div>
                     <div class="action_block">
@@ -262,7 +260,7 @@
                     <div class="model model_warehouse"><h3 class="text">Южный</h3></div>
                     <div class="model_spec model_status"><button class="grey_btn">Ожидает погрузку</button></div>
                     <div class="model model_num"><h3 class="text">#00001/210305</h3></div>
-                    <div class="model model_action">
+                    <div class="model model_action for_click">
                         <img src="{{ url_for('static', filename='images/More Circle.svg') }}" alt="The picture did not load">
                     </div>
                 </div>
@@ -280,7 +278,7 @@
                     <div class="model model_warehouse"><h3 class="text">Южный</h3></div>
                     <div class="model_spec model_status"><button class="grey_btn">Ожидает погрузку</button></div>
                     <div class="model model_num"><h3 class="text">#00001/210305</h3></div>
-                    <div class="model model_action">
+                    <div class="model model_action for_click">
                         <img src="{{ url_for('static', filename='images/More Circle.svg') }}" alt="The picture did not load">
                     </div>
                 </div>
@@ -298,7 +296,7 @@
                     <div class="model model_warehouse"><h3 class="text">Южный</h3></div>
                     <div class="model_spec model_status"><button class="grey_btn">Ожидает погрузку</button></div>
                     <div class="model model_num"><h3 class="text">#00001/210305</h3></div>
-                    <div class="model model_action">
+                    <div class="model model_action for_click">
                         <img src="{{ url_for('static', filename='images/More Circle.svg') }}" alt="The picture did not load">
                     </div>
                 </div>
@@ -316,7 +314,7 @@
                     <div class="model model_warehouse"><h3 class="text">Южный</h3></div>
                     <div class="model_spec model_status"><button class="grey_btn">Ожидает погрузку</button></div>
                     <div class="model model_num"><h3 class="text">#00001/210305</h3></div>
-                    <div class="model model_action">
+                    <div class="model model_action for_click">
                         <img src="{{ url_for('static', filename='images/More Circle.svg') }}" alt="The picture did not load">
                     </div>
                 </div>
@@ -334,7 +332,7 @@
                     <div class="model model_warehouse"><h3 class="text">Южный</h3></div>
                     <div class="model_spec model_status"><button class="grey_btn">Ожидает погрузку</button></div>
                     <div class="model model_num"><h3 class="text">#00001/210305</h3></div>
-                    <div class="model model_action">
+                    <div class="model model_action for_click">
                         <img src="{{ url_for('static', filename='images/More Circle.svg') }}" alt="The picture did not load">
                     </div>
                 </div>
@@ -352,7 +350,7 @@
                     <div class="model model_warehouse"><h3 class="text">Южный</h3></div>
                     <div class="model_spec model_status"><button class="grey_btn">Ожидает погрузку</button></div>
                     <div class="model model_num"><h3 class="text">#00001/210305</h3></div>
-                    <div class="model model_action">
+                    <div class="model model_action for_click">
                         <img src="{{ url_for('static', filename='images/More Circle.svg') }}" alt="The picture did not load">
                     </div>
                 </div>
@@ -370,7 +368,7 @@
                     <div class="model model_warehouse"><h3 class="text">Южный</h3></div>
                     <div class="model_spec model_status"><button class="grey_btn">Ожидает погрузку</button></div>
                     <div class="model model_num"><h3 class="text">#00001/210305</h3></div>
-                    <div class="model model_action">
+                    <div class="model model_action for_click">
                         <img src="{{ url_for('static', filename='images/More Circle.svg') }}" alt="The picture did not load">
                     </div>
                 </div>
@@ -388,7 +386,7 @@
                     <div class="model model_warehouse"><h3 class="text">Южный</h3></div>
                     <div class="model_spec model_status"><button class="grey_btn">Ожидает погрузку</button></div>
                     <div class="model model_num"><h3 class="text">#00001/210305</h3></div>
-                    <div class="model model_action" onclick="modelActionClicked(9)">
+                    <div class="model model_action for_click" onclick="modelActionClicked(9)">
                         <img src="{{ url_for('static', filename='images/More Circle.svg') }}" alt="The picture did not load">
                     </div>
                 </div>
@@ -406,7 +404,7 @@
                     <div class="model model_warehouse"><h3 class="text">Южный</h3></div>
                     <div class="model_spec model_status"><button class="grey_btn">Ожидает погрузку</button></div>
                     <div class="model model_num"><h3 class="text">#00001/210305</h3></div>
-                    <div class="model model_action">
+                    <div class="model model_action for_click">
                         <img src="{{ url_for('static', filename='images/More Circle.svg') }}" alt="The picture did not load">
                     </div>
                 </div>
@@ -673,10 +671,12 @@
             }
 
             if (isClickOutsideElement(table_settings, event) && event.target !== view_btn) {
+                table_settings.style.display = 'none';
                 table_settings.style.opacity = '0';
             }
 
             if (isClickOutsideElement(action_block, event) && event.target !== model_action_1) {
+                action_block.style.display = 'none';
                 action_block.style.opacity = '0';
             }
         });
@@ -689,6 +689,7 @@
 
         document.addEventListener('DOMContentLoaded', function() {
             view_btn.addEventListener('click', function() {
+                table_settings.style.display = 'flex';
                 table_settings.style.opacity = '1';
             });
         });
@@ -950,8 +951,10 @@
         // action block processing
         function modelActionClicked() {
             if (action_block.style.opacity === '1') {
+                action_block.style.display = 'none';
                 action_block.style.opacity = '0';
             } else {
+                action_block.style.display = 'flex';
                 action_block.style.opacity = '1';
             }
         }
@@ -978,14 +981,6 @@
 
         // Navigating to other pages
 
-        function warehousesClicked() {
-            window.location.href = "auto";
-        }
-
-        function goOverCarRegistration() {
-            window.location.href = "car_registration";
-        }
-
         function goOverCarRegistration() {
             window.location.href = "car_registration";
         }
@@ -1004,5 +999,17 @@
                 spec[i].style.display = 'none';
             }
         }
+
+        var edit_redir = document.querySelectorAll(".model.for_click"); 
+        edit_redir.forEach(function(elem) {
+            elem.addEventListener('click', function() {
+                window.location.href = 'car_editing';
+            });
+        })
+
+        var clipPathBtnDocuments = document.querySelector(".clip_path_btn_documents"); 
+        clipPathBtnDocuments.addEventListener('click', function() {
+            window.location.href = 'warehouses';
+        });
     </script>
 {% endblock %}

@@ -1,48 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Регистрация / Склады</title>
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/warehouses.css') }}">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
-</head>
-<body>
-    <header>
-        <img src="{{ url_for('static', filename='images/logo_owwl.svg') }}" alt="The picture did not load">
-        <div class="right_cont">
-            <ul>
-                <li><a href="#">А/м и склады</a></li>
-                <li><a href="#">Список ТК</a></li>
-                <li><a href="#">Журнал документов</a></li>
-                <li><a href="#">Вопрос ответ</a></li>
-            </ul>
-            <div class="settings">
-                <div class="logo_and_options" onclick="toggleOptions()">
-                    <img src="{{ url_for('static', filename='images/ava_no_updates.svg') }}" alt="The picture did not load">
-                    <div class="text_icon">
-                        <h4>Favorit Motors</h4>
-                        <a href="#"><img src="{{ url_for('static', filename='images/chevron-down.svg') }}" alt="The picture did not load"></a>
-                    </div>
-                </div>
-                <div class="two_icons">
-                    <div class="icon navbar_icon_message" onmouseover="messageIconOnMouseOver()" onmouseout="messageIconOnMouseOut()"></div>
-                    <div class="icon navbar_icon_notification"></div>
+{% extends "header.html" %}
 
-                    <div class="amount_messages">
-                        <h3 class="amount_messages_text">3</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="logo_vars">
-            <h3 class="profile" onclick="profileRedirection()">Профиль</h3>
-            <h3 class="out">Выйти</h3>
-        </div>
-    </header>
+{% block title %}Регистрация / Склады{% endblock %}
+{% block css %}<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/warehouses.css') }}">{% endblock %}
 
+{% block main_cont %}
     <section>
         <div class="upper_texts">
             <a href="main_page"><h3 class="font_16_med_light_red">На главную</h3></a>
@@ -51,13 +12,11 @@
 
         <section class="below_section">
             <div class="btn_transparent">
-                <div class="clip_path_btn" onclick="ClipPathBtn_1Clicked()">
-                    <img class="skeleton" src="{{ url_for('static', filename='images/skeleton.svg') }}" alt="The picture did not load">
-                    <h3 class="autos_text">Автомобили</h3>
+                <div class="clip_path_btn_data">
+                    <h3>Автомобили</h3>
                 </div>
-                <div class="clip_path_warehouses" onclick="ClipPathBtn_2Clicked()">
-                    <img class="clip_path_btn_warehouses" src="{{ url_for('static', filename='images/clip_path_btn_warehouses.svg') }}" alt="The picture did not load">
-                    <h3 class="warehouses_text">Склады</h3>
+                <div class="clip_path_btn_documents">
+                    <h3>Склады</h3>
                 </div>
             </div>
             <section class="below_cont">
@@ -221,8 +180,9 @@
             </section>
         </section>
     </section>
+{% endblock %}
 
-    <!-- inherited files -->
+{% block script %}
     <script src="{{ url_for('static', filename='scripts/header.js') }}"></script>
     
     <script>
@@ -678,32 +638,19 @@
         var below_cont = document.querySelector(".below_cont");
 
         // Navigating to other pages
-
-        function warehousesClicked() {
-            window.location.href = "auto";
-        }
-
+        
         function goOverWarehousesRegistration() {
             window.location.href = "warehouses_registration";
-        }
-    
-        function ClipPathBtn_1Clicked() {
-            window.location.href = "auto";
-
-            table_names_for_autos.style.display = 'flex';
-            table_names_for_warehouses.style.display = 'none';
-            spec_warehouses.style.display = 'none';
-            below_cont.style.borderRadius = '0px 16px 16px 16px';
-
-            for (var i = 0; i < spec.length; i++) {
-                spec[i].style.display = 'flex';
-            }
         }
 
         var action_icon = document.querySelector(".action_icon");
         action_icon.addEventListener('click', function() {
             window.location.href = "warehouses_editing";
         });
+
+        var clipPathBtnData = document.querySelector('.clip_path_btn_data');
+        clipPathBtnData.addEventListener('click', function() {
+            window.location.href = 'auto';
+        });
     </script>
-</body>
-</html>
+{% endblock %}

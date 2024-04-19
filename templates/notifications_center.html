@@ -1,0 +1,162 @@
+{% extends "header.html" %}
+
+{% block title %}Центр Уведомлений{% endblock %}
+{% block css %}<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/notifications_center.css') }}">{% endblock %}
+
+{% block main_cont %}
+    <section>
+        <div class="upper_block">
+            <div class="upper_texts">
+                <a class="return_btn"><h3>Вернуться</h3></a>
+                <h1>Центр уведомлений</h1>
+            </div>
+            <div class="create_req__search">
+                <button class="create_request">Создать заявку</button>
+                <div class="new_search_field">
+                    <img class="search_grey" src="{{ url_for('static', filename='images/Search.svg') }}" alt="The picture did not load">
+                    <input class="input_field" type="text" placeholder="Поиск">
+                </div>
+            </div>
+        </div>
+        <section class="filter">
+            <div class="text_icon">
+                <h3>Период</h3>
+                <img class="carbon_reset" src="{{ url_for('static', filename='images/carbon_reset.svg') }}" alt="The picture did not load">
+            </div>
+            <div class="two-btns">
+                <button class="btn_from">
+                    <h3>С</h3>
+                    <img class="chevron_down_black" src="{{ url_for('static', filename='images/chevron-down_black.svg') }}" alt="The picture did not load">
+                </button>
+                <button class="btn_till">
+                    <h3>По</h3>
+                    <img class="chevron_down_black" src="{{ url_for('static', filename='images/chevron-down_black.svg') }}" alt="The picture did not load">
+                </button>
+            </div>
+
+            <div class="calendar">
+                <div class="upper_part">
+                    <h3 class="calendar_from_text">Октябрь 2020</h3>
+                    <div class="two_arrows">
+                        <a class="previous_grey_icon left"><img src="{{ url_for('static', filename='images/previous_grey.svg') }}" alt="The picture did not load"></a>
+                        <a style="transform: rotate(180deg);" class="previous_grey_icon right"><img src="{{ url_for('static', filename='images/previous_grey.svg') }}" alt="The picture did not load"></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="tables_bg_notifications">
+            <div class="text_date_block">
+                <h2>8 Октября 2021</h2>
+                <div class="date_block">
+                    <h3 class="month_text">Октябрь</h3>
+                    <div class="left_right_arrows">
+                        <a class="left_circle_red"><img src="{{ url_for('static', filename='images/left_circle_red.svg') }}" alt="The picture did not load"></a>
+                        <a class="right_circle_red"><img src="{{ url_for('static', filename='images/right_circle_red.svg') }}" alt="The picture did not load"></a>
+                    </div>
+                </div>
+
+            </div>
+            <div class="logs">
+                {% for notif in notif_for_html %}
+                    <div class="log">
+                        <div class="icon_box">
+                            {% if notif[0] == 'box' %}
+                                <img class="package_red_icon" src="{{ url_for('static', filename='images/package_red.svg') }}" alt="The picture did not load">
+                            {% elif notif[0] == 'arrows' %}
+                                <img class="swap_red_icon" src="{{ url_for('static', filename='images/Swap_red.svg') }}" alt="The picture did not load">
+                            {% elif notif[0] == 'message' %}
+                                <img class="send_red_icon" src="{{ url_for('static', filename='images/Send_red.svg') }}" alt="The picture did not load">
+                            {% elif notif[0] == 'delete' %}
+                                <img class="delete_red_icon" src="{{ url_for('static', filename='images/Delete_red.svg') }}" alt="The picture did not load">
+                            {% endif %}
+                        </div>
+                        <div class="right_cont">
+                            <h3 class="date_text">{{ notif[1] }}</h3>
+
+                            {% if notif[0] == 'box' %}
+                                <h4 class="content_text">Вы создали <span>{{ notif[-1][0] }}</span>{{ notif[-1][-1] }}</h4>
+                            {% elif notif[0] == 'arrows' %}
+                                <h4 class="content_text">На вашу <span>{{ notif[-1][0] }}</span>{{ notif[-1][-1] }}</h4>
+                            {% elif notif[0] == 'message' %}
+                                <h4 class="content_text">Ваша <span>{{ notif[-1][0] }}</span>{{ notif[-1][-1] }}</h4>
+                            {% elif notif[0] == 'delete' %}
+                                <h4 class="content_text">Вы удалили <span>{{ notif[-1][0] }}</span>{{ notif[-1][-1] }}</h4>
+                            {% endif %}
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+{% block script %}
+    <script>
+        var newSearchField = document.querySelector('.new_search_field')
+        newSearchField.addEventListener('click', function() {
+            newSearchField.style.border = '1px solid rgba(255, 98, 98, 1)';
+            newSearchField.style.boxShadow = '0px 10px 13px 0px rgba(27, 44, 49, 0.04)';
+        });
+
+        document.addEventListener("click", function(event) {
+            if (!newSearchField.contains(event.target)) {
+                newSearchField.style.border = '1px solid rgba(227, 227, 227, 1)';
+                newSearchField.style.boxShadow = 'none';
+            }
+        });
+
+        // months processing
+        const months = ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'];
+        var currentMonthIndex = 9;
+
+        function updateMonthDisplay() {
+            document.querySelector('.month_text').textContent = months[currentMonthIndex];
+        }
+
+        document.querySelector('.right_circle_red').addEventListener('click', function() {
+            currentMonthIndex++;
+            if (currentMonthIndex >= months.length) {
+                currentMonthIndex = 0;
+            }
+            updateMonthDisplay();
+        });
+
+        document.querySelector('.left_circle_red').addEventListener('click', function() {
+            currentMonthIndex--;
+            if (currentMonthIndex < 0) {
+                currentMonthIndex = months.length - 1;
+            }
+            updateMonthDisplay();
+        });
+
+        var returnBtn = document.querySelector('.return_btn')
+        returnBtn.addEventListener("click", function(event) {
+            window.history.back()
+        });
+
+        // calendar
+        var currentYearForCalendarFrom = 2020;
+        var currentMonthIndexForCalendarFrom = 9;
+
+        function updateMonthDisplayForCalendarFrom() {
+            document.querySelector('.calendar_from_text').textContent = `${months[currentMonthIndexForCalendarFrom]} ${currentYearForCalendarFrom}`
+        }
+
+        document.querySelector('.previous_grey_icon.right').addEventListener('click', function() {
+            currentMonthIndexForCalendarFrom++;
+            if (currentMonthIndexForCalendarFrom >= 12) {
+                currentMonthIndexForCalendarFrom = 0;
+                currentYearForCalendarFrom++;
+            }
+            updateMonthDisplayForCalendarFrom();
+        });
+        document.querySelector('.previous_grey_icon.left').addEventListener('click', function() {
+            currentMonthIndexForCalendarFrom--;
+            if (currentMonthIndexForCalendarFrom < 0) {
+                currentMonthIndexForCalendarFrom = months.length - 1;
+                currentYearForCalendarFrom--;
+            }
+            updateMonthDisplayForCalendarFrom();
+        });
+    </script>
+{% endblock %}

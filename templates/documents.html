@@ -1,0 +1,514 @@
+{% extends "header.html" %}
+
+{% block title %}Профиль / документы{% endblock %}
+{% block css %}<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/documents.css') }}">{% endblock %}
+
+{% block main_cont %}
+    <section>
+        <div class="upper_texts">
+            <a href="main_page"><h3 class="font_16_med_light_red">На главную</h3></a>
+            <h1 class="font_32_semi_100_black">Профиль</h1>
+        </div>
+        <section class="below_section">
+            <div class="btn_transparent">
+                <div class="clip_path_btn_data">
+                    <h3>Личные данные</h3>
+                </div>
+                <div class="clip_path_btn_documents">
+                    <h3>Договора</h3>
+                </div>
+            </div>
+            <section class="main_cont">
+                <div class="hint_block">
+                    <img class="Info_Circle_dark_grey" src="{{ url_for('static', filename='images/Info_Circle_dark_grey.svg') }}" alt="The picture did not load">
+                    <h3>Загружать файл необходимо в формате .pdf</h3>
+                    <a onclick="closeHintBlock()"><img class="Close_Square_dark_grey" src="{{ url_for('static', filename='images/Close_Square_dark_grey.svg') }}" alt="The picture did not load"></a>
+                </div>
+                <div class="title_doc">
+                    <h3>Название документа</h3>
+                </div>
+                <div class="docs">
+                    <div class="doc">
+                        <div class="left_part">
+                            <img class="Document_icons" src="{{ url_for('static', filename='images/Document.svg') }}" alt="The picture did not load">
+                            <h3>Договор</h3>
+                        </div>
+                        <div class="right_part">
+                            <h3 class="green_text_opening_signed contract">Подписан</h3>
+                            <a class="Arrow_down_green_icon_signed contract">
+                                <img src="{{ url_for('static', filename='images/Arrow_down_green.svg') }}" alt="The picture did not load"> 
+                            </a>
+                        </div>
+                    </div>
+                    <div class="doc">
+                        <div class="left_part">
+                            <img class="Document_icons" src="{{ url_for('static', filename='images/Document.svg') }}" alt="The picture did not load">
+                            <h3>Приложение №1</h3>
+                        </div>
+                        <div class="right_part">
+                            <h3 class="green_text_opening_signed appendix_1">Подписан</h3>
+                            <a class="Arrow_down_green_icon_signed appendix_1">
+                                <img src="{{ url_for('static', filename='images/Arrow_down_green.svg') }}" alt="The picture did not load"> 
+                            </a>
+                        </div>
+                    </div>
+                    <div class="doc last_one">
+                        <div class="left_part">
+                            <img class="Document_icons" src="{{ url_for('static', filename='images/Document.svg') }}" alt="The picture did not load">
+                            <h3>Приложение №2</h3>
+                        </div>
+                        <div class="right_part">
+                            <h3 class="green_text_opening_signed appendix_2">Подписан</h3>
+                            <a class="Arrow_down_green_icon_signed appendix_2">
+                                <img src="{{ url_for('static', filename='images/Arrow_down_green.svg') }}" alt="The picture did not load"> 
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="title_doc">
+                    <h3>Уставные документы к договору</h3>
+                    <h4>Дата загрузки</h4>
+                </div>
+                <div class="docs">
+                    <div class="doc">
+                        <div class="left_part">
+                            <img class="Document_icons" src="{{ url_for('static', filename='images/Document.svg') }}" alt="The picture did not load">
+                            <h3 class="grey_text ogrn">Свидетельство о государственной регистрации (ОГРН/ОГРНИП)</h3>
+                        </div>
+                        <h1 class="date ogrn"></h1>
+                        <button class="load_btn ogrn">Загрузить</button>
+                        <div class="right_part ogrn" style="display: none;">
+                            <h3 class="green_text_opening_signed ogrn">Подписан</h3>
+                            <a class="Arrow_down_green_icon_signed ogrn">
+                                <img src="{{ url_for('static', filename='images/Arrow_down_green.svg') }}" alt="The picture did not load"> 
+                            </a>
+                            <a class="Delete_red_icon ogrn">
+                                <img src="{{ url_for('static', filename='images/Delete_red.svg') }}" alt="The picture did not load"> 
+                            </a>
+                        </div>
+                    </div>
+                    <div class="doc">
+                        <div class="left_part">
+                            <img class="Document_icons" src="{{ url_for('static', filename='images/Document.svg') }}" alt="The picture did not load">
+                            <h3 class="grey_text inn">Свидетельство о постановке на налоговый учет (ИНН)</h3>
+                        </div>
+                        <h1 class="date inn"></h1>
+                        <button class="load_btn inn">Загрузить</button>
+                        <div class="right_part inn" style="display: none;">
+                            <h3 class="green_text_opening_signed inn">Подписан</h3>
+                            <a class="Arrow_down_green_icon_signed inn">
+                                <img src="{{ url_for('static', filename='images/Arrow_down_green.svg') }}" alt="The picture did not load"> 
+                            </a>
+                            <a class="Delete_red_icon inn">
+                                <img src="{{ url_for('static', filename='images/Delete_red.svg') }}" alt="The picture did not load"> 
+                            </a>
+                        </div>
+                    </div>
+                    <div class="doc">
+                        <div class="left_part">
+                            <img class="Document_icons" src="{{ url_for('static', filename='images/Document.svg') }}" alt="The picture did not load">
+                            <h3 class="grey_text USRLE">Выписку из ЕГРЮЛ, распечатанную с официального интернет-портала налоговой службы www.nalog.ru</h3>
+                        </div>
+                        <h1 class="date USRLE"></h1>
+                        <button class="load_btn USRLE">Загрузить</button>
+                        <div class="right_part USRLE" style="display: none;">
+                            <h3 class="green_text_opening_signed USRLE">Подписан</h3>
+                            <a class="Arrow_down_green_icon_signed USRLE">
+                                <img src="{{ url_for('static', filename='images/Arrow_down_green.svg') }}" alt="The picture did not load"> 
+                            </a>
+                            <a class="Delete_red_icon USRLE">
+                                <img src="{{ url_for('static', filename='images/Delete_red.svg') }}" alt="The picture did not load"> 
+                            </a>
+                        </div>
+                    </div>
+                    <div class="doc">
+                        <div class="left_part">
+                            <img class="Document_icons" src="{{ url_for('static', filename='images/Document.svg') }}" alt="The picture did not load">
+                            <h3 class="grey_text regulation">Устав</h3>
+                        </div>
+                        <h1 class="date regulation"></h1>
+                        <button class="load_btn regulation">Загрузить</button>
+                        <div class="right_part regulation" style="display: none;">
+                            <h3 class="green_text_opening_signed regulation">Подписан</h3>
+                            <a class="Arrow_down_green_icon_signed regulation">
+                                <img src="{{ url_for('static', filename='images/Arrow_down_green.svg') }}" alt="The picture did not load"> 
+                            </a>
+                            <a class="Delete_red_icon regulation">
+                                <img src="{{ url_for('static', filename='images/Delete_red.svg') }}" alt="The picture did not load"> 
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="doc">
+                        <div class="left_part">
+                            <img class="Document_icons" src="{{ url_for('static', filename='images/Document.svg') }}" alt="The picture did not load">
+                            <h3 class="grey_text protocol">Протокол (решение) участников/акционеров об избрании единоличного исполнительного органа;</h3>
+                        </div>
+                        <h1 class="date protocol"></h1>
+                        <button class="load_btn protocol">Загрузить</button>
+                        <div class="right_part protocol" style="display: none;">
+                            <h3 class="green_text_opening_signed protocol">Подписан</h3>
+                            <a class="Arrow_down_green_icon_signed protocol">
+                                <img src="{{ url_for('static', filename='images/Arrow_down_green.svg') }}" alt="The picture did not load"> 
+                            </a>
+                            <a class="Delete_red_icon protocol">
+                                <img src="{{ url_for('static', filename='images/Delete_red.svg') }}" alt="The picture did not load"> 
+                            </a>
+                        </div>
+                    </div>
+                    <div class="doc">
+                        <div class="left_part">
+                            <img class="Document_icons" src="{{ url_for('static', filename='images/Document.svg') }}" alt="The picture did not load">
+                            <h3 class="grey_text attorney">Доверенность на подписание договора (если договор подписывается представителем юридического лица по доверенности), содержащую образцы подписей данных лиц</h3>
+                        </div>
+                        <h1 class="date attorney"></h1>
+                        <button class="load_btn attorney">Загрузить</button>
+                        <div class="right_part attorney" style="display: none;">
+                            <h3 class="green_text_opening_signed attorney">Подписан</h3>
+                            <a class="Arrow_down_green_icon_signed attorney">
+                                <img src="{{ url_for('static', filename='images/Arrow_down_green.svg') }}" alt="The picture did not load"> 
+                            </a>
+                            <a class="Delete_red_icon attorney">
+                                <img src="{{ url_for('static', filename='images/Delete_red.svg') }}" alt="The picture did not load"> 
+                            </a>
+                        </div>
+                    </div>
+                    <div class="doc">
+                        <div class="left_part">
+                            <img class="Document_icons" src="{{ url_for('static', filename='images/Document.svg') }}" alt="The picture did not load">
+                            <h3 class="grey_text order">Приказ (доверенность, иной документ) о предоставлении соответствующих полномочий лицам, имеющим право подписывать ТН, Акты, счета и счета-фактуры, и содержащий образцы подписей данных лиц.</h3>
+                        </div>
+                        <h1 class="date order"></h1>
+                        <button class="load_btn order">Загрузить</button>
+                        <div class="right_part order" style="display: none;">
+                            <h3 class="green_text_opening_signed order">Подписан</h3>
+                            <a class="Arrow_down_green_icon_signed order">
+                                <img src="{{ url_for('static', filename='images/Arrow_down_green.svg') }}" alt="The picture did not load"> 
+                            </a>
+                            <a class="Delete_red_icon order">
+                                <img src="{{ url_for('static', filename='images/Delete_red.svg') }}" alt="The picture did not load"> 
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </section>
+    </section>
+{% endblock %}
+
+{% block script %}
+    <script>
+        var clipPathBtnData = document.querySelector('.clip_path_btn_data');
+        clipPathBtnData.addEventListener('click', function() {
+            window.location.href = 'profile';
+        });
+
+        var hintblock = document.querySelector('.hint_block');
+        function closeHintBlock() {
+            hintblock.style.display = 'none';
+        }
+
+        document.querySelector('.Delete_red_icon.ogrn').addEventListener('click', function() {
+            document.querySelector('.date.ogrn').style.display = 'none';
+            document.querySelector('.right_part.ogrn').style.display = 'none';
+            document.querySelector('.load_btn.ogrn').style.display = 'flex';
+            document.querySelector('.grey_text.ogrn').style.color = 'rgba(133, 133, 133, 1)';
+        });
+
+        document.querySelector('.Delete_red_icon.inn').addEventListener('click', function() {
+            document.querySelector('.date.inn').style.display = 'none';
+            document.querySelector('.right_part.inn').style.display = 'none';
+            document.querySelector('.load_btn.inn').style.display = 'flex';
+            document.querySelector('.grey_text.inn').style.color = 'rgba(133, 133, 133, 1)';
+        });
+
+        document.querySelector('.Delete_red_icon.USRLE').addEventListener('click', function() {
+            document.querySelector('.date.USRLE').style.display = 'none';
+            document.querySelector('.right_part.USRLE').style.display = 'none';
+            document.querySelector('.load_btn.USRLE').style.display = 'flex';
+            document.querySelector('.grey_text.USRLE').style.color = 'rgba(133, 133, 133, 1)';
+        });
+
+        document.querySelector('.Delete_red_icon.regulation').addEventListener('click', function() {
+            document.querySelector('.date.regulation').style.display = 'none';
+            document.querySelector('.right_part.regulation').style.display = 'none';
+            document.querySelector('.load_btn.regulation').style.display = 'flex';
+            document.querySelector('.grey_text.regulation').style.color = 'rgba(133, 133, 133, 1)';
+        });
+
+        document.querySelector('.Delete_red_icon.protocol').addEventListener('click', function() {
+            document.querySelector('.date.protocol').style.display = 'none';
+            document.querySelector('.right_part.protocol').style.display = 'none';
+            document.querySelector('.load_btn.protocol').style.display = 'flex';
+            document.querySelector('.grey_text.protocol').style.color = 'rgba(133, 133, 133, 1)';
+        });
+
+        document.querySelector('.Delete_red_icon.attorney').addEventListener('click', function() {
+            document.querySelector('.date.attorney').style.display = 'none';
+            document.querySelector('.right_part.attorney').style.display = 'none';
+            document.querySelector('.load_btn.attorney').style.display = 'flex';
+            document.querySelector('.grey_text.attorney').style.color = 'rgba(133, 133, 133, 1)';
+        });
+
+        document.querySelector('.Delete_red_icon.order').addEventListener('click', function() {
+            document.querySelector('.date.order').style.display = 'none';
+            document.querySelector('.right_part.order').style.display = 'none';
+            document.querySelector('.load_btn.order').style.display = 'flex';
+            document.querySelector('.grey_text.order').style.color = 'rgba(133, 133, 133, 1)';
+        });
+
+
+        var loadBtnUSRLE = document.querySelector('.load_btn.USRLE');
+        loadBtnUSRLE.addEventListener('click', () => {
+            const input = document.createElement('input');
+            input.type = 'file';
+            input.onchange = function(event) {
+                const file = event.target.files[0];
+                if (file && file.type === 'application/pdf') {
+                    document.querySelector('.grey_text.USRLE').style.color = 'rgba(255, 98, 98, 1)';
+                    document.querySelector('.right_part.USRLE').style.display = 'flex';
+                    document.querySelector('.load_btn.USRLE').style.display = 'none';
+
+                    // date processing
+                    const currentDate = new Date();
+                    const formattedDate = currentDate.toLocaleDateString('ru-RU', { year: '2-digit', month: '2-digit', day: '2-digit' });
+                    document.querySelector('.date.USRLE').textContent = formattedDate;
+                } else {
+                    hintblock.style.display = 'flex';
+                }
+            };
+            input.click(); 
+        });
+
+        var loadBtnRegulation = document.querySelector('.load_btn.regulation');
+        loadBtnRegulation.addEventListener('click', () => {
+            const input = document.createElement('input');
+            input.type = 'file';
+            input.onchange = function(event) {
+                const file = event.target.files[0];
+                if (file && file.type === 'application/pdf') {
+                    document.querySelector('.grey_text.regulation').style.color = 'rgba(255, 98, 98, 1)';
+                    document.querySelector('.right_part.regulation').style.display = 'flex';
+                    document.querySelector('.load_btn.regulation').style.display = 'none';
+
+                    // date processing
+                    const currentDate = new Date();
+                    const formattedDate = currentDate.toLocaleDateString('ru-RU', { year: '2-digit', month: '2-digit', day: '2-digit' });
+                    document.querySelector('.date.regulation').textContent = formattedDate;
+                } else {
+                    hintblock.style.display = 'flex';
+                }
+            };
+            input.click(); 
+        });
+
+        var loadBtnOgrn = document.querySelector('.load_btn.ogrn');
+        loadBtnOgrn.addEventListener('click', () => {
+            const input = document.createElement('input');
+            input.type = 'file';
+            input.onchange = function(event) {
+                const file = event.target.files[0];
+                if (file && file.type === 'application/pdf') {
+                    document.querySelector('.grey_text.ogrn').style.color = 'rgba(255, 98, 98, 1)';
+                    document.querySelector('.right_part.ogrn').style.display = 'flex';
+                    document.querySelector('.load_btn.ogrn').style.display = 'none';
+
+                    // date processing
+                    const currentDate = new Date();
+                    const formattedDate = currentDate.toLocaleDateString('ru-RU', { year: '2-digit', month: '2-digit', day: '2-digit' });
+                    document.querySelector('.date.ogrn').textContent = formattedDate;
+                } else {
+                    hintblock.style.display = 'flex';
+                }
+            };
+            input.click(); 
+        });
+
+        var loadBtnInn = document.querySelector('.load_btn.inn');
+        loadBtnInn.addEventListener('click', () => {
+            const input = document.createElement('input');
+            input.type = 'file';
+            input.onchange = function(event) {
+                const file = event.target.files[0];
+                if (file && file.type === 'application/pdf') {
+                    document.querySelector('.grey_text.inn').style.color = 'rgba(255, 98, 98, 1)';
+                    document.querySelector('.right_part.inn').style.display = 'flex';
+                    document.querySelector('.load_btn.inn').style.display = 'none';
+
+                    // date processing
+                    const currentDate = new Date();
+                    const formattedDate = currentDate.toLocaleDateString('ru-RU', { year: '2-digit', month: '2-digit', day: '2-digit' });
+                    document.querySelector('.date.inn').textContent = formattedDate;
+                } else {
+                    hintblock.style.display = 'flex';
+                }
+            };
+            input.click(); 
+        });
+
+        var loadBtnProtocol = document.querySelector('.load_btn.protocol');
+        loadBtnProtocol.addEventListener('click', () => {
+            const input = document.createElement('input');
+            input.type = 'file';
+            input.onchange = function(event) {
+                const file = event.target.files[0];
+                if (file && file.type === 'application/pdf') {
+                    document.querySelector('.grey_text.protocol').style.color = 'rgba(255, 98, 98, 1)';
+                    document.querySelector('.right_part.protocol').style.display = 'flex';
+                    document.querySelector('.load_btn.protocol').style.display = 'none';
+
+                    // date processing
+                    const currentDate = new Date();
+                    const formattedDate = currentDate.toLocaleDateString('ru-RU', { year: '2-digit', month: '2-digit', day: '2-digit' });
+                    document.querySelector('.date.protocol').textContent = formattedDate;
+                } else {
+                    hintblock.style.display = 'flex';
+                }
+            };
+            input.click(); 
+        });
+
+        var loadBtnAttorney = document.querySelector('.load_btn.attorney');
+        loadBtnAttorney.addEventListener('click', () => {
+            const input = document.createElement('input');
+            input.type = 'file';
+            input.onchange = function(event) {
+                const file = event.target.files[0];
+                if (file && file.type === 'application/pdf') {
+                    document.querySelector('.grey_text.attorney').style.color = 'rgba(255, 98, 98, 1)';
+                    document.querySelector('.right_part.attorney').style.display = 'flex';
+                    document.querySelector('.load_btn.attorney').style.display = 'none';
+
+                    // date processing
+                    const currentDate = new Date();
+                    const formattedDate = currentDate.toLocaleDateString('ru-RU', { year: '2-digit', month: '2-digit', day: '2-digit' });
+                    document.querySelector('.date.attorney').textContent = formattedDate;
+                } else {
+                    hintblock.style.display = 'flex';
+                }
+            };
+            input.click(); 
+        });
+
+        var loadBtnOrder = document.querySelector('.load_btn.order');
+        loadBtnOrder.addEventListener('click', () => {
+            const input = document.createElement('input');
+            input.type = 'file';
+            input.onchange = function(event) {
+                const file = event.target.files[0];
+                if (file && file.type === 'application/pdf') {
+                    document.querySelector('.grey_text.order').style.color = 'rgba(255, 98, 98, 1)';
+                    document.querySelector('.right_part.order').style.display = 'flex';
+                    document.querySelector('.load_btn.order').style.display = 'none';
+
+                    // date processing
+                    const currentDate = new Date();
+                    const formattedDate = currentDate.toLocaleDateString('ru-RU', { year: '2-digit', month: '2-digit', day: '2-digit' });
+                    document.querySelector('.date.order').textContent = formattedDate;
+                } else {
+                    hintblock.style.display = 'flex';
+                }
+            };
+            input.click(); 
+        });
+
+        var greenTextOpeningSigned = document.querySelector('.green_text_opening_signed.contract');
+        var arrowDownGreenIconSigned = document.querySelector('.Arrow_down_green_icon_signed.contract');
+        arrowDownGreenIconSigned.addEventListener('mouseover', () => {
+            greenTextOpeningSigned.classList.add('animate'); 
+        });
+        arrowDownGreenIconSigned.addEventListener('mouseout', () => {
+            greenTextOpeningSigned.classList.remove('animate');
+        });
+
+        var greenTextOpeningSignedAppendix1 = document.querySelector('.green_text_opening_signed.appendix_1');
+        var arrowDownGreenIconSignedAppendix1 = document.querySelector('.Arrow_down_green_icon_signed.appendix_1');
+        arrowDownGreenIconSignedAppendix1.addEventListener('mouseover', () => {
+            greenTextOpeningSignedAppendix1.classList.add('animate'); 
+        });
+        arrowDownGreenIconSignedAppendix1.addEventListener('mouseout', () => {
+            greenTextOpeningSignedAppendix1.classList.remove('animate');
+        });
+
+        var greenTextOpeningSignedAppendix2 = document.querySelector('.green_text_opening_signed.appendix_2');
+        var arrowDownGreenIconSignedAppendix2 = document.querySelector('.Arrow_down_green_icon_signed.appendix_2');
+        arrowDownGreenIconSignedAppendix2.addEventListener('mouseover', () => {
+            greenTextOpeningSignedAppendix2.classList.add('animate'); 
+        });
+        arrowDownGreenIconSignedAppendix2.addEventListener('mouseout', () => {
+            greenTextOpeningSignedAppendix2.classList.remove('animate');
+        });
+
+        var greenTextOpeningSignedOgrn = document.querySelector('.green_text_opening_signed.ogrn');
+        var arrowDownGreenIconSignedOgrn = document.querySelector('.Arrow_down_green_icon_signed.ogrn');
+        arrowDownGreenIconSignedOgrn.addEventListener('mouseover', () => {
+            greenTextOpeningSignedOgrn.classList.add('animate'); 
+        });
+        arrowDownGreenIconSignedOgrn.addEventListener('mouseout', () => {
+            greenTextOpeningSignedOgrn.classList.remove('animate');
+        });
+
+        var greenTextOpeningSignedInn = document.querySelector('.green_text_opening_signed.inn');
+        var arrowDownGreenIconSignedInn = document.querySelector('.Arrow_down_green_icon_signed.inn');
+        arrowDownGreenIconSignedInn.addEventListener('mouseover', () => {
+            greenTextOpeningSignedInn.classList.add('animate'); 
+        });
+        arrowDownGreenIconSignedInn.addEventListener('mouseout', () => {
+            greenTextOpeningSignedInn.classList.remove('animate');
+        });
+
+        var greenTextOpeningSignedProtocol = document.querySelector('.green_text_opening_signed.protocol');
+        var arrowDownGreenIconSignedProtocol = document.querySelector('.Arrow_down_green_icon_signed.protocol');
+        arrowDownGreenIconSignedProtocol.addEventListener('mouseover', () => {
+            greenTextOpeningSignedProtocol.classList.add('animate'); 
+        });
+        arrowDownGreenIconSignedProtocol.addEventListener('mouseout', () => {
+            greenTextOpeningSignedProtocol.classList.remove('animate');
+        });
+
+        var greenTextOpeningSignedProtocol = document.querySelector('.green_text_opening_signed.protocol');
+        var arrowDownGreenIconSignedProtocol = document.querySelector('.Arrow_down_green_icon_signed.protocol');
+        arrowDownGreenIconSignedProtocol.addEventListener('mouseover', () => {
+            greenTextOpeningSignedProtocol.classList.add('animate'); 
+        });
+        arrowDownGreenIconSignedProtocol.addEventListener('mouseout', () => {
+            greenTextOpeningSignedProtocol.classList.remove('animate');
+        });
+
+        var greenTextOpeningSignedAttorney = document.querySelector('.green_text_opening_signed.attorney');
+        var arrowDownGreenIconSignedAttorney = document.querySelector('.Arrow_down_green_icon_signed.attorney');
+        arrowDownGreenIconSignedAttorney.addEventListener('mouseover', () => {
+            greenTextOpeningSignedAttorney.classList.add('animate'); 
+        });
+        arrowDownGreenIconSignedAttorney.addEventListener('mouseout', () => {
+            greenTextOpeningSignedAttorney.classList.remove('animate');
+        });
+
+        var greenTextOpeningSignedOrder = document.querySelector('.green_text_opening_signed.order');
+        var arrowDownGreenIconSignedOrder = document.querySelector('.Arrow_down_green_icon_signed.order');
+        arrowDownGreenIconSignedOrder.addEventListener('mouseover', () => {
+            greenTextOpeningSignedOrder.classList.add('animate'); 
+        });
+        arrowDownGreenIconSignedOrder.addEventListener('mouseout', () => {
+            greenTextOpeningSignedOrder.classList.remove('animate');
+        });
+
+        var greenTextOpeningSignedUSRLE = document.querySelector('.green_text_opening_signed.USRLE');
+        var arrowDownGreenIconSignedUSRLE = document.querySelector('.Arrow_down_green_icon_signed.USRLE');
+        arrowDownGreenIconSignedUSRLE.addEventListener('mouseover', () => {
+            greenTextOpeningSignedUSRLE.classList.add('animate'); 
+        });
+        arrowDownGreenIconSignedUSRLE.addEventListener('mouseout', () => {
+            greenTextOpeningSignedUSRLE.classList.remove('animate');
+        });
+
+        var greenTextOpeningSignedRegulation = document.querySelector('.green_text_opening_signed.regulation');
+        var arrowDownGreenIconSignedRegulation = document.querySelector('.Arrow_down_green_icon_signed.regulation');
+        arrowDownGreenIconSignedRegulation.addEventListener('mouseover', () => {
+            greenTextOpeningSignedRegulation.classList.add('animate'); 
+        });
+        arrowDownGreenIconSignedRegulation.addEventListener('mouseout', () => {
+            greenTextOpeningSignedRegulation.classList.remove('animate');
+        });
+    </script>
+{% endblock %}

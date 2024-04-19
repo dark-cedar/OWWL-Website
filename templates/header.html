@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}{% endblock %}</title>
     {% block css %}{% endblock %}
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='images/logo_owwl_image.svg') }}">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/header.css') }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,16 +16,16 @@
         <img src="{{ url_for('static', filename='images/logo_owwl.svg') }}" alt="The picture did not load">
         <div class="right_cont">
             <ul>
-                <li><a href="#">А/м и склады</a></li>
-                <li><a href="#">Список ТК</a></li>
-                <li><a href="#">Журнал документов</a></li>
-                <li><a href="#">Вопрос ответ</a></li>
+                <li><a href="#" class="auto_redir_text">А/м и склады</a></li>
+                <li><a href="#" class="tk_list_text">Список ТК</a></li>
+                <li><a href="#" class="doc_log_text">Журнал документов</a></li>
+                <li><a href="#" class="ques_ans_text">Вопрос ответ</a></li>
             </ul>
             <div class="settings">
-                <div class="logo_and_options" onclick="toggleOptions()">
+                <div class="logo_and_options">
                     <img src="{{ url_for('static', filename='images/ava_no_updates.svg') }}" alt="The picture did not load">
                     <div class="text_icon">
-                        <h4>Favorit Motors</h4>
+                        <h4 class="logo_text">Favorit Motors</h4>
                         <a href="#"><img src="{{ url_for('static', filename='images/chevron-down.svg') }}" alt="The picture did not load"></a>
                     </div>
                 </div>
@@ -39,7 +40,7 @@
             </div>
         </div>
         <div class="logo_vars">
-            <h3 class="profile" onclick="profileRedirection()">Профиль</h3>
+            <h3 class="profile">Профиль</h3>
             <h3 class="out">Выйти</h3>
         </div>
     </header>
@@ -104,6 +105,18 @@
         var messageOpening = document.querySelector(".message_opening");
         messageOpening.style.display = 'none';
 
+        function isClickOutsideElement(element, event) {
+            return !element.contains(event.target);
+        }
+
+        var logoText = document.querySelector(".logo_text");
+        var logoVars = document.querySelector(".logo_vars");
+
+        logoText.addEventListener('click', function(event) {
+            logoVars.style.display = 'flex';
+            logoVars.style.opacity = '1';
+        })
+
         document.addEventListener("click", function(event) {
             if (!messageOpening.contains(event.target)) {
                 messageOpening.style.display = 'none'; 
@@ -113,22 +126,12 @@
             if (!inputBox.contains(event.target) && messageOpening.contains(event.target)) {
                 inputBox.style.border = '1px solid rgba(227, 227, 227, 1)'; 
             }
+            if (isClickOutsideElement(logoVars, event) && event.target !== logoText) {
+                logoVars.style.display = 'none';
+                logoVars.style.opacity = '0';
+            }
         });
 
-        function toggleOptions() {
-            var logoVars = document.querySelector(".logo_vars");
-            if (logoVars.style.display === "flex") {
-                logoVars.style.display = "none";
-                amountMessages.style.border = "none";
-                amountMessages.style.boxShadow = "0px 4px 12px 0px rgba(255, 166, 166, 0.6)";
-            } else {
-                logoVars.style.display = "flex";
-                logoVars.style.opacity = "1";
-                amountMessages.style.border = "2px solid rgba(255, 98, 98, 1)";
-                amountMessages.style.boxShadow = "0px 4px 12px 0px rgba(255, 166, 166, 0.6)";
-            }
-        }
-        
         // for opening message right option
         var navbarIconMessage = document.querySelector(".navbar_icon_message")
         navbarIconMessage.addEventListener('click', function() {
@@ -152,8 +155,31 @@
         document.addEventListener('keydown', function(event) {
             if (event.key === "Escape") {
                 inputBox.style.border = '1px solid rgba(227, 227, 227, 1)';
-                inputBox.preventDefault();
             }
+        });
+
+        // for redirection
+        var out = document.querySelector('.out')
+        out.addEventListener("click", function(event) {
+            window.location.href = 'login';
+        });
+
+        var autoRedirText = document.querySelector('.auto_redir_text')
+        var tkListText = document.querySelector('.tk_list_text')
+        var docLogText = document.querySelector('.doc_log_text')
+        var quesAnsText = document.querySelector('.ques_ans_text')
+
+        var profile_redir = document.querySelector('h3.profile')
+        profile_redir.addEventListener("click", function(event) {
+            window.location.href = 'profile';
+        });
+
+        autoRedirText.addEventListener("click", function(event) {
+            window.location.href = 'auto';
+        });
+
+        document.querySelector('.navbar_icon_notification').addEventListener("click", function(event) {
+            window.location.href = 'notifications_center';
         });
     </script>
 </body>
