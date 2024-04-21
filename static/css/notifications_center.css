@@ -204,7 +204,7 @@ body section .filter .text_icon {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 400px;
+  width: 448px;
 }
 body section .filter .text_icon h3 {
   font-size: var(--16-font-size);
@@ -221,8 +221,9 @@ body section .filter .two-btns button {
   padding: 12px;
   border: 1px solid var(--grey-line-color);
   border-radius: 8px;
-  width: 196px;
   background-color: var(--100-white-color);
+  text-wrap: nowrap;
+  width: 220px;
 }
 body section .filter .calendar {
   display: flex;
@@ -233,8 +234,12 @@ body section .filter .calendar {
   border-radius: 8px;
   border: 1px solid var(--grey-line-color);
   position: absolute;
-  margin-top: 87px;
+  margin-top: 80px;
   width: 267px;
+  box-shadow: 0px 5.26px 6.84px 0px rgba(27, 44, 49, 0.04);
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 250ms ease-in-out;
 }
 body section .filter .calendar .upper_part {
   display: flex;
@@ -263,6 +268,53 @@ body section .filter .calendar .upper_part .two_arrows a {
 }
 body section .filter .calendar .upper_part .two_arrows .right {
   margin-bottom: 2px;
+}
+body section .filter .calendar .below_part {
+  display: flex;
+  gap: 16px;
+}
+body section .filter .calendar .below_part .weekdays {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+body section .filter .calendar .below_part .weekdays h4 {
+  font-size: var(--13-font-size);
+  font-weight: var(--med-font-weight);
+  color: var(--middle-grey-color);
+  height: 17px;
+}
+body section .filter .calendar .below_part .weekdays .weekday {
+  color: var(--dark-color);
+}
+body section .filter .calendar .below_part .weekdays .data_now {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 29px;
+  border-radius: 100%;
+  background-color: var(--light-red-color);
+  margin: -6px;
+  color: var(--100-white-color);
+}
+body section .filter .calendar .below_part .weekdays .data_now_grey {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 29px;
+  border-radius: 100%;
+  margin: -6px;
+  background-color: var(--grey-line-color);
+  color: var(--middle-grey-color);
+}
+body section .filter .from {
+  margin-left: -25px;
+}
+body section .filter .till {
+  margin-left: 200px;
 }
 body section .tables_bg_notifications {
   display: flex;

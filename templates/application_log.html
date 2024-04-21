@@ -1,0 +1,151 @@
+{% extends "header.html" %}
+
+{% block title %}Центр Уведомлений{% endblock %}
+{% block css %}<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/application_log.css') }}">{% endblock %}
+
+{% block main_cont %}
+    <section>
+        <div class="upper_block">
+            <div class="upper_texts">
+                <a class="return_btn"><h3>Вернуться</h3></a>
+                <h1>Журнал документов</h1>
+            </div>
+            <div class="below_block">
+                <div class="row">
+                    <div class="text_input">
+                        <div class="upper_cont">
+                            <h3>А/м</h3>
+                            <img class="reset_btn" src="{{ url_for('static', filename='images/carbon_reset.svg') }}" alt="The picture did not load">
+                        </div>
+                        <div class="choose_block">
+                            <h3>Сделайте выбор</h3>
+                            <img class="chevron_down_black_icon" src="{{ url_for('static', filename='images/chevron-down_black.svg') }}" alt="The picture did not load">
+                        </div>
+                    </div>
+                    <div class="text_input">
+                        <div class="upper_cont">
+                            <h3>Дата создания</h3>
+                            <img class="reset_btn" src="{{ url_for('static', filename='images/carbon_reset.svg') }}" alt="The picture did not load">
+                        </div>
+                        <div class="two_blocks">
+                            <div class="choose_block">
+                                <h3>С</h3>
+                                <img class="chevron_down_black_icon" src="{{ url_for('static', filename='images/chevron-down_black.svg') }}" alt="The picture did not load">
+                            </div>
+                            <div class="choose_block">
+                                <h3>По</h3>
+                                <img class="chevron_down_black_icon" src="{{ url_for('static', filename='images/chevron-down_black.svg') }}" alt="The picture did not load">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text_input">
+                        <div class="upper_cont">
+                            <h3>Место погрузки</h3>
+                            <img class="reset_btn" src="{{ url_for('static', filename='images/carbon_reset.svg') }}" alt="The picture did not load">
+                        </div>
+                        <div class="new_search_field">
+                            <img class="search_grey" src="{{ url_for('static', filename='images/Search.svg') }}" alt="The picture did not load">
+                            <input class="input_field" type="text" placeholder="Регион, город, насел. пункт">
+                        </div>
+                    </div>
+                    <div class="text_input">
+                        <div class="upper_cont">
+                            <h3>Место доставки</h3>
+                            <img class="reset_btn" src="{{ url_for('static', filename='images/carbon_reset.svg') }}" alt="The picture did not load">
+                        </div>
+                        <div class="new_search_field">
+                            <img class="search_grey" src="{{ url_for('static', filename='images/Search.svg') }}" alt="The picture did not load">
+                            <input class="input_field" type="text" placeholder="Регион, город, насел. пункт">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="text_input">
+                        <div class="upper_cont">
+                            <h3>ТК</h3>
+                            <img class="reset_btn" src="{{ url_for('static', filename='images/carbon_reset.svg') }}" alt="The picture did not load">
+                        </div>
+                        <div class="choose_block">
+                            <h3>Сделайте выбор</h3>
+                            <img class="chevron_down_black_icon" src="{{ url_for('static', filename='images/chevron-down_black.svg') }}" alt="The picture did not load">
+                        </div>
+                    </div>
+                    <div class="text_input">
+                        <div class="upper_cont">
+                            <h3>Статус</h3>
+                            <img class="reset_btn" src="{{ url_for('static', filename='images/carbon_reset.svg') }}" alt="The picture did not load">
+                        </div>
+                        <div class="two_blocks">
+                            <div class="choose_block">
+                                <h3>От</h3>
+                                <img class="chevron_down_black_icon" src="{{ url_for('static', filename='images/chevron-down_black.svg') }}" alt="The picture did not load">
+                            </div>
+                            <div class="choose_block">
+                                <h3>До</h3>
+                                <img class="chevron_down_black_icon" src="{{ url_for('static', filename='images/chevron-down_black.svg') }}" alt="The picture did not load">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text_input">
+                        <div class="upper_cont">
+                            <h3>Отправитель</h3>
+                            <img class="reset_btn" src="{{ url_for('static', filename='images/carbon_reset.svg') }}" alt="The picture did not load">
+                        </div>
+                        <div class="new_search_field">
+                            <img class="search_grey" src="{{ url_for('static', filename='images/Search.svg') }}" alt="The picture did not load">
+                            <input class="input_field" type="text" placeholder="Сделайте выбор">
+                        </div>
+                    </div>
+                    <div class="text_input">
+                        <div class="upper_cont">
+                            <h3>Получатель</h3>
+                            <img class="reset_btn" src="{{ url_for('static', filename='images/carbon_reset.svg') }}" alt="The picture did not load">
+                        </div>
+                        <div class="new_search_field">
+                            <img class="search_grey" src="{{ url_for('static', filename='images/Search.svg') }}" alt="The picture did not load">
+                            <input class="input_field" type="text" placeholder="Сделайте выбор">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="content_block">
+            <div class="btn_transparent">
+                <div class="clip_path_btn_applic_log">
+                    <h3>Журнал заявок</h3>
+                </div>
+                <div class="clip_path_btn_accounts">
+                    <h3>Счета</h3>
+                </div>
+                <div class="clip_path_btn_archive">
+                    <h3>Архив</h3>
+                </div>
+                <div class="clip_path_btn_disputes">
+                    <h3>Споры и претензии</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+{% block script %}
+    <script>
+        var returnBtn = document.querySelector('.return_btn')
+        returnBtn.addEventListener("click", function(event) {
+            window.history.back()
+        });
+
+        var newSearchField = document.querySelector('.new_search_field')
+        newSearchField.addEventListener('click', function() {
+            newSearchField.style.border = '1px solid rgba(255, 98, 98, 1)';
+            newSearchField.style.boxShadow = '0px 10px 13px 0px rgba(27, 44, 49, 0.04)';
+        });
+
+        document.addEventListener("click", function(event) {
+            if (!newSearchField.contains(event.target)) {
+                newSearchField.style.border = '1px solid rgba(227, 227, 227, 1)';
+                newSearchField.style.boxShadow = 'none';
+            }
+        });
+    </script>
+{% endblock %}

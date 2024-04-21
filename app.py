@@ -326,6 +326,11 @@ def notifications_center():
     return render_template('notifications_center.html', notif_for_html=notif_for_html)
 
 
+@app.route('/application_log')
+def application_log():
+    return render_template('application_log.html')
+
+
 if __name__ == '__main__':
     main()
     app.run(host='0.0.0.0', debug=True)

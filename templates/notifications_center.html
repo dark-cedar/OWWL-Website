@@ -21,25 +21,150 @@
         <section class="filter">
             <div class="text_icon">
                 <h3>Период</h3>
-                <img class="carbon_reset" src="{{ url_for('static', filename='images/carbon_reset.svg') }}" alt="The picture did not load">
+                <a class="carbon_reset"><img src="{{ url_for('static', filename='images/carbon_reset.svg') }}" alt="The picture did not load"></a>
             </div>
             <div class="two-btns">
                 <button class="btn_from">
-                    <h3>С</h3>
+                    <h3 class="from_text">С</h3>
                     <img class="chevron_down_black" src="{{ url_for('static', filename='images/chevron-down_black.svg') }}" alt="The picture did not load">
                 </button>
                 <button class="btn_till">
-                    <h3>По</h3>
+                    <h3 class="till_text">По</h3>
                     <img class="chevron_down_black" src="{{ url_for('static', filename='images/chevron-down_black.svg') }}" alt="The picture did not load">
                 </button>
             </div>
 
-            <div class="calendar">
+            <div class="calendar from">
                 <div class="upper_part">
                     <h3 class="calendar_from_text">Октябрь 2020</h3>
                     <div class="two_arrows">
-                        <a class="previous_grey_icon left"><img src="{{ url_for('static', filename='images/previous_grey.svg') }}" alt="The picture did not load"></a>
-                        <a style="transform: rotate(180deg);" class="previous_grey_icon right"><img src="{{ url_for('static', filename='images/previous_grey.svg') }}" alt="The picture did not load"></a>
+                        <a class="previous_grey_icon left_from"><img src="{{ url_for('static', filename='images/previous_grey.svg') }}" alt="The picture did not load"></a>
+                        <a style="transform: rotate(180deg);" class="previous_grey_icon right_from"><img src="{{ url_for('static', filename='images/previous_grey.svg') }}" alt="The picture did not load"></a>
+                    </div>
+                </div>
+                <div class="below_part">
+                    <div class="weekdays weekdays_from monday">
+                        <h4 class="weekday">Пн</h4>
+                        <h4 class="first first_from"></h4>
+                        <h4 class="second second_from"></h4>
+                        <h4 class="third third_from"></h4>
+                        <h4 class="forth forth_from"></h4>
+                        <h4 class="fifth fifth_from"></h4>
+                    </div>
+                    <div class="weekdays weekdays_from tuesday">
+                        <h4 class="weekday">Вт</h4>
+                        <h4 class="first first_from"></h4>
+                        <h4 class="second second_from"></h4>
+                        <h4 class="third third_from"></h4>
+                        <h4 class="forth forth_from"></h4>
+                        <h4 class="fifth fifth_from"></h4>
+                    </div>
+                    <div class="weekdays weekdays_from wednesday">
+                        <h4 class="weekday">Ср</h4>
+                        <h4 class="first first_from"></h4>
+                        <h4 class="second second_from"></h4>
+                        <h4 class="third third_from"></h4>
+                        <h4 class="forth forth_from"></h4>
+                        <h4 class="fifth fifth_from"></h4>
+                    </div>
+                    <div class="weekdays weekdays_from thursday">
+                        <h4 class="weekday">Чт</h4>
+                        <h4 class="first first_from"></h4>
+                        <h4 class="second second_from"></h4>
+                        <h4 class="third third_from"></h4>
+                        <h4 class="forth forth_from"></h4>
+                        <h4 class="fifth fifth_from"></h4>
+                    </div>
+                    <div class="weekdays weekdays_from friday">
+                        <h4 class="weekday">Пт</h4>
+                        <h4 class="first first_from"></h4>
+                        <h4 class="second second_from"></h4>
+                        <h4 class="third third_from"></h4>
+                        <h4 class="forth forth_from"></h4>
+                        <h4 class="fifth fifth_from"></h4>
+                    </div>
+                    <div class="weekdays weekdays_from saturday">
+                        <h4 class="weekday">Сб</h4>
+                        <h4 class="first first_from"></h4>
+                        <h4 class="second second_from"></h4>
+                        <h4 class="third third_from"></h4>
+                        <h4 class="forth forth_from"></h4>
+                        <h4 class="fifth fifth_from"></h4>
+                    </div>
+                    <div class="weekdays weekdays_from sunday">
+                        <h4 class="weekday">Вс</h4>
+                        <h4 class="first first_from"></h4>
+                        <h4 class="second second_from"></h4>
+                        <h4 class="third third_from"></h4>
+                        <h4 class="forth forth_from"></h4>
+                        <h4 class="fifth fifth_from"></h4>
+                    </div>
+                </div>
+            </div>
+            <div class="calendar till">
+                <div class="upper_part">
+                    <h3 class="calendar_till_text">Октябрь 2020</h3>
+                    <div class="two_arrows">
+                        <a class="previous_grey_icon left_till"><img src="{{ url_for('static', filename='images/previous_grey.svg') }}" alt="The picture did not load"></a>
+                        <a style="transform: rotate(180deg);" class="previous_grey_icon right_till"><img src="{{ url_for('static', filename='images/previous_grey.svg') }}" alt="The picture did not load"></a>
+                    </div>
+                </div>
+                <div class="below_part">
+                    <div class="weekdays weekdays_till monday">
+                        <h4 class="weekday">Пн</h4>
+                        <h4 class="first first_till"></h4>
+                        <h4 class="second second_till"></h4>
+                        <h4 class="third third_till"></h4>
+                        <h4 class="forth forth_till"></h4>
+                        <h4 class="fifth fifth_till"></h4>
+                    </div>
+                    <div class="weekdays weekdays_till tuesday">
+                        <h4 class="weekday">Вт</h4>
+                        <h4 class="first first_till"></h4>
+                        <h4 class="second second_till"></h4>
+                        <h4 class="third third_till"></h4>
+                        <h4 class="forth forth_till"></h4>
+                        <h4 class="fifth fifth_till"></h4>
+                    </div>
+                    <div class="weekdays weekdays_till wednesday">
+                        <h4 class="weekday">Ср</h4>
+                        <h4 class="first first_till"></h4>
+                        <h4 class="second second_till"></h4>
+                        <h4 class="third third_till"></h4>
+                        <h4 class="forth forth_till"></h4>
+                        <h4 class="fifth fifth_till"></h4>
+                    </div>
+                    <div class="weekdays weekdays_till thursday">
+                        <h4 class="weekday">Чт</h4>
+                        <h4 class="first first_till"></h4>
+                        <h4 class="second second_till"></h4>
+                        <h4 class="third third_till"></h4>
+                        <h4 class="forth forth_till"></h4>
+                        <h4 class="fifth fifth_till"></h4>
+                    </div>
+                    <div class="weekdays weekdays_till friday">
+                        <h4 class="weekday">Пт</h4>
+                        <h4 class="first first_till"></h4>
+                        <h4 class="second second_till"></h4>
+                        <h4 class="third third_till"></h4>
+                        <h4 class="forth forth_till"></h4>
+                        <h4 class="fifth fifth_till"></h4>
+                    </div>
+                    <div class="weekdays weekdays_till saturday">
+                        <h4 class="weekday">Сб</h4>
+                        <h4 class="first first_till"></h4>
+                        <h4 class="second second_till"></h4>
+                        <h4 class="third third_till"></h4>
+                        <h4 class="forth forth_till"></h4>
+                        <h4 class="fifth fifth_till"></h4>
+                    </div>
+                    <div class="weekdays weekdays_till sunday">
+                        <h4 class="weekday">Вс</h4>
+                        <h4 class="first first_till"></h4>
+                        <h4 class="second second_till"></h4>
+                        <h4 class="third third_till"></h4>
+                        <h4 class="forth forth_till"></h4>
+                        <h4 class="fifth fifth_till"></h4>
                     </div>
                 </div>
             </div>
@@ -106,8 +231,13 @@
         });
 
         // months processing
+        const currentDate = new Date();
+        const monthDay = currentDate.getDate()
         const months = ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'];
-        var currentMonthIndex = 9;
+        const monthsProperNames = ["Января", "Февраля", "Марта", "Апреля", "Мая", "Июня", "Июля", "Августа", "Сентября", "Октября", "Ноября", "Декабря"];
+        var firstRow = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'];
+        var currentMonthIndex = currentDate.getMonth();
+        document.querySelector('.month_text').textContent = months[currentMonthIndex];
 
         function updateMonthDisplay() {
             document.querySelector('.month_text').textContent = months[currentMonthIndex];
@@ -134,29 +264,472 @@
             window.history.back()
         });
 
-        // calendar
-        var currentYearForCalendarFrom = 2020;
-        var currentMonthIndexForCalendarFrom = 9;
+        // calendar till
+        var currentYearForCalendarTill = currentDate.getFullYear();
+        var currentMonthIndexForCalendarTill = currentDate.getMonth();
+        document.querySelector('.calendar_till_text').textContent = `${months[currentMonthIndexForCalendarTill]} ${currentYearForCalendarTill}`
+
+        function updateMonthDisplayForCalendarTill() {
+            document.querySelector('.calendar_till_text').textContent = `${months[currentMonthIndexForCalendarTill]} ${currentYearForCalendarTill}`
+        }
+        // calendar from
+        var currentYearForCalendarFrom = currentDate.getFullYear();
+        var currentMonthIndexForCalendarFrom = currentDate.getMonth();
+        document.querySelector('.calendar_from_text').textContent = `${months[currentMonthIndexForCalendarFrom]} ${currentYearForCalendarFrom}`
 
         function updateMonthDisplayForCalendarFrom() {
             document.querySelector('.calendar_from_text').textContent = `${months[currentMonthIndexForCalendarFrom]} ${currentYearForCalendarFrom}`
         }
 
-        document.querySelector('.previous_grey_icon.right').addEventListener('click', function() {
+        function addClassAsSecond(elementName, newClass) {
+            var element = document.querySelector(elementName);
+            if (element.classList.length >= 3) {
+                element.classList.remove(element.classList.item(1));
+            }
+            element.classList.add(newClass);
+        }
+
+        function calendar_builder_from(daysInLastMonth, daysInCurrentMonth, firstDayOfMonth, curMonth) {
+            // for last month
+            var curNumForFillingLast = daysInLastMonth - firstDayOfMonth + 2;
+            for (let i = 0; i < firstDayOfMonth - 1; i++) {
+                document.querySelector(`.weekdays.${firstRow[i]} .first_from`).textContent = `${curNumForFillingLast}`
+                document.querySelector(`.weekdays.${firstRow[i]} .second_from`).textContent = `${(curNumForFillingLast + 7) % daysInLastMonth}`
+                document.querySelector(`.weekdays.${firstRow[i]} .third_from`).textContent = `${(curNumForFillingLast + 14) % daysInLastMonth}`
+                document.querySelector(`.weekdays.${firstRow[i]} .forth_from`).textContent = `${(curNumForFillingLast + 21) % daysInLastMonth}`
+
+                document.querySelector(`.weekdays.${firstRow[i]} .first_from`).id = 'lastElem';
+                document.querySelector(`.weekdays.${firstRow[i]} .second_from`).id = 'curElem';
+                document.querySelector(`.weekdays.${firstRow[i]} .third_from`).id = 'curElem';
+                document.querySelector(`.weekdays.${firstRow[i]} .forth_from`).id = 'curElem';
+
+                curNumForFillingLast++
+            }
+
+            // for current month
+            var curNumForFilling = 1;
+            var chosen = false;
+            if (firstDayOfMonth - 1 === -1) {
+                firstDayOfMonth = 1;
+            }
+            for (let i = firstDayOfMonth - 1; i < 7; i++) {
+                if (monthDay == curNumForFilling && curMonth) {
+                    document.querySelector(`.weekdays.${firstRow[i]} .second_from`).classList.add('data_now');
+                } else {
+                    document.querySelector(`.weekdays.${firstRow[i]} .first_from`).classList.remove('data_now');
+                }
+                if (monthDay == curNumForFilling + 7 && curMonth) {
+                    document.querySelector(`.weekdays.${firstRow[i]} .second_from`).classList.add('data_now');
+                } else {
+                    document.querySelector(`.weekdays.${firstRow[i]} .second_from`).classList.remove('data_now');
+                }
+                if (monthDay == curNumForFilling + 14 && curMonth) {
+                    document.querySelector(`.weekdays.${firstRow[i]} .third_from`).classList.add('data_now');
+                } else {
+                    document.querySelector(`.weekdays.${firstRow[i]} .third_from`).classList.remove('data_now');
+                }
+                if (monthDay == curNumForFilling + 21 && curMonth) {
+                    document.querySelector(`.weekdays.${firstRow[i]} .forth_from`).classList.add('data_now');
+                } else {
+                    document.querySelector(`.weekdays.${firstRow[i]} .forth_from`).classList.remove('data_now');
+                }
+                if (monthDay == curNumForFilling + 28 && curMonth) {
+                    document.querySelector(`.weekdays.${firstRow[i]} .fifth_from`).classList.add('data_now');
+                } else {
+                    document.querySelector(`.weekdays.${firstRow[i]} .fifth_from`).classList.remove('data_now');
+                }
+
+                document.querySelector(`.weekdays.${firstRow[i]} .first_from`).textContent = `${curNumForFilling}`
+                document.querySelector(`.weekdays.${firstRow[i]} .second_from`).textContent = `${(curNumForFilling + 7) % daysInCurrentMonth}`
+                document.querySelector(`.weekdays.${firstRow[i]} .third_from`).textContent = `${(curNumForFilling + 14) % daysInCurrentMonth}`
+                document.querySelector(`.weekdays.${firstRow[i]} .forth_from`).textContent = `${(curNumForFilling + 21) % daysInCurrentMonth}`
+                document.querySelector(`.weekdays.${firstRow[i]} .fifth_from`).textContent = `${(curNumForFilling + 28) & daysInCurrentMonth}`
+
+                document.querySelector(`.weekdays.${firstRow[i]} .first_from`).id = 'curElem';
+                document.querySelector(`.weekdays.${firstRow[i]} .second_from`).id = 'curElem';
+                document.querySelector(`.weekdays.${firstRow[i]} .third_from`).id = 'curElem';
+                document.querySelector(`.weekdays.${firstRow[i]} .forth_from`).id = 'curElem';
+                document.querySelector(`.weekdays.${firstRow[i]} .fifth_from`).id = 'curElem';
+
+                curNumForFilling++
+            }
+
+            stopped = 30 - firstDayOfMonth
+            needToGo = 7 - (daysInCurrentMonth - stopped + 1)
+            var constanta = daysInCurrentMonth - stopped + 1
+            for (let i = 0; i < constanta; i++) {
+                try {
+                    document.querySelector(`.weekdays.${firstRow[i]} .fifth_from`).textContent = `${stopped}`
+                    stopped++
+                } catch (error) {
+                    // 
+                }
+            }
+            
+            // for next month
+            var curNumForFillingNext = 1;
+            for (let i = 7 - needToGo; i < 7; i++) {
+                document.querySelector(`.weekdays.${firstRow[i]} .fifth_from`).textContent = `${curNumForFillingNext}`
+                document.querySelector(`.weekdays.${firstRow[i]} .fifth_from`).id = 'nextElem';
+                curNumForFillingNext++
+            }
+
+            // for grey text
+            if (!curMonth) {
+                document.querySelectorAll('.weekdays').forEach(function(div) {
+                    document.querySelectorAll('.first_from, .second_from, .third_from, .forth_from, .fifth_from').forEach(function(text) {
+                        if (text.textContent == monthDay && text.id == 'curElem') {
+                            text.classList.add('data_now_grey');
+                        }
+                        else {
+                            text.classList.remove('data_now_grey');
+                            text.classList.remove('data_now');
+                        }
+                    });
+                });
+            }
+            // for red text
+            if (curMonth) {
+                document.querySelectorAll('.weekdays').forEach(function(div) {
+                    document.querySelectorAll('.first_from, .second_from, .third_from, .forth_from, .fifth_from').forEach(function(text) {
+                        if (text.textContent == monthDay && text.id == 'curElem') {
+                            text.classList.remove('data_now_grey');
+                            text.classList.add('data_now');
+                        }
+                        else {
+                            text.classList.remove('data_now_grey');
+                            text.classList.remove('data_now');
+                        }
+                    });
+                });
+            }
+        }
+
+        function calendar_builder_till(daysInLastMonth, daysInCurrentMonth, firstDayOfMonth, curMonth) {
+            // for last month
+            var curNumForFillingLast = daysInLastMonth - firstDayOfMonth + 2;
+            for (let i = 0; i < firstDayOfMonth - 1; i++) {
+                document.querySelector(`.weekdays.${firstRow[i]} .first_till`).textContent = `${curNumForFillingLast}`
+                document.querySelector(`.weekdays.${firstRow[i]} .second_till`).textContent = `${(curNumForFillingLast + 7) % daysInLastMonth}`
+                document.querySelector(`.weekdays.${firstRow[i]} .third_till`).textContent = `${(curNumForFillingLast + 14) % daysInLastMonth}`
+                document.querySelector(`.weekdays.${firstRow[i]} .forth_till`).textContent = `${(curNumForFillingLast + 21) % daysInLastMonth}`
+
+                document.querySelector(`.weekdays.${firstRow[i]} .first_till`).id = 'lastElem';
+                document.querySelector(`.weekdays.${firstRow[i]} .second_till`).id = 'curElem';
+                document.querySelector(`.weekdays.${firstRow[i]} .third_till`).id = 'curElem';
+                document.querySelector(`.weekdays.${firstRow[i]} .forth_till`).id = 'curElem';
+
+                curNumForFillingLast++
+            }
+
+            // for current month
+            var curNumForFilling = 1;
+            var chosen = false;
+            if (firstDayOfMonth - 1 === -1) {
+                firstDayOfMonth = 1;
+            }
+            for (let i = firstDayOfMonth - 1; i < 7; i++) {
+                if (monthDay == curNumForFilling && curMonth) {
+                    document.querySelector(`.weekdays.${firstRow[i]} .second_till`).classList.add('data_now');
+                } else {
+                    document.querySelector(`.weekdays.${firstRow[i]} .first_till`).classList.remove('data_now');
+                }
+                if (monthDay == curNumForFilling + 7 && curMonth) {
+                    document.querySelector(`.weekdays.${firstRow[i]} .second_till`).classList.add('data_now');
+                } else {
+                    document.querySelector(`.weekdays.${firstRow[i]} .second_till`).classList.remove('data_now');
+                }
+                if (monthDay == curNumForFilling + 14 && curMonth) {
+                    document.querySelector(`.weekdays.${firstRow[i]} .third_till`).classList.add('data_now');
+                } else {
+                    document.querySelector(`.weekdays.${firstRow[i]} .third_till`).classList.remove('data_now');
+                }
+                if (monthDay == curNumForFilling + 21 && curMonth) {
+                    document.querySelector(`.weekdays.${firstRow[i]} .forth_till`).classList.add('data_now');
+                } else {
+                    document.querySelector(`.weekdays.${firstRow[i]} .forth_till`).classList.remove('data_now');
+                }
+                if (monthDay == curNumForFilling + 28 && curMonth) {
+                    document.querySelector(`.weekdays.${firstRow[i]} .fifth_till`).classList.add('data_now');
+                } else {
+                    document.querySelector(`.weekdays.${firstRow[i]} .fifth_till`).classList.remove('data_now');
+                }
+
+                document.querySelector(`.weekdays.${firstRow[i]} .first_till`).textContent = `${curNumForFilling}`
+                document.querySelector(`.weekdays.${firstRow[i]} .second_till`).textContent = `${(curNumForFilling + 7) % daysInCurrentMonth}`
+                document.querySelector(`.weekdays.${firstRow[i]} .third_till`).textContent = `${(curNumForFilling + 14) % daysInCurrentMonth}`
+                document.querySelector(`.weekdays.${firstRow[i]} .forth_till`).textContent = `${(curNumForFilling + 21) % daysInCurrentMonth}`
+                document.querySelector(`.weekdays.${firstRow[i]} .fifth_till`).textContent = `${(curNumForFilling + 28) & daysInCurrentMonth}`
+
+                document.querySelector(`.weekdays.${firstRow[i]} .first_till`).id = 'curElem';
+                document.querySelector(`.weekdays.${firstRow[i]} .second_till`).id = 'curElem';
+                document.querySelector(`.weekdays.${firstRow[i]} .third_till`).id = 'curElem';
+                document.querySelector(`.weekdays.${firstRow[i]} .forth_till`).id = 'curElem';
+                document.querySelector(`.weekdays.${firstRow[i]} .fifth_till`).id = 'curElem';
+
+                curNumForFilling++
+            }
+
+            stopped = 30 - firstDayOfMonth
+            needToGo = 7 - (daysInCurrentMonth - stopped + 1)
+            var constanta = daysInCurrentMonth - stopped + 1
+            for (let i = 0; i < constanta; i++) {
+                try {
+                    document.querySelector(`.weekdays.${firstRow[i]} .fifth_till`).textContent = `${stopped}`
+                    stopped++
+                } catch (error) {
+                    // 
+                }
+            }
+            
+            // for next month
+            var curNumForFillingNext = 1;
+            for (let i = 7 - needToGo; i < 7; i++) {
+                document.querySelector(`.weekdays.${firstRow[i]} .fifth_till`).textContent = `${curNumForFillingNext}`
+                document.querySelector(`.weekdays.${firstRow[i]} .fifth_till`).id = 'nextElem';
+                curNumForFillingNext++
+            }
+
+            // for grey text
+            if (!curMonth) {
+                document.querySelectorAll('.weekdays').forEach(function(div) {
+                    document.querySelectorAll('.first_till, .second_till, .third_till, .forth_till, .fifth_till').forEach(function(text) {
+                        if (text.textContent == monthDay && text.id == 'curElem') {
+                            text.classList.add('data_now_grey');
+                        }
+                        else {
+                            text.classList.remove('data_now_grey');
+                            text.classList.remove('data_now');
+                        }
+                    });
+                });
+            }
+            // for red text
+            if (curMonth) {
+                document.querySelectorAll('.weekdays').forEach(function(div) {
+                    document.querySelectorAll('.first_till, .second_till, .third_till, .forth_till, .fifth_till').forEach(function(text) {
+                        if (text.textContent == monthDay && text.id == 'curElem') {
+                            text.classList.remove('data_now_grey');
+                            text.classList.add('data_now');
+                        }
+                        else {
+                            text.classList.remove('data_now_grey');
+                            text.classList.remove('data_now');
+                        }
+                    });
+                });
+            }
+        }
+        
+        function getDaysInMonth(monthIndex) {
+            var date = new Date((new Date()).getFullYear(), monthIndex + 1, 1);
+            date.setDate(0);
+            return date.getDate();
+        }
+        // for calendar from
+        document.querySelector('.previous_grey_icon.right_from').addEventListener('click', function() {
             currentMonthIndexForCalendarFrom++;
             if (currentMonthIndexForCalendarFrom >= 12) {
                 currentMonthIndexForCalendarFrom = 0;
                 currentYearForCalendarFrom++;
             }
             updateMonthDisplayForCalendarFrom();
+
+            var daysInLastMonth = getDaysInMonth(currentMonthIndexForCalendarFrom - 1)
+            var daysInCurrentMonth = getDaysInMonth(currentMonthIndexForCalendarFrom)
+            // 0 - sunday, 1 - monday, ...
+            var firstDayOfMonth = new Date(currentYearForCalendarFrom, currentMonthIndexForCalendarFrom, 1).getDay();
+            
+            if (currentMonthIndexForCalendarFrom === currentDate.getMonth() && currentYearForCalendarFrom === currentDate.getFullYear()) {
+                calendar_builder_from(daysInLastMonth, daysInCurrentMonth, firstDayOfMonth, true)
+            } else {
+                calendar_builder_from(daysInLastMonth, daysInCurrentMonth, firstDayOfMonth, false)
+            }
         });
-        document.querySelector('.previous_grey_icon.left').addEventListener('click', function() {
+        document.querySelector('.previous_grey_icon.left_from').addEventListener('click', function() {
             currentMonthIndexForCalendarFrom--;
             if (currentMonthIndexForCalendarFrom < 0) {
                 currentMonthIndexForCalendarFrom = months.length - 1;
                 currentYearForCalendarFrom--;
             }
             updateMonthDisplayForCalendarFrom();
+
+            var daysInLastMonth = getDaysInMonth(currentMonthIndexForCalendarFrom - 1)
+            var daysInCurrentMonth = getDaysInMonth(currentMonthIndexForCalendarFrom)
+            // 0 - sunday, 1 - monday, ...
+            var firstDayOfMonth = new Date(currentYearForCalendarFrom, currentMonthIndexForCalendarFrom, 1).getDay();
+
+            if (currentMonthIndexForCalendarFrom === currentDate.getMonth() && currentYearForCalendarFrom === currentDate.getFullYear()) {
+                calendar_builder_from(daysInLastMonth, daysInCurrentMonth, firstDayOfMonth, true)
+            } else {
+                calendar_builder_from(daysInLastMonth, daysInCurrentMonth, firstDayOfMonth, false)
+            }
+        });
+
+        // for calendar till
+        document.querySelector('.previous_grey_icon.right_till').addEventListener('click', function() {
+            currentMonthIndexForCalendarTill++;
+            if (currentMonthIndexForCalendarTill >= 12) {
+                currentMonthIndexForCalendarTill = 0;
+                currentYearForCalendarTill++;
+            }
+            updateMonthDisplayForCalendarTill();
+
+            var daysInLastMonth = getDaysInMonth(currentMonthIndexForCalendarTill - 1)
+            var daysInCurrentMonth = getDaysInMonth(currentMonthIndexForCalendarTill)
+            // 0 - sunday, 1 - monday, ...
+            var firstDayOfMonth = new Date(currentYearForCalendarTill, currentMonthIndexForCalendarTill, 1).getDay();
+            
+            try {
+                if (currentMonthIndexForCalendarTill === currentDate.getMonth() && currentYearForCalendarTill === currentDate.getFullYear()) {
+                    calendar_builder_till(daysInLastMonth, daysInCurrentMonth, firstDayOfMonth, true)
+                } else {
+                    calendar_builder_till(daysInLastMonth, daysInCurrentMonth, firstDayOfMonth, false)
+                }
+            } catch (error) {
+                //
+            }
+        });
+        document.querySelector('.previous_grey_icon.left_till').addEventListener('click', function() {
+            currentMonthIndexForCalendarTill--;
+            if (currentMonthIndexForCalendarTill < 0) {
+                currentMonthIndexForCalendarTill = months.length - 1;
+                currentYearForCalendarTill--;
+            }
+            updateMonthDisplayForCalendarTill();
+
+            var daysInLastMonth = getDaysInMonth(currentMonthIndexForCalendarTill - 1)
+            var daysInCurrentMonth = getDaysInMonth(currentMonthIndexForCalendarTill)
+            // 0 - sunday, 1 - monday, ...
+            var firstDayOfMonth = new Date(currentYearForCalendarTill, currentMonthIndexForCalendarTill, 1).getDay();
+
+            try {
+                if (currentMonthIndexForCalendarTill === currentDate.getMonth() && currentYearForCalendarTill === currentDate.getFullYear()) {
+                    calendar_builder_till(daysInLastMonth, daysInCurrentMonth, firstDayOfMonth, true)
+                } else {
+                    calendar_builder_till(daysInLastMonth, daysInCurrentMonth, firstDayOfMonth, false)
+                }
+            } catch (error) {
+                //
+            }
+        });
+
+        // for from calendar
+        var daysInLastMonth = getDaysInMonth(currentMonthIndexForCalendarFrom - 1)
+        var daysInCurrentMonth = getDaysInMonth(currentMonthIndexForCalendarFrom)
+        // 0 - sunday, 1 - monday, ...
+        var firstDayOfMonth = new Date(currentYearForCalendarFrom, currentMonthIndexForCalendarFrom, 1).getDay();
+
+        if (currentMonthIndexForCalendarFrom === currentDate.getMonth() && currentYearForCalendarFrom === currentDate.getFullYear()) {
+            calendar_builder_from(daysInLastMonth, daysInCurrentMonth, firstDayOfMonth, true)
+        } else {
+            calendar_builder_from(daysInLastMonth, daysInCurrentMonth, firstDayOfMonth, false)
+        }
+
+        // for till calendar
+        var daysInLastMonth = getDaysInMonth(currentMonthIndexForCalendarTill - 1)
+        var daysInCurrentMonth = getDaysInMonth(currentMonthIndexForCalendarTill)
+        // 0 - sunday, 1 - monday, ...
+        var firstDayOfMonth = new Date(currentYearForCalendarTill, currentMonthIndexForCalendarTill, 1).getDay();
+
+        try {
+            if (currentMonthIndexForCalendarTill === currentDate.getMonth() && currentYearForCalendarTill === currentDate.getFullYear()) {
+                calendar_builder_till(daysInLastMonth, daysInCurrentMonth, firstDayOfMonth, true)
+            } else {
+                calendar_builder_till(daysInLastMonth, daysInCurrentMonth, firstDayOfMonth, false)
+            }
+        } catch (error) {
+            //
+        }
+        
+        // for from calendar
+        var textFrom = document.querySelector('.from_text')
+        var btnFrom = document.querySelector('.btn_from')
+        var calendarFrom = document.querySelector('.calendar.from')
+        // for till calendar
+        var textTill = document.querySelector('.till_text')
+        var btnTill = document.querySelector('.btn_till')
+        var calendarTill = document.querySelector('.calendar.till')
+
+        document.querySelectorAll('.first.first_from, .second.second_from, .third.third_from, .forth.forth_from, .fifth.fifth_from').forEach(function(text) {
+            text.addEventListener("click", function(event) {
+                if (text.id == 'curElem') {
+                    textFrom.textContent = `${text.textContent} ${monthsProperNames[currentMonthIndexForCalendarFrom]} ${currentYearForCalendarFrom} года`;
+                }
+                else if (text.id == 'lastElem') {
+                    // for month of last year
+                    if (currentMonthIndexForCalendarFrom === 0) {
+                        textFrom.textContent = `${text.textContent} ${monthsProperNames[11]} ${currentYearForCalendarFrom - 1} года`;
+                    } else {
+                        textFrom.textContent = `${text.textContent} ${monthsProperNames[currentMonthIndexForCalendarFrom - 1]} ${currentYearForCalendarFrom} года`;
+                    }
+                }
+                else if (text.id == 'nextElem') {
+                    // for month of future year
+                    if (currentMonthIndexForCalendarFrom === 11) {
+                        textFrom.textContent = `${text.textContent} ${monthsProperNames[0]} ${currentYearForCalendarFrom + 1} года`;
+                    } else {
+                        textFrom.textContent = `${text.textContent} ${monthsProperNames[currentMonthIndexForCalendarFrom + 1]} ${currentYearForCalendarFrom} года`;
+                    }
+                }
+                calendarFrom.style.visibility = 'hidden';
+                calendarFrom.style.opacity = '0';
+            });
+        });
+
+        btnFrom.addEventListener("click", function(event) {
+            calendarTill.style.visibility = 'hidden';
+            calendarTill.style.opacity = '0';
+            if (calendarFrom.style.visibility === 'visible') {
+                calendarFrom.style.visibility = 'hidden';
+                calendarFrom.style.opacity = '0';
+            } else {
+                calendarFrom.style.visibility = 'visible';
+                calendarFrom.style.opacity = '1';
+            }
+        });
+
+        btnTill.addEventListener("click", function(event) {
+            calendarFrom.style.visibility = 'hidden';
+            calendarFrom.style.opacity = '0';
+            if (calendarTill.style.visibility === 'visible') {
+                calendarTill.style.visibility = 'hidden';
+                calendarTill.style.opacity = '0';
+            } else {
+                calendarTill.style.visibility = 'visible';
+                calendarTill.style.opacity = '1';
+            }
+        });
+
+        document.querySelectorAll('.first.first_till, .second.second_till, .third.third_till, .forth.forth_till, .fifth.fifth_till').forEach(function(text) {
+            text.addEventListener("click", function(event) {
+                if (text.id == 'curElem') {
+                    textTill.textContent = `${text.textContent} ${monthsProperNames[currentMonthIndexForCalendarTill]} ${currentYearForCalendarTill} года`;
+                }
+                else if (text.id == 'lastElem') {
+                    // for month of last year
+                    if (currentMonthIndexForCalendarTill === 0) {
+                        textTill.textContent = `${text.textContent} ${monthsProperNames[11]} ${currentYearForCalendarTill - 1} года`;
+                    } else {
+                        textTill.textContent = `${text.textContent} ${monthsProperNames[currentMonthIndexForCalendarTill - 1]} ${currentYearForCalendarTill} года`;
+                    }
+                }
+                else if (text.id == 'nextElem') {
+                    // for month of future year
+                    if (currentMonthIndexForCalendarTill === 11) {
+                        textTill.textContent = `${text.textContent} ${monthsProperNames[0]} ${currentYearForCalendarTill + 1} года`;
+                    } else {
+                        textTill.textContent = `${text.textContent} ${monthsProperNames[currentMonthIndexForCalendarTill + 1]} ${currentYearForCalendarTill} года`;
+                    }
+                }
+                calendarTill.style.visibility = 'hidden';
+                calendarTill.style.opacity = '0';
+            });
+        });  
+
+        document.querySelector('.carbon_reset').addEventListener('click', function() {
+            textFrom.textContent = 'С';
+            textTill.textContent = 'По';
         });
     </script>
 {% endblock %}
