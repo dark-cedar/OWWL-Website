@@ -41,21 +41,21 @@
                     <div class="text_input">
                         <div class="upper_cont">
                             <h3>Место погрузки</h3>
-                            <img class="reset_btn" src="{{ url_for('static', filename='images/carbon_reset.svg') }}" alt="The picture did not load">
+                            <a class="reset_btn place_loading"><img src="{{ url_for('static', filename='images/carbon_reset.svg') }}" alt="The picture did not load"></a>
                         </div>
                         <div class="new_search_field">
                             <img class="search_grey" src="{{ url_for('static', filename='images/Search.svg') }}" alt="The picture did not load">
-                            <input class="input_field" type="text" placeholder="Регион, город, насел. пункт">
+                            <input class="input_field place_loading" type="text" placeholder="Регион, город, насел. пункт">
                         </div>
                     </div>
                     <div class="text_input">
                         <div class="upper_cont">
                             <h3>Место доставки</h3>
-                            <img class="reset_btn" src="{{ url_for('static', filename='images/carbon_reset.svg') }}" alt="The picture did not load">
+                            <a class="reset_btn place_delivery"><img src="{{ url_for('static', filename='images/carbon_reset.svg') }}" alt="The picture did not load"></a>
                         </div>
                         <div class="new_search_field">
                             <img class="search_grey" src="{{ url_for('static', filename='images/Search.svg') }}" alt="The picture did not load">
-                            <input class="input_field" type="text" placeholder="Регион, город, насел. пункт">
+                            <input class="input_field place_delivery" type="text" placeholder="Регион, город, насел. пункт">
                         </div>
                     </div>
                 </div>
@@ -89,21 +89,21 @@
                     <div class="text_input">
                         <div class="upper_cont">
                             <h3>Отправитель</h3>
-                            <img class="reset_btn" src="{{ url_for('static', filename='images/carbon_reset.svg') }}" alt="The picture did not load">
+                            <a class="reset_btn sender"><img src="{{ url_for('static', filename='images/carbon_reset.svg') }}" alt="The picture did not load"></a>
                         </div>
                         <div class="new_search_field">
                             <img class="search_grey" src="{{ url_for('static', filename='images/Search.svg') }}" alt="The picture did not load">
-                            <input class="input_field" type="text" placeholder="Сделайте выбор">
+                            <input class="input_field sender" type="text" placeholder="Сделайте выбор">
                         </div>
                     </div>
                     <div class="text_input">
                         <div class="upper_cont">
                             <h3>Получатель</h3>
-                            <img class="reset_btn" src="{{ url_for('static', filename='images/carbon_reset.svg') }}" alt="The picture did not load">
+                            <a class="reset_btn receiver"><img src="{{ url_for('static', filename='images/carbon_reset.svg') }}" alt="The picture did not load"></a>
                         </div>
                         <div class="new_search_field">
                             <img class="search_grey" src="{{ url_for('static', filename='images/Search.svg') }}" alt="The picture did not load">
-                            <input class="input_field" type="text" placeholder="Сделайте выбор">
+                            <input class="input_field receiver" type="text" placeholder="Сделайте выбор">
                         </div>
                     </div>
                 </div>
@@ -124,28 +124,127 @@
                     <h3>Споры и претензии</h3>
                 </div>
             </div>
+            <div class="btns_table">
+                <button class="clickable view_btn">Вид</button>
+                <div class="new_search_field">
+                    <img class="search_grey" src="{{ url_for('static', filename='images/Search.svg') }}" alt="The picture did not load">
+                    <input class="input_field" type="text" placeholder="Поиск">
+                </div>
+                <button class="non_clickable print_selected_btn">Распечатать выбранное</button>
+                <button class="clickable download_excel_btn">Скачать отчет в exel</button>
+            </div>
+            <div class="column_names">
+                <div class="checkbox_column">
+                    <a class="check_icon"><img src="{{ url_for('static', filename='images/check.svg') }}" alt="The picture did not load"></a>
+                </div>
+                <div class="number_column"><h3>#</h3></div>
+                <div class="column auto">
+                    <h3 class="slider_text">Автомобиль</h3>
+                    <a class="increment_icon auto"><img src="{{ url_for('static', filename='images/Increment.svg') }}" alt="The picture did not load"></a>
+                </div>
+                <div class="column request">
+                    <h3 class="slider_text">№ Заявки</h3>
+                    <a class="increment_icon request"><img src="{{ url_for('static', filename='images/Increment.svg') }}" alt="The picture did not load"></a>
+                </div>
+                <div class="column status">
+                    <h3 class="slider_text">Статус</h3>
+                    <a class="increment_icon status"><img src="{{ url_for('static', filename='images/Increment.svg') }}" alt="The picture did not load"></a>
+                </div>
+                <div class="column creation_date">
+                    <h3 class="slider_text">Дата созд.</h3>
+                    <a class="increment_icon creation_date"><img src="{{ url_for('static', filename='images/Increment.svg') }}" alt="The picture did not load"></a>
+                </div>
+                <div class="column summ">
+                    <h3 class="slider_text">Сумма</h3>
+                    <a class="increment_icon summ"><img src="{{ url_for('static', filename='images/Increment.svg') }}" alt="The picture did not load"></a>
+                </div>
+                <div class="column loading_place">
+                    <h3 class="slider_text">Место погрузки</h3>
+                    <a class="increment_icon loading_place"><img src="{{ url_for('static', filename='images/Increment.svg') }}" alt="The picture did not load"></a>
+                </div>
+                <div class="column delivery_place">
+                    <h3 class="slider_text">Место доставки</h3>
+                    <a class="increment_icon delivery_place"><img src="{{ url_for('static', filename='images/Increment.svg') }}" alt="The picture did not load"></a>
+                </div>
+                <div class="column tk">
+                    <h3 class="slider_text">ТК</h3>
+                    <a class="increment_icon tk"><img src="{{ url_for('static', filename='images/Increment.svg') }}" alt="The picture did not load"></a>
+                </div>
+                <div class="column type_carrier">
+                    <h3 class="slider_text">Тип автовоза</h3>
+                    <a class="increment_icon type_carrier"><img src="{{ url_for('static', filename='images/Increment.svg') }}" alt="The picture did not load"></a>
+                </div>
+                <div class="column confirmation_date">
+                    <h3 class="slider_text">Дата подтвержд</h3>
+                    <a class="increment_icon confirmation_date"><img src="{{ url_for('static', filename='images/Increment.svg') }}" alt="The picture did not load"></a>
+                </div>
+                <div class="column driver">
+                    <h3 class="slider_text">Водитель</h3>
+                    <a class="increment_icon driver"><img src="{{ url_for('static', filename='images/Increment.svg') }}" alt="The picture did not load"></a>
+                </div>
+                <div class="column warehouse_title">
+                    <h3 class="slider_text">Название склада</h3>
+                    <a class="increment_icon warehouse_title"><img src="{{ url_for('static', filename='images/Increment.svg') }}" alt="The picture did not load"></a>
+                </div>
+                <div class="column sender">
+                    <h3 class="slider_text">Отправитель</h3>
+                    <a class="increment_icon sender"><img src="{{ url_for('static', filename='images/Increment.svg') }}" alt="The picture did not load"></a>
+                </div>
+                <div class="column receiver">
+                    <h3 class="slider_text">Получатель</h3>
+                    <a class="increment_icon receiver"><img src="{{ url_for('static', filename='images/Increment.svg') }}" alt="The picture did not load"></a>
+                </div>
+                <a class="east_west_icon"><img src="{{ url_for('static', filename='images/east_west_icon.svg') }}" alt="The picture did not load"></a>
+            </div>
         </div>
     </section>
 {% endblock %}
 
 {% block script %}
+    <script src="{{ url_for('static', filename='scripts/master_table.js') }}"></script>
+
     <script>
         var returnBtn = document.querySelector('.return_btn')
         returnBtn.addEventListener("click", function(event) {
             window.history.back()
         });
 
-        var newSearchField = document.querySelector('.new_search_field')
-        newSearchField.addEventListener('click', function() {
-            newSearchField.style.border = '1px solid rgba(255, 98, 98, 1)';
-            newSearchField.style.boxShadow = '0px 10px 13px 0px rgba(27, 44, 49, 0.04)';
+        var newSearchField = document.querySelectorAll('.new_search_field')
+        newSearchField.forEach(function(search_box) {
+            search_box.addEventListener('click', function() {
+                search_box.style.border = '1px solid rgba(255, 98, 98, 1)';
+                search_box.style.boxShadow = '0px 10px 13px 0px rgba(27, 44, 49, 0.04)';
+            });
         });
 
         document.addEventListener("click", function(event) {
-            if (!newSearchField.contains(event.target)) {
-                newSearchField.style.border = '1px solid rgba(227, 227, 227, 1)';
-                newSearchField.style.boxShadow = 'none';
-            }
+            newSearchField.forEach(function(search_box) {
+                if (!search_box.contains(event.target)) {
+                    search_box.style.border = '1px solid rgba(227, 227, 227, 1)';
+                    search_box.style.boxShadow = 'none';
+                }
+            });
+        });
+
+        // clip_path_btn_applic_log
+        // clip_path_btn_accounts
+        // clip_path_btn_archive
+        // clip_path_btn_disputes
+
+        document.querySelector('.reset_btn.place_loading').addEventListener("click", function(event) {
+            document.querySelector('.input_field.place_loading').value = '';
+        });
+
+        document.querySelector('.reset_btn.place_delivery').addEventListener("click", function(event) {
+            document.querySelector('.input_field.place_delivery').value = '';
+        });
+
+        document.querySelector('.reset_btn.sender').addEventListener("click", function(event) {
+            document.querySelector('.input_field.sender').value = '';
+        });
+
+        document.querySelector('.reset_btn.receiver').addEventListener("click", function(event) {
+            document.querySelector('.input_field.receiver').value = '';
         });
     </script>
 {% endblock %}

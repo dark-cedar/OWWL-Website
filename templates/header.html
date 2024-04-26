@@ -13,7 +13,7 @@
 </head>
 <body>
     <header>
-        <img src="{{ url_for('static', filename='images/logo_owwl.svg') }}" alt="The picture did not load">
+        <img class="logo" onclick="logo_redir()" src="{{ url_for('static', filename='images/logo_owwl.svg') }}" alt="The picture did not load">
         <div class="right_cont">
             <ul>
                 <li><a href="#" class="auto_redir_text">А/м и склады</a></li>
@@ -180,6 +180,14 @@
 
         document.querySelector('.navbar_icon_notification').addEventListener("click", function(event) {
             window.location.href = 'notifications_center';
+        });
+
+        document.querySelector('.doc_log_text').addEventListener("click", function(event) {
+            window.location.href = 'application_log';
+        });
+
+        document.querySelector('.logo').addEventListener("click", function(event) {
+            window.location.href = 'main_page';
         });
     </script>
 </body>

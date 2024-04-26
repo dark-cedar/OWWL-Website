@@ -1,4 +1,4 @@
 email_pass_data = {
     'email': 'owwlcompany@yandex.ru',
-    'password': 'clsgsxteefxsvqmq'
+    'password': 'elisey007elisey007'
 }

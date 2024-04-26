@@ -1,11 +1,11 @@
 from flask import Flask, render_template, request, redirect, flash, url_for
 from flask_mail import Mail, Message
 
-from data import db_session
 from data.users import User
 from data.persons import Person
 from data.notifications import Notification
 from data.messages import Message
+
 from data import db_session
 from werkzeug.security import check_password_hash, generate_password_hash
 from data.company_data import email_pass_data
@@ -16,6 +16,7 @@ from datetime import datetime
 import sqlite3
 import os
 from pathlib import Path
+import random
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'yandexlyceum_secret_key'
@@ -25,12 +26,11 @@ db_sess = db_session.create_session()
 
 # for email transfering
 app.config['MAIL_SERVER'] = 'smtp.yandex.ru'
-app.config['MAIL_PORT'] = 465
+app.config['MAIL_PORT'] = 587
 app.config['MAIL_USE_TLS'] = False
 app.config['MAIL_USE_SSL'] = True
 app.config['MAIL_USERNAME'] = email_pass_data['email']
 app.config['MAIL_PASSWORD'] = email_pass_data['password']
-mail = Mail(app)
 
 # for text messages
 messages_lst = []
@@ -42,8 +42,51 @@ def generate_password(length=12):
     return password
 
 
+auto_names = ["Audi", "BMW", "Mercedes-Benz", "Toyota", "Honda", "Ford", "Chevrolet", "Volkswagen", "Tesla", "Lexus"]
+def generate_random_auto_name():
+    return random.choice(auto_names)
+
+
+def generate_random_vin():
+    return ''.join(random.choices(string.ascii_uppercase + string.digits, k=17))
+
+
+def generate_random_request():
+    return ''.join(random.choices(string.ascii_uppercase + string.digits, k=8))
+
+
+def generate_random_date():
+    return datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+
+
+def generate_random_summ():
+    return str(round(random.uniform(1000, 10000), 2))
+
+
+def generate_random_place():
+    return random.choice(["New York", "Los Angeles", "Chicago", "Houston", "Phoenix"])
+
+
+def generate_random_tk():
+    return random.choice(["DHL", "UPS", "FedEx", "USPS"])
+
+
+def generate_random_type_carrier():
+    return random.choice(["Air", "Truck", "Rail", "Sea"])
+
+
+def generate_random_name():
+    first_names = ["John", "Emma", "Michael", "Sophia", "William", "Olivia", "James", "Ava", "Alexander", "Isabella"]
+    last_names = ["Smith", "Johnson", "Williams", "Jones", "Brown", "Davis", "Miller", "Wilson", "Moore", "Taylor"]
+    return random.choice(first_names) + " " + random.choice(last_names)
+
+
 def main():
-    pass
+    """ user = User()
+    user.login = 'eliseynewnew'
+    user.set_password('eliseynewnew')
+    db_sess.add(user)
+    db_sess.commit() """
 
 
 def authenticate_user(login, password):
@@ -53,7 +96,7 @@ def authenticate_user(login, password):
         return False
     return True
 
-# routes
+
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
@@ -74,14 +117,14 @@ def login():
                 new_pass = generate_password()
                 user_to_update.hashed_password = generate_password_hash(new_pass)
 
-                msg = Message( 
-                'OWWL Company', 
-                sender = email_pass_data['email'],
-                recipients = [email])
-                msg.body = f'Ваш новый пароль: {new_pass}. Никому его не сообщайте!'
-                mail.send(msg)
+                try:
+                    mail = Mail()
+                    msg = Message('OWWL Company', recipients=[email], sender=email_pass_data['email'])
+                    msg.body = f'Ваш новый пароль: {new_pass}. Никому его не сообщайте!'
+                    mail.send(msg)
+                except Exception as e:
+                    print(e)
             else:
-                print('There is no such user')
                 flash('Такого пользователя не существует', 'error')
             db_sess.commit()
 
