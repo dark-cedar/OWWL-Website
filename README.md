@@ -9,3 +9,5 @@ Interactive interface using HTML and CSS for user convenience.
 
 # Project Development
 The project is open for improvements and new ideas. If you have suggestions for expanding functionality or enhancing the code, feel free to submit a pull request.
+
+![Home Page](https://github.com/user-attachments/assets/48d72e4c-7845-4eca-a0b2-59c9f1705c93)
